@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "987622120836",
+    "project_id": "bootcamp-app-firebase",
+    "storage_bucket": "bootcamp-app-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:987622120836:android:be445c49cb6db493b411d1",
+        "android_client_info": {
+          "package_name": "com.example.bootcamp_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANxvAYdLCHvr9HaO4s5OD7yvb0CJM6-YI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
