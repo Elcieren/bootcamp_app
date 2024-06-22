@@ -1,6 +1,8 @@
+import 'package:bootcamp_app/app/app.router.dart';
 import 'package:bootcamp_app/core/services/auth_service.dart';
 import 'package:bootcamp_app/ui/login/login_view_model.dart';
 import 'package:bootcamp_app/ui/main/main_view.dart';
+import 'package:bootcamp_app/ui/register/register_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +38,7 @@ class _LoginViewState extends State<LoginView> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        height: height * 0.38,
+                        height: height * 0.40,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
                               image: AssetImage("assets/den2.png"),
@@ -49,7 +51,7 @@ class _LoginViewState extends State<LoginView> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const Text(
-                              "Hoş geldin \nYemek Seçimine \nHazır mısın?",
+                              "Hoş Geldin \nYemek Seçimine \nHazır mısın?",
                               style: TextStyle(
                                   fontSize: 30, fontWeight: FontWeight.bold),
                             ),
@@ -67,7 +69,8 @@ class _LoginViewState extends State<LoginView> {
                                     onPressed: () {
                                       Navigator.of(context).pushReplacement(
                                         MaterialPageRoute(
-                                            builder: (context) => MainView()),
+                                            builder: (context) =>
+                                                RegisterView()),
                                       );
                                     },
                                     child: const Text(
@@ -102,8 +105,8 @@ class _LoginViewState extends State<LoginView> {
                               children: [
                                 TextButton(
                                   onPressed: () {
-                                    //viewModel.navigationService
-                                    //  .navigateTo(Routes.forgotPasswordView);
+                                    viewModel.navigationService
+                                        .navigateTo(Routes.forgotPasswordView);
                                   },
                                   child: const Text(
                                     "Şifremi unuttum ",
