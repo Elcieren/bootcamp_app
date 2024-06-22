@@ -13,12 +13,13 @@ class SplashView extends StatelessWidget {
               body: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Image.asset('assets/food.png'),
                   Center(
                     child: Text(
                       "YemekBurada",
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 30,
+                          fontSize: 48,
                           fontWeight: FontWeight.bold),
                     ),
                   ),
