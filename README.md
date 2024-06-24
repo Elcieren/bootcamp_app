@@ -1,7 +1,7 @@
 ## Team Members
 <table>
   <tr>
-    <th>ss</th>
+    <th></th>
     <th>Name</th>
     <th>Title</th>
     <th>Socials</th>
