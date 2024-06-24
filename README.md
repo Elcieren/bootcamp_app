@@ -13,7 +13,7 @@
     <td>Scrum Master</td>
     <td>
       <a href="your_github_link" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/214dfe07-3f0e-402f-8606-88f6619808d1" width="20" height="20"/></a>
-      <a href="your_linkedin_link" target="_blank"><img src="path_to_linkedin_icon" width="20" height="20" /></a>
+      <a href="your_linkedin_link" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/25d29010-121f-483d-aadc-4d99884d3105" width="20" height="20" /></a>
       <a href="your_instagram_link" target="_blank"><img src="path_to_instagram_icon" width="20" height="20" /></a>
     </td>
   </tr>
@@ -23,7 +23,7 @@
     <td>Product Owner</td>
     <td>
       <a href="your_github_link" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/214dfe07-3f0e-402f-8606-88f6619808d1" width="20" height="20"/></a>
-      <a href="your_linkedin_link" target="_blank"><img src="path_to_linkedin_icon" width="20" height="20" /></a>
+      <a href="your_linkedin_link" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/25d29010-121f-483d-aadc-4d99884d3105" width="20" height="20" /></a>
       <a href="your_instagram_link" target="_blank"><img src="path_to_instagram_icon" width="20" height="20" /></a>
     </td>
   </tr>
@@ -33,7 +33,7 @@
     <td>Developer</td>
     <td>
       <a href="your_github_link" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/214dfe07-3f0e-402f-8606-88f6619808d1" width="20" height="20"/></a>
-      <a href="your_linkedin_link" target="_blank"><img src="path_to_linkedin_icon" width="20" height="20" /></a>
+      <a href="your_linkedin_link" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/25d29010-121f-483d-aadc-4d99884d3105" width="20" height="20" /></a>
       <a href="your_instagram_link" target="_blank"><img src="path_to_instagram_icon" width="20" height="20" /></a>
     </td>
   </tr>
@@ -43,7 +43,7 @@
     <td>Developer</td>
     <td>
       <a href="your_github_link" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/214dfe07-3f0e-402f-8606-88f6619808d1" width="20" height="20"/></a>
-      <a href="your_linkedin_link" target="_blank"><img src="path_to_linkedin_icon" width="20" height="20" /></a>
+      <a href="your_linkedin_link" target="_blank"><img src=https://github.com/Elcieren/bootcamp_app/assets/117864036/25d29010-121f-483d-aadc-4d99884d3105" width="20" height="20" /></a>
       <a href="your_instagram_link" target="_blank"><img src="path_to_instagram_icon" width="20" height="20" /></a>
     </td>
   </tr>
@@ -53,7 +53,7 @@
     <td>Developer</td>
     <td>
       <a href="your_github_link" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/214dfe07-3f0e-402f-8606-88f6619808d1" width="20" height="20"/></a>
-      <a href="your_linkedin_link" target="_blank"><img src="path_to_linkedin_icon" width="20" height="20" /></a>
+      <a href="your_linkedin_link" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/25d29010-121f-483d-aadc-4d99884d3105" width="20" height="20" /></a>
       <a href="your_instagram_link" target="_blank"><img src="path_to_instagram_icon" width="20" height="20" /></a>
     </td>
   </tr>
