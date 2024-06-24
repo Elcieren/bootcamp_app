@@ -1,5 +1,4 @@
 ## Team Members
-
 <table>
   <tr>
     <th></th>
