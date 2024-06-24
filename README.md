@@ -61,7 +61,7 @@
     <td>Uygulama İsmi</td>
     <td>Startup</td>
     <td>
-    </td>s
+    </td>
   </tr>
 </table>
 
