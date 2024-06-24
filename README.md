@@ -28,7 +28,7 @@
     </td>
   </tr>
   <tr>
-    <td><img src="path_to_your_image_3" width="50" height="50" /></td>
+    <td><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/0ac22f5b-71bd-44de-ae44-e5db2a9d380f" width="50" height="50" /></td>
     <td>Eren Elçi</td>
     <td>Developer</td>
     <td>
