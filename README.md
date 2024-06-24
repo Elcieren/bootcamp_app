@@ -12,7 +12,7 @@
     <td>Erva Alp</td>
     <td>Scrum Master</td>
     <td>
-      <a href="your_github_link" target="_blank"><img src="path_to_github_icon" width="20" height="20"/></a>
+      <a href="your_github_link" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/214dfe07-3f0e-402f-8606-88f6619808d1" width="20" height="20"/></a>
       <a href="your_linkedin_link" target="_blank"><img src="path_to_linkedin_icon" width="20" height="20" /></a>
       <a href="your_instagram_link" target="_blank"><img src="path_to_instagram_icon" width="20" height="20" /></a>
     </td>
@@ -22,7 +22,7 @@
     <td>Esma Nur Beyaz</td>
     <td>Product Owner</td>
     <td>
-      <a href="your_github_link" target="_blank"><img src="path_to_github_icon" width="20" height="20"/></a>
+      <a href="your_github_link" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/214dfe07-3f0e-402f-8606-88f6619808d1" width="20" height="20"/></a>
       <a href="your_linkedin_link" target="_blank"><img src="path_to_linkedin_icon" width="20" height="20" /></a>
       <a href="your_instagram_link" target="_blank"><img src="path_to_instagram_icon" width="20" height="20" /></a>
     </td>
@@ -32,7 +32,7 @@
     <td>Eren Elçi</td>
     <td>Developer</td>
     <td>
-      <a href="your_github_link" target="_blank"><img src="path_to_github_icon" width="20" height="20"/></a>
+      <a href="your_github_link" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/214dfe07-3f0e-402f-8606-88f6619808d1" width="20" height="20"/></a>
       <a href="your_linkedin_link" target="_blank"><img src="path_to_linkedin_icon" width="20" height="20" /></a>
       <a href="your_instagram_link" target="_blank"><img src="path_to_instagram_icon" width="20" height="20" /></a>
     </td>
@@ -42,7 +42,7 @@
     <td>Fatih Muhammet Bahcıvan</td>
     <td>Developer</td>
     <td>
-      <a href="your_github_link" target="_blank"><img src="path_to_github_icon" width="20" height="20"/></a>
+      <a href="your_github_link" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/214dfe07-3f0e-402f-8606-88f6619808d1" width="20" height="20"/></a>
       <a href="your_linkedin_link" target="_blank"><img src="path_to_linkedin_icon" width="20" height="20" /></a>
       <a href="your_instagram_link" target="_blank"><img src="path_to_instagram_icon" width="20" height="20" /></a>
     </td>
@@ -52,7 +52,7 @@
     <td>Erdem Dayan</td>
     <td>Developer</td>
     <td>
-      <a href="your_github_link" target="_blank"><img src="path_to_github_icon" width="20" height="20"/></a>
+      <a href="your_github_link" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/214dfe07-3f0e-402f-8606-88f6619808d1" width="20" height="20"/></a>
       <a href="your_linkedin_link" target="_blank"><img src="path_to_linkedin_icon" width="20" height="20" /></a>
       <a href="your_instagram_link" target="_blank"><img src="path_to_instagram_icon" width="20" height="20" /></a>
     </td>
@@ -62,10 +62,7 @@
     <td>Uygulama İsmi</td>
     <td>Startup</td>
     <td>
-      <a href="your_github_link" target="_blank"><img src="path_to_github_icon" width="20" height="20"/></a>
-      <a href="your_linkedin_link" target="_blank"><img src="path_to_linkedin_icon" width="20" height="20" /></a>
-      <a href="your_instagram_link" target="_blank"><img src="path_to_instagram_icon" width="20" height="20" /></a>
-    </td>
+    </td>s
   </tr>
 </table>
 
