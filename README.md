@@ -1,16 +1,71 @@
-# bootcamp_app
+## Team Members
 
-A new Flutter project.
+<table>
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Title</th>
+    <th>Socials</th>
+  </tr>
+  <tr>
+    <td><img src="path_to_your_image_1" width="50" height="50" /></td>
+    <td>Erva Alp</td>
+    <td>Scrum Master</td>
+    <td>
+      <a href="your_github_link" target="_blank"><img src="path_to_github_icon" width="20" height="20"/></a>
+      <a href="your_linkedin_link" target="_blank"><img src="path_to_linkedin_icon" width="20" height="20" /></a>
+      <a href="your_instagram_link" target="_blank"><img src="path_to_instagram_icon" width="20" height="20" /></a>
+    </td>
+  </tr>
+  <tr>
+    <td><img src="path_to_your_image_2" width="50" height="50" /></td>
+    <td>Esma Nur Beyaz</td>
+    <td>Product Owner</td>
+    <td>
+      <a href="your_github_link" target="_blank"><img src="path_to_github_icon" width="20" height="20"/></a>
+      <a href="your_linkedin_link" target="_blank"><img src="path_to_linkedin_icon" width="20" height="20" /></a>
+      <a href="your_instagram_link" target="_blank"><img src="path_to_instagram_icon" width="20" height="20" /></a>
+    </td>
+  </tr>
+  <tr>
+    <td><img src="path_to_your_image_3" width="50" height="50" /></td>
+    <td>Eren Elçi</td>
+    <td>Developer</td>
+    <td>
+      <a href="your_github_link" target="_blank"><img src="path_to_github_icon" width="20" height="20"/></a>
+      <a href="your_linkedin_link" target="_blank"><img src="path_to_linkedin_icon" width="20" height="20" /></a>
+      <a href="your_instagram_link" target="_blank"><img src="path_to_instagram_icon" width="20" height="20" /></a>
+    </td>
+  </tr>
+  <tr>
+    <td><img src="path_to_your_image_4" width="50" height="50" /></td>
+    <td>Fatih Muhammet Bahcıvan</td>
+    <td>Developer</td>
+    <td>
+      <a href="your_github_link" target="_blank"><img src="path_to_github_icon" width="20" height="20"/></a>
+      <a href="your_linkedin_link" target="_blank"><img src="path_to_linkedin_icon" width="20" height="20" /></a>
+      <a href="your_instagram_link" target="_blank"><img src="path_to_instagram_icon" width="20" height="20" /></a>
+    </td>
+  </tr>
+  <tr>
+    <td><img src="path_to_your_image_5" width="50" height="50" /></td>
+    <td>Erdem Dayan</td>
+    <td>Developer</td>
+    <td>
+      <a href="your_github_link" target="_blank"><img src="path_to_github_icon" width="20" height="20"/></a>
+      <a href="your_linkedin_link" target="_blank"><img src="path_to_linkedin_icon" width="20" height="20" /></a>
+      <a href="your_instagram_link" target="_blank"><img src="path_to_instagram_icon" width="20" height="20" /></a>
+    </td>
+  </tr>
+  <tr>
+    <td><img src="path_to_your_image_6" width="50" height="50" /></td>
+    <td>Uygulama İsmi</td>
+    <td>Startup</td>
+    <td>
+      <a href="your_github_link" target="_blank"><img src="path_to_github_icon" width="20" height="20"/></a>
+      <a href="your_linkedin_link" target="_blank"><img src="path_to_linkedin_icon" width="20" height="20" /></a>
+      <a href="your_instagram_link" target="_blank"><img src="path_to_instagram_icon" width="20" height="20" /></a>
+    </td>
+  </tr>
+</table>
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
