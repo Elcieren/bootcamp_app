@@ -16,7 +16,7 @@ class SplashView extends StatelessWidget {
                   Image.asset('assets/food.png'),
                   Center(
                     child: Text(
-                      "YemekBurada",
+                      "YemekBuradaa",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 48,
