@@ -26,7 +26,7 @@ class _MainViewState extends State<MainView> {
               items: [
                 createNavItem(TabItem.Plant),
                 createNavItem(TabItem.Help),
-                createNavItem(TabItem.Post),
+                //createNavItem(TabItem.Post),
                 createNavItem(TabItem.YapayZeka),
                 createNavItem(TabItem.Profil),
               ],

@@ -15,24 +15,21 @@ class AuthService {
     return res;
   }
 
-  Future<String?> Register(
-    String email,
-    String password,
-    String fullname,
-    String cinsiyet,
-  ) async {
+  Future<String?> Register(String email, String password, String fullname,
+      String cinsiyet, String durum) async {
     String? res;
     try {
       final result = await firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
       try {
         final resultData = await firebaseFireStore
-            .collection("Kullanıcı")
+            .collection("Kullanıcılar")
             .doc(result.user!.uid)
             .set({
           "email": email,
           "fullname": fullname,
           "Cinsiyet": cinsiyet,
+          "Durum": durum
         });
       } catch (e) {
         print("$e");

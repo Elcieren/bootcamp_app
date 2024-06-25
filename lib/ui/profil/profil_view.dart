@@ -58,6 +58,16 @@ class _ProfilViewState extends State<ProfilView> {
                             itemProfile("Cinsiyet", "${_userData!['Cinsiyet']}",
                                 CupertinoIcons.check_mark),
                             customSizedBox(),
+                            itemProfile("Durum", "${_userData!['Durum']}",
+                                CupertinoIcons.person_2),
+                            customSizedBox(),
+                            if (_userData!['Durum'] == 'Kurumsal' ||
+                                _userData!['Durum'] == 'Bireysel') ...[
+                              customSizedBox(),
+                              itemProfile("İlan", "İlan Paylaşımı",
+                                  CupertinoIcons.plus_circle),
+                            ],
+                            customSizedBox(),
                             itemCikis(
                                 "Çıkış",
                                 "Oturumu Kapat",
@@ -80,7 +90,7 @@ class _ProfilViewState extends State<ProfilView> {
     _user = _auth.currentUser;
     if (_user != null) {
       DocumentSnapshot userData =
-          await _firestore.collection('Kullanıcı').doc(_user!.uid).get();
+          await _firestore.collection('Kullanıcılar').doc(_user!.uid).get();
       setState(() {
         _userData = userData.data() as Map<String, dynamic>?; // Dönüşüm işlemi
       });

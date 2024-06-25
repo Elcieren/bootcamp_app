@@ -18,7 +18,9 @@ class _RegisterViewState extends State<RegisterView> {
   late String sifre;
   late String fullname;
   String? cinsiyet;
+  String? durum;
   List<String> cinsiyetler = ['Erkek', 'Kadın'];
+  List<String> durumlar = ['Kurumsal', 'Bireysel', 'Müşteri'];
   final formKey = GlobalKey<FormState>();
   final authService = AuthService();
   final firebaseAuth = FirebaseAuth.instance;
@@ -97,6 +99,7 @@ class _RegisterViewState extends State<RegisterView> {
                               const SizedBox(
                                 height: 20,
                               ),
+                              Durum(),
                               HesapOlusturButton(),
                               const SizedBox(
                                 height: 5,
@@ -147,9 +150,27 @@ class _RegisterViewState extends State<RegisterView> {
               );
             },
           );
+        } else if (durum == null) {
+          showCupertinoDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return CupertinoAlertDialog(
+                title: Text("Uyarı"),
+                content: Text("Lütfen Yaşadığınız Şehri giriniz."),
+                actions: <Widget>[
+                  CupertinoDialogAction(
+                    child: Text("Tamam"),
+                    onPressed: () {
+                      Navigator.pop(context); // İletişim kutusunu kapat
+                    },
+                  ),
+                ],
+              );
+            },
+          );
         } else {
-          final result =
-              await authService.Register(email, sifre, fullname, cinsiyet!);
+          final result = await authService.Register(
+              email, sifre, fullname, cinsiyet!, durum!);
           if (result == "basarili") {
             formKey.currentState!.reset();
             ScaffoldMessenger.of(context).showSnackBar(
@@ -273,6 +294,53 @@ class _RegisterViewState extends State<RegisterView> {
           iconSize: 32,
           isExpanded: true,
           items: cinsiyetler.map<DropdownMenuItem<String>>((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                child: Text(value),
+              ),
+            );
+          }).toList(),
+        ),
+      ),
+    );
+  }
+
+  Container Durum() {
+    return Container(
+      width: 400,
+      height: 50,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(24),
+        color: Colors.grey.withOpacity(0.2),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 0),
+      child: Container(
+        height: 40,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: DropdownButton<String>(
+          value: durum,
+          onChanged: (String? newValue) {
+            setState(() {
+              durum = newValue!;
+            });
+          },
+          style: TextStyle(color: Colors.black),
+          underline: SizedBox(),
+          hint: const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Text(
+              'Kayıt Durmu',
+              style: TextStyle(fontWeight: FontWeight.w600),
+            ),
+          ),
+          iconSize: 32,
+          isExpanded: true,
+          items: durumlar.map<DropdownMenuItem<String>>((String value) {
             return DropdownMenuItem<String>(
               value: value,
               child: Padding(

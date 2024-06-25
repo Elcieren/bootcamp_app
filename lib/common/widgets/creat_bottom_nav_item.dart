@@ -20,10 +20,10 @@ class TabItemData {
         color: Color(0xffFAB703),
       ),
     ),
-    TabItem.Post: TabItemData(
+    /* TabItem.Post: TabItemData(
       title: "Paylaşım",
       icon: Icon(Icons.add_circle, color: Color(0xffFAB703)),
-    ),
+    ), */
     TabItem.YapayZeka: TabItemData(
       title: "Yapay Zeka",
       icon: Icon(Icons.question_answer, color: Color(0xffFAB703)),
@@ -43,7 +43,7 @@ BottomNavigationBarItem createNavItem(TabItem tabItem) {
   );
 }
 
-enum TabItem { Profil, Plant, Help, Post, YapayZeka }
+enum TabItem { Profil, Plant, Help, YapayZeka }
 
 Widget getViewForIndex(int index) {
   switch (index) {
@@ -54,8 +54,6 @@ Widget getViewForIndex(int index) {
     case 2:
       return Container();
     case 3:
-      return Container();
-    case 4:
       return ProfilView();
 
     default:
