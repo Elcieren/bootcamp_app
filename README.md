@@ -120,3 +120,14 @@ Satış yapmak isteyen Catering firmaları ve ekonomiye katkı sağlamak isteyen
 
 * Proje kapsamı ve hedefler
 </details>
+
+# **Kullanılan Teknolojiler**
+  **`(used technologies changed at third sprint)`**
+  - [x] `firebase_core`
+  - [x] `firebase_auth`
+  - [x] `cloud_firestore`
+  - [x] `stacked`
+  - [x] `stacked_services`
+  - [x] `get_it`
+  
+  
