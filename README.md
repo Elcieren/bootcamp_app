@@ -75,7 +75,7 @@ Günümüzün yoğun temposunda, yemek planlaması ve hazırlığı bazen zorlu 
 
 Kurumsal firmalar yemeklerini pazarlama ve reklam konularında çok az efor sarfederek uygulamada yerini alabiliyor. Ev hanımları ise aile bütçelerine kolayca katkıda bulunmak için her gün yaptıkları yemeklerden birkaç kişilik fazla yaparak kolayca satış yapabiliyor. Kurumsal firmalar öğle yemekleri ve davetler için rahatlıkla planlama yapabiliyor. Bireysel kullanıcılar ise sağlıklı alternatiflerle yorulmadan öğünlerini yapabiliyorlar. 
 
-## Ürün Özellikleri !!!
+## Ürün Özellikleri
 Çeşitli Yemek Seçenekleri: Catering firmaları ve ev hanımları, geniş yelpazede yemek seçenekleri sunarak kullanıcıların damak zevkine hitap eden ilanlar açabilir.
 
 Kolay Rezervasyon: Kullanıcılar, firmaların ve ev hanımlarının menülerine göz atarak kolayca rezervasyon yapabilir. İşten dönerken, yemeğinizi hazır bulup alabilirsiniz.
