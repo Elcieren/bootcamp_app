@@ -94,4 +94,4 @@ YemekBurada
 
 ## 2.sprintte yapılması planlananlar
 
-## proje kapsamı ve hedefler
+### proje kapsamı ve hedefler
