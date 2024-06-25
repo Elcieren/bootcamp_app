@@ -81,7 +81,9 @@ Kurumsal firmalar yemeklerini pazarlama ve reklam konularında çok az efor sarf
 Kolay Rezervasyon: Kullanıcılar, firmaların ve ev hanımlarının menülerine göz atarak kolayca rezervasyon yapabilir. İşten dönerken, yemeğinizi hazır bulup alabilirsiniz.
 
 Planlı Sipariş Sistemi: Firmalar, rezervasyon sayılarına göre yemek hazırlığı yapacakları için, rezervasyonlar en az 2 gün öncesinden yapılmalı ve iptaller de yine 2 gün önceden gerçekleştirilmelidir.
+
 Güvenli Ödeme: Rezervasyon sırasında ödeme yapılır, böylece yemeğiniz garanti altına alınmış olur.
+
 Esnek İptal Politikası ve Kuponlar: Rezervasyonunuzu iptal etmek isterseniz sorunsuz bir şekilde edebilirsiniz. İptal edilen rezervasyonlar, bir sonraki siparişinizde kullanabileceğiniz kuponlara dönüştürülür.
 
 ## Hedef Kitle
