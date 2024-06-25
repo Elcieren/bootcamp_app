@@ -1,4 +1,6 @@
-## Team Members
+## Ürün Adı
+
+## Takım Üyeleri
 <table>
   <tr>
     <th></th>
@@ -65,3 +67,10 @@
   </tr>
 </table>
 
+
+
+## Ürün Açıklaması
+
+## Ürün Özellikleri !!!!!!!!!!!
+
+## Hedef Kitle
