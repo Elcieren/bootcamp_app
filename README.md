@@ -71,13 +71,18 @@ YemekBurada
 
 
 ## Ürün Açıklaması
-
+Günümüzün yoğun temposunda, yemek planlaması ve hazırlığı bazen zorlu bir görev haline gelebiliyor. İşte tam da bu noktada, geliştirdiğimiz catering uygulaması hayatınızı kolaylaştırmak için devreye giriyor. Kurumsal ve bireysel kullanıcılar için özel olarak tasarlanmış bu uygulama hem kurumsal firmaların hem de ev hanımlarının yemek satışlarını pratik ve verimli bir şekilde gerçekleştirmelerini sağlıyor. 
+Kurumsal firmalar yemeklerini pazarlama ve reklam konularında çok az efor sarfederek uygulamada yerini alabiliyor. Ev hanımları ise aile bütçelerine kolayca katkıda bulunmak için her gün yaptıkları yemeklerden birkaç kişilik fazla yaparak kolayca satış yapabiliyor. Kurumsal firmalar öğle yemekleri ve davetler için rahatlıkla planlama yapabiliyor. Bireysel kullanıcılar ise sağlıklı alternatiflerle yorulmadan öğünlerini yapabiliyorlar. 
 
 ## Ürün Özellikleri !!!
-
+Çeşitli Yemek Seçenekleri: Catering firmaları ve ev hanımları, geniş yelpazede yemek seçenekleri sunarak kullanıcıların damak zevkine hitap eden ilanlar açabilir.
+Kolay Rezervasyon: Kullanıcılar, firmaların ve ev hanımlarının menülerine göz atarak kolayca rezervasyon yapabilir. İşten dönerken, yemeğinizi hazır bulup alabilirsiniz.
+Planlı Sipariş Sistemi: Firmalar, rezervasyon sayılarına göre yemek hazırlığı yapacakları için, rezervasyonlar en az 2 gün öncesinden yapılmalı ve iptaller de yine 2 gün önceden gerçekleştirilmelidir.
+Güvenli Ödeme: Rezervasyon sırasında ödeme yapılır, böylece yemeğiniz garanti altına alınmış olur.
+Esnek İptal Politikası ve Kuponlar: Rezervasyonunuzu iptal etmek isterseniz sorunsuz bir şekilde edebilirsiniz. İptal edilen rezervasyonlar, bir sonraki siparişinizde kullanabileceğiniz kuponlara dönüştürülür.
 
 ## Hedef Kitle
-
+Satış yapmak isteyen Catering firmaları ve ekonomiye katkı sağlamak isteyen ev hanımları satıcı kitlemizi oluşturmaktadır. Yemek yapmakla uğraşmak istemeyen, vakti olmayan bireysel kullanıcılar ve çalışanlarına yemek hizmeti veren şirketler müşteri kitlemizi oluşturmaktadır.
 
 # Sprint 1
 * Uygulama Ekran Görüntüleri
