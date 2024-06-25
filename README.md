@@ -97,7 +97,9 @@ Denetimli Yemek Fotoğrafı: Satışı yapılacak olan ürün fotoğrafı admine
 Satış yapmak isteyen Catering firmaları ve ekonomiye katkı sağlamak isteyen ev hanımları satıcı kitlemizi oluşturmaktadır. Yemek yapmakla uğraşmak istemeyen, vakti olmayan bireysel kullanıcılar ve çalışanlarına yemek hizmeti veren şirketler müşteri kitlemizi oluşturmaktadır.
 </details>
 
-# Sprint 1
+<details>
+<summary><h1>Sprint 1</h1></summary>
+
 * Uygulama Ekran Görüntüleri
 
 
@@ -117,3 +119,4 @@ Satış yapmak isteyen Catering firmaları ve ekonomiye katkı sağlamak isteyen
 
 
 * Proje kapsamı ve hedefler
+</details>
