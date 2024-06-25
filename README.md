@@ -86,6 +86,8 @@ Güvenli Ödeme: Rezervasyon sırasında ödeme yapılır, böylece yemeğiniz g
 
 Esnek İptal Politikası ve Kuponlar: Rezervasyonunuzu iptal etmek isterseniz sorunsuz bir şekilde edebilirsiniz. İptal edilen rezervasyonlar, bir sonraki siparişinizde kullanabileceğiniz kuponlara dönüştürülür.
 
+Denetimli Yemek Fotoğrafı: Satışı yapılacak olan ürün fotoğrafı admine atılacak. Admin denetimden geçirdiği takdirde sisteme yüklenecek. Böylece farklı fotoğrafların yüklenmesinin önüne geçmiş olacağız.
+
 ## Hedef Kitle
 Satış yapmak isteyen Catering firmaları ve ekonomiye katkı sağlamak isteyen ev hanımları satıcı kitlemizi oluşturmaktadır. Yemek yapmakla uğraşmak istemeyen, vakti olmayan bireysel kullanıcılar ve çalışanlarına yemek hizmeti veren şirketler müşteri kitlemizi oluşturmaktadır.
 
