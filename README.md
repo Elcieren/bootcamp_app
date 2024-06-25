@@ -1,5 +1,5 @@
 ## Ürün Adı
-
+YemekBurada
 ## Takım Üyeleri
 <table>
   <tr>
@@ -71,6 +71,6 @@
 
 ## Ürün Açıklaması
 
-## Ürün Özellikleri !!!
+# Ürün Özellikleri !!!
 
 ## Hedef Kitle
