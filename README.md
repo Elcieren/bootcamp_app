@@ -80,18 +80,16 @@ YemekBurada
 
 
 # Sprint 1
-## Uygulama Ekran Görüntüleri
+* Uygulama Ekran Görüntüleri
 
+* Sprint Board Güncelleme Ekran Görüntüleri
 
-## Sprint Board Güncelleme Ekran Görüntüleri
+* Sprint İş Bitim Tablosu
 
+* Sprint notları + puanları
 
-## Sprint İş Bitim Tablosu
+* Sprint incelemesi
 
-## Sprint notları + puanları
+* 2.sprintte yapılması planlananlar
 
-## Sprint incelemesi
-
-## 2.sprintte yapılması planlananlar
-
-### proje kapsamı ve hedefler
+* proje kapsamı ve hedefler
