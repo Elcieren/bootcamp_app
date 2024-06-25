@@ -122,7 +122,7 @@ Satış yapmak isteyen Catering firmaları ve ekonomiye katkı sağlamak isteyen
 </details>
 
 # **Kullanılan Teknolojiler**
-  **`(used technologies changed at third sprint)`**
+  **`(Kullanılan teknolojiler her sprintte eklenmiştir)`**
   - [x] `firebase_core`
   - [x] `firebase_auth`
   - [x] `cloud_firestore`
