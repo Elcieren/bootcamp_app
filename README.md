@@ -72,6 +72,26 @@ YemekBurada
 
 ## Ürün Açıklaması
 
+
 ## Ürün Özellikleri !!!
 
+
 ## Hedef Kitle
+
+
+# Sprint 1
+## Uygulama Ekran Görüntüleri
+
+
+## Sprint Board Güncelleme Ekran Görüntüleri
+
+
+## Sprint İş Bitim Tablosu
+
+## Sprint notları + puanları
+
+## Sprint incelemesi
+
+## 2.sprintte yapılması planlananlar
+
+## proje kapsamı ve hedefler
