@@ -71,6 +71,6 @@
 
 ## Ürün Açıklaması
 
-## Ürün Özellikleri !!!!!!!!!!!
+## Ürün Özellikleri !!!
 
 ## Hedef Kitle
