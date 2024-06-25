@@ -1,5 +1,6 @@
 ## Ürün Adı
 YemekBurada
+
 ## Takım Üyeleri
 <table>
   <tr>
@@ -71,6 +72,6 @@ YemekBurada
 
 ## Ürün Açıklaması
 
-# Ürün Özellikleri !!!
+## Ürün Özellikleri !!!
 
 ## Hedef Kitle
