@@ -20,12 +20,14 @@ YemekBurada
     </td>
   </tr>
   <tr>
-    <td><img src="path_to_your_image_2" width="50" height="50" /></td>
+    <td><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/091af206-0e6c-4f56-b069-32f34a935ef8" width="50" height="50" /></td>
     <td>Esma Nur Beyaz</td>
     <td>Product Owner</td>
     <td>
-      <a href="your_github_link" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/214dfe07-3f0e-402f-8606-88f6619808d1" width="20" height="20"/></a>
-      <a href="your_linkedin_link" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/25d29010-121f-483d-aadc-4d99884d3105" width="20" height="20" /></a>
+      <a href="https://github.com/esmanurbeyaz
+Linkedln: http://www.linkedin.com/in/esmanurbeyaz" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/214dfe07-3f0e-402f-8606-88f6619808d1" width="20" height="20"/></a>
+      <a href="https://github.com/esmanurbeyaz
+Linkedln: http://www.linkedin.com/in/esmanurbeyaz" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/25d29010-121f-483d-aadc-4d99884d3105" width="20" height="20" /></a>
       <a href="your_instagram_link" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/43438476-b2d5-4fa1-86b5-3977d7da082c" width="20" height="20" /></a>
     </td>
   </tr>
@@ -50,12 +52,13 @@ YemekBurada
     </td>
   </tr>
   <tr>
-    <td><img src="path_to_your_image_5" width="50" height="50" /></td>
+    <td><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/05175a3f-1f70-4512-b22b-da4dd4cb209a" width="50" height="50" /></td>
     <td>Erdem Dayan</td>
     <td>Developer</td>
     <td>
-      <a href="your_github_link" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/214dfe07-3f0e-402f-8606-88f6619808d1" width="20" height="20"/></a>
-      <a href="your_linkedin_link" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/25d29010-121f-483d-aadc-4d99884d3105" width="20" height="20" /></a>
+      <a href="https://github.com/eridiemmm2525" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/214dfe07-3f0e-402f-8606-88f6619808d1" width="20" height="20"/></a>
+      <a href="Erdem dayan
+https://www.linkedin.com/in/erdem-dayan-107b75201?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/25d29010-121f-483d-aadc-4d99884d3105" width="20" height="20" /></a>
       <a href="your_instagram_link" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/43438476-b2d5-4fa1-86b5-3977d7da082c" width="20" height="20" /></a>
     </td>
   </tr>
