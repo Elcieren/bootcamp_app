@@ -9,7 +9,7 @@ class SplashView extends StatelessWidget {
         viewModelBuilder: () => SplashViewModel(),
         onViewModelReady: (viewModel) => viewModel.init(),
         builder: (context, viewModel, child) => Scaffold(
-              backgroundColor: Colors.orange,
+              backgroundColor: Color(0xffFAB703),
               body: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

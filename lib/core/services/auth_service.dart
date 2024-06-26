@@ -56,4 +56,33 @@ class AuthService {
   Future signOutAccount() async {
     await FirebaseAuth.instance.signOut();
   }
+
+  Future<void> createPost(
+      String text,
+      String fullname,
+      String cinsiyet,
+      String email,
+      String ilanAciklamasi,
+      String YemekTuru,
+      String YemekIcerigi,
+      String Fiyat,
+      String TeslimatSekli) async {
+    try {
+      await firebaseFireStore.collection('Post').add({
+        'text': text,
+        'username': fullname,
+        'cinsiyet': cinsiyet,
+        'email': email,
+        'timestamp': FieldValue.serverTimestamp(),
+        'ilanAciklamasi': ilanAciklamasi,
+        'YemekTuru': YemekTuru,
+        'YemekIcerigi': YemekIcerigi,
+        'Fiyat': Fiyat,
+        'Teslimat': TeslimatSekli,
+      });
+      print('Post başarıyla oluşturuldu.');
+    } catch (e) {
+      print('Post oluşturulurken bir hata oluştu: $e');
+    }
+  }
 }

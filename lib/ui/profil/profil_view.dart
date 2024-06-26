@@ -1,4 +1,5 @@
 import 'package:bootcamp_app/core/services/auth_service.dart';
+import 'package:bootcamp_app/ui/Ilan/advert_view.dart';
 import 'package:bootcamp_app/ui/login/login_view.dart';
 import 'package:bootcamp_app/ui/profil/profil_view_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -63,9 +64,8 @@ class _ProfilViewState extends State<ProfilView> {
                             customSizedBox(),
                             if (_userData!['Durum'] == 'Kurumsal' ||
                                 _userData!['Durum'] == 'Bireysel') ...[
-                              customSizedBox(),
-                              itemProfile("İlan", "İlan Paylaşımı",
-                                  CupertinoIcons.plus_circle),
+                              Ilan("İlan", "İlan Paylaşımı",
+                                  CupertinoIcons.plus_circle, IlanSayafsinaGit)
                             ],
                             customSizedBox(),
                             itemCikis(
@@ -154,4 +154,39 @@ class _ProfilViewState extends State<ProfilView> {
   Widget customSizedBoxLarge() => const SizedBox(
         height: 60,
       );
+
+  Widget Ilan(
+      String title, String subtitle, IconData iconData, VoidCallback onTap) {
+    return InkWell(
+      onTap: onTap,
+      child: Center(
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                offset: Offset(0, 5),
+                color: Color(0xff64A6FF).withOpacity(.1),
+                spreadRadius: 5,
+                blurRadius: 10,
+              ),
+            ],
+          ),
+          child: ListTile(
+            title: Center(child: Text(title)),
+            subtitle: Center(child: Text(subtitle)),
+            leading: Icon(iconData),
+            tileColor: Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+
+  void IlanSayafsinaGit() async {
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (context) => AdvertView()),
+    );
+  }
 }
