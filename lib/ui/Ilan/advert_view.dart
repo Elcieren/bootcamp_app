@@ -474,16 +474,16 @@ class _AdvertViewState extends State<AdvertView> {
         );
       } else {
         await authService.createPost(
-          text,
-          _userData!['fullname'],
-          _userData!['Cinsiyet'],
-          _userData!['email'],
-          ilanAciklamasi,
-          YemekTuru,
-          YemekIcerigi,
-          Fiyat,
-          Teslimat!,
-        );
+            text,
+            _userData!['fullname'],
+            _userData!['Cinsiyet'],
+            _userData!['email'],
+            ilanAciklamasi,
+            YemekTuru,
+            YemekIcerigi,
+            Fiyat,
+            Teslimat!,
+            YemeKategori!);
         formkeyPost.currentState!.reset();
         setState(() {
           YemeKategori = null;

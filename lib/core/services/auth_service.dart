@@ -66,7 +66,8 @@ class AuthService {
       String YemekTuru,
       String YemekIcerigi,
       String Fiyat,
-      String TeslimatSekli) async {
+      String TeslimatSekli,
+      String YemeKategori) async {
     try {
       await firebaseFireStore.collection('Post').add({
         'text': text,
@@ -79,6 +80,7 @@ class AuthService {
         'YemekIcerigi': YemekIcerigi,
         'Fiyat': Fiyat,
         'Teslimat': TeslimatSekli,
+        "Kategori": YemeKategori,
       });
       print('Post başarıyla oluşturuldu.');
     } catch (e) {
