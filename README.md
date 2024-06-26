@@ -20,7 +20,7 @@ YemekBurada
     </td>
   </tr>
   <tr>
-    <td><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/091af206-0e6c-4f56-b069-32f34a935ef8" width="50" height="50" /></td>
+    <td><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/091af206-0e6c-4f56-b069-32f34a935ef8" width="40" height="40" /></td>
     <td>Esma Nur Beyaz</td>
     <td>Product Owner</td>
     <td>
