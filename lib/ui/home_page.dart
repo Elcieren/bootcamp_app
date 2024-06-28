@@ -22,34 +22,34 @@ class _HomePageState extends State<HomePage> {
   List<BusinessCardModel> businesses = [
     BusinessCardModel(
       imageUrl:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCtgBRoZi2ilPUqzw13Zhn0Z1hw-NpygjFTw&s',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCtgBRoZi2ilPUqzw13Zhn0Z1hw-NpygjFTw&s',
       title: 'Lezzetli, Uygun Fiyatlı Menüler...',
       description:
-      'Profesyonel şeflerimizle lezzet ve kaliteyi buluşturuyoruz, catering hizmetlerimizle sizinleyiz.',
+          'Profesyonel şeflerimizle lezzet ve kaliteyi buluşturuyoruz, catering hizmetlerimizle sizinle.',
       location: 'Denizli',
     ),
     BusinessCardModel(
       imageUrl:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnXluUYVDL1gObRnkeWt7u3aF1WS2JuvBQ-Q&s',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnXluUYVDL1gObRnkeWt7u3aF1WS2JuvBQ-Q&s',
       title: 'Hızlı ve Kaliteli Hizmet',
       description:
-      '15 yıllık tecrübe ile sizlerleyiz. Çeşitli ve özelliştirilmiş menü hizmeti. Günün her saati teslim avantajı.',
+          '15 yıllık tecrübe ile sizlerleyiz. Çeşitli ve özelliştirilmiş menü hizmeti. Günün her saati teslim avantajı.',
       location: 'Samsun',
     ),
     BusinessCardModel(
       imageUrl:
-      'https://i.dugun.com/gallery/17720/preview_samsun-55-yemek-galerisi-1398173037.jpg',
+          'https://i.dugun.com/gallery/17720/preview_samsun-55-yemek-galerisi-1398173037.jpg',
       title: 'Ultra Ucuz Kaliteli Menüler!',
       description:
-      'Güvenilir ve lezzetli catering seçenekleriyle her türlü etkinliğinizi özel kılıyoruz, detaylar için bize ulaşın!',
+          'Güvenilir ve lezzetli catering seçenekleriyle her türlü etkinliğinizi özel kılıyoruz, detaylar için bize ulaşın!',
       location: 'Samsun',
     ),
     BusinessCardModel(
       imageUrl:
-      'https://eminyavuzer.com/wp-content/uploads/2019/10/yeni-mutfak-catering-logo-sembol-dizayni.jpg',
+          'https://eminyavuzer.com/wp-content/uploads/2019/10/yeni-mutfak-catering-logo-sembol-dizayni.jpg',
       title: 'Uygun Fiyata Dev Hizmet',
       description:
-      'Etkinlikleriniz için özenle hazırladığımız catering seçenekleriyle lezzeti doğru adrese getiriyoruz. ',
+          'Etkinlikleriniz için özenle hazırladığımız catering seçenekleriyle lezzeti doğru adrese getiriyoruz. ',
       location: 'Samsun',
     ),
   ];
@@ -167,14 +167,14 @@ class _HomePageState extends State<HomePage> {
           Column(
             children: businesses
                 .map((business) => Padding(
-              padding: EdgeInsets.only(bottom: 10),
-              child: BusinessCard(
-                imageUrl: business.imageUrl,
-                title: business.title,
-                description: business.description,
-                location: business.location,
-              ),
-            ))
+                      padding: EdgeInsets.only(bottom: 10),
+                      child: BusinessCard(
+                        imageUrl: business.imageUrl,
+                        title: business.title,
+                        description: business.description,
+                        location: business.location,
+                      ),
+                    ))
                 .toList(),
           ),
           SizedBox(height: 10),
@@ -218,9 +218,7 @@ class BusinessCard extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: 160,
       child: ElevatedButton(
-        onPressed: () {
-
-        },
+        onPressed: () {},
         style: ElevatedButton.styleFrom(
           fixedSize: Size(220, 180),
           shape: RoundedRectangleBorder(
@@ -271,7 +269,13 @@ class BusinessCard extends StatelessWidget {
                       endIndent: 15,
                     ),
                     SizedBox(height: 5),
-                    Text(description),
+                    Flexible(
+                      child: Text(
+                        description,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 3,
+                      ),
+                    ),
                     Text(
                       location,
                       style: TextStyle(
@@ -290,5 +294,3 @@ class BusinessCard extends StatelessWidget {
     );
   }
 }
-
-
