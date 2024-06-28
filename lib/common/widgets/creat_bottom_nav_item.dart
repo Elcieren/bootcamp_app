@@ -1,3 +1,4 @@
+import 'package:bootcamp_app/ui/home_page.dart';
 import 'package:bootcamp_app/ui/profil/profil_view.dart';
 import 'package:flutter/material.dart';
 
@@ -50,7 +51,7 @@ Widget getViewForIndex(int index) {
     case 0:
       return Container();
     case 1:
-      return Container();
+      return HomePage();
     case 2:
       return Container();
     case 3:
