@@ -10,7 +10,7 @@ YemekBurada
     <th>Socials</th>
   </tr>
   <tr>
-    <td><img src="path_to_your_image_1" width="50" height="50" /></td>
+    <td><img src="Erva Alp foto.jpeg" width="50" height="50" /></td>
     <td>Erva Alp</td>
     <td>Scrum Master</td>
     <td>
