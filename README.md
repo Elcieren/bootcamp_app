@@ -10,7 +10,7 @@ YemekBurada
     <th>Socials</th>
   </tr>
   <tr>
-    <td><img src="" width="50" height="50" /></td>
+    <td><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/3b11b8dc-4840-4f08-ae1d-33b98ddeb734" width="50" height="50" /></td>
     <td>Erva Alp</td>
     <td>Scrum Master</td>
     <td>
