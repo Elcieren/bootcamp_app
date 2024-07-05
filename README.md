@@ -61,7 +61,7 @@ YemekBurada
   </tr>
   <tr>
     <td><img src="path_to_your_image_6" width="50" height="50" /></td>
-    <td>Uygulama İsmi</td>
+    <td>Sofra</td>
     <td>Startup</td>
     <td>
     </td>
