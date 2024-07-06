@@ -110,12 +110,11 @@ Satış yapmak isteyen Catering firmaları ve ekonomiye katkı sağlamak isteyen
       <td style="width: 5%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/4f00bf15-ff5e-48e6-8cd4-73ad19af6507" style="width: 50%; height: auto;"></td>
     </tr>
     <tr>
-      <td colspan="4" style="text-align: center;"><h2>Homepage and Location pages</h2></td>
+      <td colspan="4" style="text-align: center;"><h2>Kayıt ve Giriş sayfası </h2></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="bootcampFiles/sprintOne/screenshots/20.png" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="bootcampFiles/sprintOne/screenshots/21.png" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="bootcampFiles/sprintOne/screenshots/22.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 5%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/8098f578-3c32-441c-8cb7-a9f0f1b2bebb" style="width: 50%; height: auto;"></td>
+      <td style="width: 5%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/10c8c772-692c-43f0-8144-d333e7976aa0" style="width: 50%; height: auto;"></td>
     </tr>
     <tr>
       <td colspan="4" style="text-align: center;"><h2>Add Product pages</h2></td>
