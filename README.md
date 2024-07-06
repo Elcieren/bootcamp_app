@@ -110,7 +110,7 @@ Satış yapmak isteyen Catering firmaları ve ekonomiye katkı sağlamak isteyen
       <td style="width: 5%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/4f00bf15-ff5e-48e6-8cd4-73ad19af6507" style="width: 50%; height: auto;"></td>
     </tr>
     <tr>
-      <td colspan="4" style="text-align: center;"><h2>Kayıt ve Giriş sayfası </h2></td>
+      <td colspan="4" style="text-align: center;"><h2>Kayıt Sayfası </h2></td>
     </tr>
     <tr>
       <td style="width: 5%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/8098f578-3c32-441c-8cb7-a9f0f1b2bebb" style="width: 50%; height: auto;"></td>
