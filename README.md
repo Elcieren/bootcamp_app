@@ -108,7 +108,6 @@ Satış yapmak isteyen Catering firmaları ve ekonomiye katkı sağlamak isteyen
     </tr>
     <tr>
       <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/4f00bf15-ff5e-48e6-8cd4-73ad19af6507" style="max-width: 100%; height: auto;"></td>
-      "max-width: 100%; height: auto;"></td>
     </tr>
     <tr>
       <td colspan="4" style="text-align: center;"><h2>Homepage and Location pages</h2></td>
