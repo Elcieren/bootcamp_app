@@ -156,7 +156,15 @@ Satış yapmak isteyen Catering firmaları ve ekonomiye katkı sağlamak isteyen
   </details>   
 
 
-* Sprint Board Güncelleme Ekran Görüntüleri
+ <details>
+  <summary><h3>Sprint Board Güncelleme Ekran Görüntüleri</h3></summary>
+   <table style="width: 100%;">
+    <tr>
+      <td style="width: 5%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/84d5bef3-4d72-499c-8f6d-1141901f230c" style="width: 50%; height: auto;"></td>
+    </tr>
+   </table>
+ </details> 
+
 
 
 * Sprint İş Bitim Tablosu
