@@ -209,10 +209,12 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
 
 <details>
 <summary><h2>2.sprintte yapılması planlananlar</h2></summary>
-işletme tanıtım sayfalarının tasarımının yapılması menu list eklenmesi 
-menu sayfaları tasarımı yapılması
-menulerin sepete eklenme fonskiyonunun oluşturulması.
-Ekip ilk sprinti koordineli ve uyumlu bir şekilde tamamladığı için aynı şekilde devam etmeye karar verildi
+<ul>
+<li>Menu list eklenmesi</li>
+  <li>Menu sayfaları tasarımı yapılması</li>
+  <li>Menülerin sepete eklenme fonksiyonunun oluşturulması</li>
+  <li>Ekip ilk sprinti koordineli ve uyumlu bir şekilde tamamladığı için aynı şekilde devam etmeye karar verildi</li>
+</ul>
 </details> 
 
 
