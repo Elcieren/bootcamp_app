@@ -166,6 +166,10 @@ Satış yapmak isteyen Catering firmaları ve ekonomiye katkı sağlamak isteyen
  </details> 
 
 
+<details>
+<summary><h2>Sprint Notları</h2></summary>
+Ekip tanışmış ve uyumlu bir şekilde çalışmaya başlamıştır. Yapılan ilk toplantıda uygulamaya karar verilmiş ve sprint boyunca geliştirilmiştir. Kullanıcı hikayeleri oluşturulmuş, senaryo ve kullanıcılara göre sayfa tasarımları yapılmıştır. Firebase bağlanmış ve kullanıcı işlemleri hazır hale getirilmiştir.
+</details> 
 
 * Sprint İş Bitim Tablosu
 
