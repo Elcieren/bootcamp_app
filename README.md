@@ -205,19 +205,14 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
 İşletme tasarım sayfasının yapılmasına, menü eklenmesine, menü sayfa tasarımının yapılmasına ve menülerin sepete eklenme fonksiyonunun oluşturulmasına karar verildi.
 </details> 
 
-* Sprint İş Bitim Tablosu
+<details>
+<summary><h2>2.sprintte yapılması planlananlar</h2></summary>
+işletme tanıtım sayfalarının tasarımının yapılması menu list eklenmesi 
+menu sayfaları tasarımı yapılması
+menulerin sepete eklenme fonskiyonunun oluşturulması
+</details> 
 
 
-* Sprint notları + puanları
-
-
-* Sprint incelemesi
-
-
-* 2.sprintte yapılması planlananlar
-
-
-* Proje kapsamı ve hedefler
 </details>
 
 # **Kullanılan Teknolojiler**
