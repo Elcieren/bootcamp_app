@@ -70,6 +70,9 @@
 ## Ürün İsmi
 Sofra
 
+## Trello Panomuz
+https://trello.com/b/n8p6Bpvl/bootcamp-panomuz
+
 ## Ürün Açıklaması
 Günümüzün yoğun temposunda, yemek planlaması ve hazırlığı bazen zorlu bir görev haline gelebiliyor. İşte tam da bu noktada, geliştirdiğimiz catering uygulaması hayatınızı kolaylaştırmak için devreye giriyor. Kurumsal ve bireysel kullanıcılar için özel olarak tasarlanmış bu uygulama hem kurumsal firmaların hem de ev hanımlarının yemek satışlarını pratik ve verimli bir şekilde gerçekleştirmelerini sağlıyor.
 
