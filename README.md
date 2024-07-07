@@ -171,6 +171,27 @@ Satış yapmak isteyen Catering firmaları ve ekonomiye katkı sağlamak isteyen
 Ekip tanışmış ve uyumlu bir şekilde çalışmaya başlamıştır. Yapılan ilk toplantıda uygulamaya karar verilmiş ve sprint boyunca geliştirilmiştir. Kullanıcı hikayeleri oluşturulmuş, senaryo ve kullanıcılara göre sayfa tasarımları yapılmıştır. Firebase bağlanmış ve kullanıcı işlemleri hazır hale getirilmiştir.
 </details> 
 
+<details>
+<summary><h2>Sprint içinde tamamlanması tahmin edilen puan</h2></summary>
+120 puan
+</details> 
+
+<details>
+<summary><h2>Daily Scrum</h2></summary>
+Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır. 
+<table style="width: 100%;">
+<tr>
+      <td colspan="4" style="text-align: center;"><h2>Açılış Ekranı</h2></td>
+    </tr>
+    <tr>
+      <td style="width: 5%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/7e346a81-5ab7-40db-b3f1-58e41b7198db" style="width: 50%; height: auto;"></td>
+    </tr>
+    <tr>
+      <td style="width: 5%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/732f1bd4-be05-40bd-9757-3beb30d4c166" style="width: 50%; height: auto;"></td>
+    </tr>
+</table>
+</details> 
+
 * Sprint İş Bitim Tablosu
 
 
