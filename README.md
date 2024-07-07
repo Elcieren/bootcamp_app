@@ -115,7 +115,7 @@ Ekip tanışmış ve uyumlu bir şekilde çalışmaya başlamıştır. Yapılan 
 </details> 
 
 <details>
-<summary><h2>Puan tamamlama mantığ</h2></summary>
+<summary><h2>Puan tamamlama mantığı</h2></summary>
 Toplamda proje boyunca tamamlanması gereken 360 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ilk sprint'in 120 puan olmasına karar verildi
 </details> 
 
