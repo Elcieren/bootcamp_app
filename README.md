@@ -1,5 +1,4 @@
-## Ürün Adı
-YemekBurada
+
 
 ## Takım Üyeleri
 <table>
