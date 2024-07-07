@@ -104,6 +104,47 @@ Satış yapmak isteyen Catering firmaları ve ekonomiye katkı sağlamak isteyen
 <summary><h1>Sprint 1</h1></summary>
 
 <details>
+<summary><h2>Sprint Notları</h2></summary>
+Ekip tanışmış ve uyumlu bir şekilde çalışmaya başlamıştır. Yapılan ilk toplantıda uygulamaya karar verilmiş ve sprint boyunca geliştirilmiştir. Kullanıcı hikayeleri oluşturulmuş, senaryo ve kullanıcılara göre sayfa tasarımları yapılmıştır. Firebase bağlanmış ve kullanıcı işlemleri hazır hale getirilmiştir.
+</details> 
+
+
+<details>
+<summary><h2>Sprint içinde tamamlanması tahmin edilen puan</h2></summary>
+120 puan
+</details> 
+
+<details>
+<summary><h2>Puan tamamlama mantığ</h2></summary>
+Toplamda proje boyunca tamamlanması gereken 360 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ilk sprint'in 120 puan olmasına karar verildi
+</details> 
+
+<details>
+<summary><h2>Daily Scrum</h2></summary>
+Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır. 
+<table style="width: 100%;">
+<tr>
+      <td colspan="4" style="text-align: center;"><h2>Ekran Görüntüleri</h2></td>
+    </tr>
+    <tr>
+      <td style="width: 5%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/7e346a81-5ab7-40db-b3f1-58e41b7198db" style="width: 50%; height: auto;"></td>
+    </tr>
+    <tr>
+      <td style="width: 5%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/732f1bd4-be05-40bd-9757-3beb30d4c166" style="width: 50%; height: auto;"></td>
+    </tr>
+</table>
+</details> 
+
+<details>
+  <summary><h3>Sprint Board Güncelleme Ekran Görüntüleri</h3></summary>
+   <table style="width: 100%;">
+    <tr>
+      <td style="width: 5%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/84d5bef3-4d72-499c-8f6d-1141901f230c" style="width: 50%; height: auto;"></td>
+    </tr>
+   </table>
+ </details> 
+
+<details>
     <summary><h3>Sprint 1 - App Screenshots</h3></summary>
   <table style="width: 100%;">
     <tr>
@@ -154,43 +195,6 @@ Satış yapmak isteyen Catering firmaları ve ekonomiye katkı sağlamak isteyen
     </tr>
   </table>
   </details>   
-
-
- <details>
-  <summary><h3>Sprint Board Güncelleme Ekran Görüntüleri</h3></summary>
-   <table style="width: 100%;">
-    <tr>
-      <td style="width: 5%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/84d5bef3-4d72-499c-8f6d-1141901f230c" style="width: 50%; height: auto;"></td>
-    </tr>
-   </table>
- </details> 
-
-
-<details>
-<summary><h2>Sprint Notları</h2></summary>
-Ekip tanışmış ve uyumlu bir şekilde çalışmaya başlamıştır. Yapılan ilk toplantıda uygulamaya karar verilmiş ve sprint boyunca geliştirilmiştir. Kullanıcı hikayeleri oluşturulmuş, senaryo ve kullanıcılara göre sayfa tasarımları yapılmıştır. Firebase bağlanmış ve kullanıcı işlemleri hazır hale getirilmiştir.
-</details> 
-
-<details>
-<summary><h2>Sprint içinde tamamlanması tahmin edilen puan</h2></summary>
-120 puan
-</details> 
-
-<details>
-<summary><h2>Daily Scrum</h2></summary>
-Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır. 
-<table style="width: 100%;">
-<tr>
-      <td colspan="4" style="text-align: center;"><h2>Ekran Görüntüleri</h2></td>
-    </tr>
-    <tr>
-      <td style="width: 5%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/7e346a81-5ab7-40db-b3f1-58e41b7198db" style="width: 50%; height: auto;"></td>
-    </tr>
-    <tr>
-      <td style="width: 5%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/732f1bd4-be05-40bd-9757-3beb30d4c166" style="width: 50%; height: auto;"></td>
-    </tr>
-</table>
-</details> 
 
 <details>
 <summary><h2>Sprint Review</h2></summary>
