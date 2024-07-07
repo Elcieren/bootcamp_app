@@ -223,5 +223,6 @@ menulerin sepete eklenme fonskiyonunun oluşturulması
   - [x] `stacked`
   - [x] `stacked_services`
   - [x] `get_it`
-  
+  - [x] `carousel_slider`
+     
   
