@@ -120,15 +120,15 @@ Satış yapmak isteyen Catering firmaları ve ekonomiye katkı sağlamak isteyen
       <td colspan="4" style="text-align: center;"><h2>Şifre Sıfırlama Sayfası </h2></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/5d57afea-405c-4064-8ea1-88aac6c98423" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/5d57afea-405c-4064-8ea1-88aac6c98423" style="width: 50%; height: auto;"></td>
     </tr>
     <tr>
       <td colspan="4" style="text-align: center;"><h2>Kayıt Sayfası </h2></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/e5afa391-4f12-4809-9192-8cfaa7e12442" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/add300fd-f771-4ebb-890c-1f1079454649" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/4cd0c1cc-c396-48d7-99ce-ab346b2df0a2" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/e5afa391-4f12-4809-9192-8cfaa7e12442" style="width: 50%; height: auto;"></td>
+      <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/add300fd-f771-4ebb-890c-1f1079454649" style="width: 50%; height: auto;"></td>
+      <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/4cd0c1cc-c396-48d7-99ce-ab346b2df0a2" style="width: 50%; height: auto;"></td>
     </tr>
     <tr>
       <td colspan="4" style="text-align: center;"><h2>Profile and Settings pages</h2></td>
