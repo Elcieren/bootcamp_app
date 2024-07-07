@@ -194,11 +194,13 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
 
 <details>
 <summary><h2>Sprint Review</h2></summary>
-•⁠  ⁠Açılış, profil ve işlem sayfalarını oluşturduk
-•⁠  ⁠State management ile uygulama yönetimi yaptık.
-•⁠  ⁠Firebase Authentication, Cloud Firestore bağladık.
-•⁠  ⁠Arayüz tasarımları geliştirilmiş ve uyguladık.
-</details> 
+<ul>
+  <li>Açılış, profil ve işlem sayfalarını oluşturduk</li>
+  <li>State management ile uygulama yönetimi yaptık.</li>
+  <li>Firebase Authentication, Cloud Firestore bağladık.</li>
+  <li>Arayüz tasarımları geliştirilmiş ve uyguladık.</li>
+</ul>
+</details>
 
 <details>
 <summary><h2>Sprint Retrospective</h2></summary>
@@ -209,7 +211,8 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
 <summary><h2>2.sprintte yapılması planlananlar</h2></summary>
 işletme tanıtım sayfalarının tasarımının yapılması menu list eklenmesi 
 menu sayfaları tasarımı yapılması
-menulerin sepete eklenme fonskiyonunun oluşturulması
+menulerin sepete eklenme fonskiyonunun oluşturulması.
+Ekip ilk sprinti koordineli ve uyumlu bir şekilde tamamladığı için aynı şekilde devam etmeye karar verildi
 </details> 
 
 
