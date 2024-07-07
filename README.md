@@ -138,12 +138,16 @@ Satış yapmak isteyen Catering firmaları ve ekonomiye katkı sağlamak isteyen
       <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/88970748-84dd-43f6-a6f0-3845748ab804" style="width: 50%; height: auto;"></td>
     </tr>
     <tr>
-      <td colspan="4" style="text-align: center;"><h2>Rent Product pages</h2></td>
+      <td colspan="4" style="text-align: center;"><h2>Profil Sayfası</h2></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="bootcampFiles/sprintOne/screenshots/60.png" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="bootcampFiles/sprintOne/screenshots/61.png" style="max-width: 100%; height: auto;"></td>
-      <td style="width: 25%;"><img src="bootcampFiles/sprintOne/screenshots/62.png" style="max-width: 100%; height: auto;"></td>
+      <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/7e99f467-ba13-4919-8f72-7a9578631489" style="width: 50%; height: auto;"></td>
+    </tr>
+    <tr>
+      <td colspan="4" style="text-align: center;"><h2>Ana Sayfa </h2></td>
+    </tr>
+    <tr>
+      <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/303fbad6-7064-4863-8dd5-8ae2874e0c2b" style="width: 50%; height: auto;"></td>
     </tr>
   </table>
   </details>   
