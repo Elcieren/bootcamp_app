@@ -59,7 +59,7 @@
     </td>
   </tr>
   <tr>
-    <td><img src="path_to_your_image_6" width="50" height="50" /></td>
+    <td><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/9bcc7f90-cb4f-47c4-a51b-3328a6ef6319" width="50" height="50" /></td>
     <td>Sofra</td>
     <td>Startup</td>
     <td>
