@@ -1,5 +1,6 @@
 import 'package:bootcamp_app/ui/home_page.dart';
 import 'package:bootcamp_app/ui/profil/profil_view.dart';
+import 'package:bootcamp_app/ui/yapayzeka/yapay_zeka_view.dart';
 import 'package:flutter/material.dart';
 
 class TabItemData {
@@ -53,7 +54,7 @@ Widget getViewForIndex(int index) {
     case 1:
       return HomePage();
     case 2:
-      return Container();
+      return YapayZekaView();
     case 3:
       return ProfilView();
 
