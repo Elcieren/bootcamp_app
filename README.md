@@ -208,18 +208,10 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
 
 <details>
 <summary><h2>Sprint Retrospective</h2></summary>
-İşletme tasarım sayfasının yapılmasına, menü eklenmesine, menü sayfa tasarımının yapılmasına ve menülerin sepete eklenme fonksiyonunun oluşturulmasına karar verildi.
+İşletme tasarım sayfasının yapılmasına, menü list eklenmesine, menü sayfa tasarımının yapılmasına ve menülerin sepete eklenme fonksiyonunun oluşturulmasına karar verildi.
 </details> 
 
-<details>
-<summary><h2>2.sprintte yapılması planlananlar</h2></summary>
-<ul>
-<li>Menu list eklenmesi</li>
-  <li>Menu sayfaları tasarımı yapılması</li>
-  <li>Menülerin sepete eklenme fonksiyonunun oluşturulması</li>
-  <li>Ekip ilk sprinti koordineli ve uyumlu bir şekilde tamamladığı için aynı şekilde devam etmeye karar verildi</li>
-</ul>
-</details> 
+
 
 
 </details>
