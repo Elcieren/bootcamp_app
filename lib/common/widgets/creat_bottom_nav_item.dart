@@ -1,4 +1,5 @@
 import 'package:bootcamp_app/ui/home_page.dart';
+import 'package:bootcamp_app/ui/post_page.dart';
 import 'package:bootcamp_app/ui/profil/profil_view.dart';
 import 'package:bootcamp_app/ui/yapayzeka/yapay_zeka_view.dart';
 import 'package:flutter/material.dart';
