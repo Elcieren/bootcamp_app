@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,6 +20,7 @@ class _HomePageState extends State<HomePage> {
     'https://kucukyalimtal.meb.k12.tr/meb_iys_dosyalar/35/01/365840/resimler/2021_07/k_06160531_YYYECEK_YCECEK2x-100.jpg',
   ];
 
+<<<<<<< Updated upstream
   List<BusinessCardModel> businesses = [
     BusinessCardModel(
       imageUrl:
@@ -53,6 +55,34 @@ class _HomePageState extends State<HomePage> {
       location: 'Samsun',
     ),
   ];
+=======
+  List<BusinessCardModel> businesses = [];
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchBusinesses();
+  }
+
+  Future<void> fetchBusinesses() async {
+    final snapshot = await FirebaseFirestore.instance.collection('isletmeler').get();
+    final fetchedBusinesses = snapshot.docs.map((doc) {
+      final data = doc.data() as Map<String, dynamic>;
+      return BusinessCardModel(
+        imageUrl: data['imageUrl'] ?? '',
+        title: data['title'] ?? '',
+        description: data['aciklama'] ?? '',
+        location: data['location'] ?? '',
+      );
+    }).toList();
+
+    setState(() {
+      businesses = fetchedBusinesses;
+      isLoading = false;
+    });
+  }
+>>>>>>> Stashed changes
 
   @override
   Widget build(BuildContext context) {
@@ -164,9 +194,18 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           SizedBox(height: 10),
+<<<<<<< Updated upstream
           Column(
             children: businesses
                 .map((business) => Padding(
+=======
+          isLoading
+              ? Center(child: CircularProgressIndicator())
+              : businesses.isEmpty
+              ? Center(child: Text('Veri bulunamadı'))
+              : Column(
+            children: businesses.map((business) => Padding(
+>>>>>>> Stashed changes
               padding: EdgeInsets.only(bottom: 10),
               child: BusinessCard(
                 imageUrl: business.imageUrl,
@@ -174,8 +213,12 @@ class _HomePageState extends State<HomePage> {
                 description: business.description,
                 location: business.location,
               ),
+<<<<<<< Updated upstream
             ))
                 .toList(),
+=======
+            )).toList(),
+>>>>>>> Stashed changes
           ),
           SizedBox(height: 10),
         ],

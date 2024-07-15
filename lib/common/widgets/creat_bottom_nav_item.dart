@@ -1,3 +1,4 @@
+import 'package:bootcamp_app/post_page.dart';
 import 'package:bootcamp_app/ui/home_page.dart';
 import 'package:bootcamp_app/ui/profil/profil_view.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +50,7 @@ enum TabItem { Profil, Plant, Help, YapayZeka }
 Widget getViewForIndex(int index) {
   switch (index) {
     case 0:
-      return Container();
+      return PostPage();
     case 1:
       return HomePage();
     case 2:
