@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,40 +20,32 @@ class _HomePageState extends State<HomePage> {
     'https://kucukyalimtal.meb.k12.tr/meb_iys_dosyalar/35/01/365840/resimler/2021_07/k_06160531_YYYECEK_YCECEK2x-100.jpg',
   ];
 
-  List<BusinessCardModel> businesses = [
-    BusinessCardModel(
-      imageUrl:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCtgBRoZi2ilPUqzw13Zhn0Z1hw-NpygjFTw&s',
-      title: 'Lezzetli, Uygun Fiyatlı Menüler...',
-      description:
-          'Profesyonel şeflerimizle lezzet ve kaliteyi buluşturuyoruz, catering hizmetlerimizle sizinle.',
-      location: 'Denizli',
-    ),
-    BusinessCardModel(
-      imageUrl:
-          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnXluUYVDL1gObRnkeWt7u3aF1WS2JuvBQ-Q&s',
-      title: 'Hızlı ve Kaliteli Hizmet',
-      description:
-          '15 yıllık tecrübe ile sizlerleyiz. Çeşitli ve özelliştirilmiş menü hizmeti. Günün her saati teslim avantajı.',
-      location: 'Samsun',
-    ),
-    BusinessCardModel(
-      imageUrl:
-          'https://i.dugun.com/gallery/17720/preview_samsun-55-yemek-galerisi-1398173037.jpg',
-      title: 'Ultra Ucuz Kaliteli Menüler!',
-      description:
-          'Güvenilir ve lezzetli catering seçenekleriyle her türlü etkinliğinizi özel kılıyoruz, detaylar için bize ulaşın!',
-      location: 'Samsun',
-    ),
-    BusinessCardModel(
-      imageUrl:
-          'https://eminyavuzer.com/wp-content/uploads/2019/10/yeni-mutfak-catering-logo-sembol-dizayni.jpg',
-      title: 'Uygun Fiyata Dev Hizmet',
-      description:
-          'Etkinlikleriniz için özenle hazırladığımız catering seçenekleriyle lezzeti doğru adrese getiriyoruz. ',
-      location: 'Samsun',
-    ),
-  ];
+  List<BusinessCardModel> businesses = [];
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchBusinesses();
+  }
+
+  Future<void> fetchBusinesses() async {
+    final snapshot = await FirebaseFirestore.instance.collection('isletmeler').get();
+    final fetchedBusinesses = snapshot.docs.map((doc) {
+      final data = doc.data() as Map<String, dynamic>;
+      return BusinessCardModel(
+        imageUrl: data['imageUrl'] ?? '',
+        title: data['title'] ?? '',
+        description: data['aciklama'] ?? '',
+        location: data['location'] ?? '',
+      );
+    }).toList();
+
+    setState(() {
+      businesses = fetchedBusinesses;
+      isLoading = false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -164,18 +157,20 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           SizedBox(height: 10),
-          Column(
-            children: businesses
-                .map((business) => Padding(
-                      padding: EdgeInsets.only(bottom: 10),
-                      child: BusinessCard(
-                        imageUrl: business.imageUrl,
-                        title: business.title,
-                        description: business.description,
-                        location: business.location,
-                      ),
-                    ))
-                .toList(),
+          isLoading
+              ? Center(child: CircularProgressIndicator())
+              : businesses.isEmpty
+              ? Center(child: Text('Veri bulunamadı'))
+              : Column(
+            children: businesses.map((business) => Padding(
+              padding: EdgeInsets.only(bottom: 10),
+              child: BusinessCard(
+                imageUrl: business.imageUrl,
+                title: business.title,
+                description: business.description,
+                location: business.location,
+              ),
+            )).toList(),
           ),
           SizedBox(height: 10),
         ],
@@ -218,7 +213,9 @@ class BusinessCard extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: 160,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+
+        },
         style: ElevatedButton.styleFrom(
           fixedSize: Size(220, 180),
           shape: RoundedRectangleBorder(
@@ -269,13 +266,7 @@ class BusinessCard extends StatelessWidget {
                       endIndent: 15,
                     ),
                     SizedBox(height: 5),
-                    Flexible(
-                      child: Text(
-                        description,
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 3,
-                      ),
-                    ),
+                    Text(description),
                     Text(
                       location,
                       style: TextStyle(
