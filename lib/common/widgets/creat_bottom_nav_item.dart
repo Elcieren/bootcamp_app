@@ -51,7 +51,7 @@ enum TabItem { Profil, Plant, Help, YapayZeka }
 Widget getViewForIndex(int index) {
   switch (index) {
     case 0:
-      return Container();
+      return PostPage();
     case 1:
       return HomePage();
     case 2:
