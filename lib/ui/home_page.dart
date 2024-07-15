@@ -20,42 +20,6 @@ class _HomePageState extends State<HomePage> {
     'https://kucukyalimtal.meb.k12.tr/meb_iys_dosyalar/35/01/365840/resimler/2021_07/k_06160531_YYYECEK_YCECEK2x-100.jpg',
   ];
 
-<<<<<<< Updated upstream
-  List<BusinessCardModel> businesses = [
-    BusinessCardModel(
-      imageUrl:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCtgBRoZi2ilPUqzw13Zhn0Z1hw-NpygjFTw&s',
-      title: 'Lezzetli, Uygun Fiyatlı Menüler...',
-      description:
-      'Profesyonel şeflerimizle lezzet ve kaliteyi buluşturuyoruz, catering hizmetlerimizle sizinleyiz.',
-      location: 'Denizli',
-    ),
-    BusinessCardModel(
-      imageUrl:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnXluUYVDL1gObRnkeWt7u3aF1WS2JuvBQ-Q&s',
-      title: 'Hızlı ve Kaliteli Hizmet',
-      description:
-      '15 yıllık tecrübe ile sizlerleyiz. Çeşitli ve özelliştirilmiş menü hizmeti. Günün her saati teslim avantajı.',
-      location: 'Samsun',
-    ),
-    BusinessCardModel(
-      imageUrl:
-      'https://i.dugun.com/gallery/17720/preview_samsun-55-yemek-galerisi-1398173037.jpg',
-      title: 'Ultra Ucuz Kaliteli Menüler!',
-      description:
-      'Güvenilir ve lezzetli catering seçenekleriyle her türlü etkinliğinizi özel kılıyoruz, detaylar için bize ulaşın!',
-      location: 'Samsun',
-    ),
-    BusinessCardModel(
-      imageUrl:
-      'https://eminyavuzer.com/wp-content/uploads/2019/10/yeni-mutfak-catering-logo-sembol-dizayni.jpg',
-      title: 'Uygun Fiyata Dev Hizmet',
-      description:
-      'Etkinlikleriniz için özenle hazırladığımız catering seçenekleriyle lezzeti doğru adrese getiriyoruz. ',
-      location: 'Samsun',
-    ),
-  ];
-=======
   List<BusinessCardModel> businesses = [];
   bool isLoading = true;
 
@@ -82,7 +46,6 @@ class _HomePageState extends State<HomePage> {
       isLoading = false;
     });
   }
->>>>>>> Stashed changes
 
   @override
   Widget build(BuildContext context) {
@@ -194,18 +157,12 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           SizedBox(height: 10),
-<<<<<<< Updated upstream
-          Column(
-            children: businesses
-                .map((business) => Padding(
-=======
           isLoading
               ? Center(child: CircularProgressIndicator())
               : businesses.isEmpty
               ? Center(child: Text('Veri bulunamadı'))
               : Column(
             children: businesses.map((business) => Padding(
->>>>>>> Stashed changes
               padding: EdgeInsets.only(bottom: 10),
               child: BusinessCard(
                 imageUrl: business.imageUrl,
@@ -213,12 +170,7 @@ class _HomePageState extends State<HomePage> {
                 description: business.description,
                 location: business.location,
               ),
-<<<<<<< Updated upstream
-            ))
-                .toList(),
-=======
             )).toList(),
->>>>>>> Stashed changes
           ),
           SizedBox(height: 10),
         ],
@@ -333,5 +285,3 @@ class BusinessCard extends StatelessWidget {
     );
   }
 }
-
-
