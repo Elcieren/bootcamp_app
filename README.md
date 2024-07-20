@@ -216,6 +216,10 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
 
 </details>
 
+<details>
+<summary><h1>Sprint 3/h1></summary>
+</details>
+
 # **Kullanılan Teknolojiler**
   **`(Kullanılan teknolojiler her sprintte eklenmiştir)`**
   - [x] `firebase_core`
