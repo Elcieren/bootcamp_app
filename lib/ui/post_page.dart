@@ -64,23 +64,26 @@ class PostPage extends StatelessWidget {
                       children: [
                         data['imageUrl'] != null
                             ? ClipRRect(
-                          borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
-                          child: Image.network(
-                            data['imageUrl'],
-                            fit: BoxFit.cover,
-                            width: double.infinity,
-                            height: 200,
-                          ),
-                        )
+                                borderRadius: BorderRadius.vertical(
+                                    top: Radius.circular(10)),
+                                child: Image.network(
+                                  data['imageUrl'],
+                                  fit: BoxFit.cover,
+                                  width: double.infinity,
+                                  height: 200,
+                                ),
+                              )
                             : Container(
-                          width: double.infinity,
-                          height: 200,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
-                            color: Colors.grey[300],
-                          ),
-                          child: Icon(Icons.image, size: 100, color: Colors.grey[600]),
-                        ),
+                                width: double.infinity,
+                                height: 200,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.vertical(
+                                      top: Radius.circular(10)),
+                                  color: Colors.grey[300],
+                                ),
+                                child: Icon(Icons.image,
+                                    size: 100, color: Colors.grey[600]),
+                              ),
                         Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: Column(
@@ -102,15 +105,20 @@ class PostPage extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(height: 5),
-                              Text('Teslimat: ${data['Teslimat'] ?? 'Bilinmiyor'}'),
+                              Text(
+                                  'Teslimat: ${data['Teslimat'] ?? 'Bilinmiyor'}'),
                               SizedBox(height: 5),
-                              Text('Yemek İçeriği: ${data['YemekIcerigi'] ?? 'Bilinmiyor'}'),
+                              Text(
+                                  'Yemek İçeriği: ${data['YemekIcerigi'] ?? 'Bilinmiyor'}'),
                               SizedBox(height: 5),
-                              Text('Yemek Türü: ${data['YemekTuru'] ?? 'Bilinmiyor'}'),
+                              Text(
+                                  'Yemek Türü: ${data['YemekTuru'] ?? 'Bilinmiyor'}'),
                               SizedBox(height: 5),
-                              Text('Açıklama: ${data['ilanAciklamasi'] ?? 'Bilinmiyor'}'),
+                              Text(
+                                  'Açıklama: ${data['ilanAciklamasi'] ?? 'Bilinmiyor'}'),
                               SizedBox(height: 5),
-                              Text('Kullanıcı Adı: ${data['username'] ?? 'Bilinmiyor'}'),
+                              Text(
+                                  'Kullanıcı Adı: ${data['username'] ?? 'Bilinmiyor'}'),
                             ],
                           ),
                         ),
@@ -147,17 +155,18 @@ class PostDetailPage extends StatelessWidget {
           children: [
             postData['imageUrl'] != null
                 ? Image.network(
-              postData['imageUrl'],
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: 200,
-            )
+                    postData['imageUrl'],
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                    height: 200,
+                  )
                 : Container(
-              width: double.infinity,
-              height: 200,
-              color: Colors.grey[300],
-              child: Icon(Icons.image, size: 100, color: Colors.grey[600]),
-            ),
+                    width: double.infinity,
+                    height: 200,
+                    color: Colors.grey[300],
+                    child:
+                        Icon(Icons.image, size: 100, color: Colors.grey[600]),
+                  ),
             SizedBox(height: 10),
             Text(
               postData['text'] ?? 'Başlık yok',
