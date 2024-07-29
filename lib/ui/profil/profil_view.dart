@@ -7,6 +7,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+import 'package:bootcamp_app/ui/BusinessEditPage.dart';
+
 
 class ProfilView extends StatefulWidget {
   const ProfilView({super.key});
@@ -31,52 +33,76 @@ class _ProfilViewState extends State<ProfilView> {
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<ProfilViewModel>.reactive(
-        viewModelBuilder: () => ProfilViewModel(),
-        onViewModelReady: (viewModel) => viewModel.init(),
-        builder: (context, viewModel, child) => Scaffold(
-            body: Padding(
-                padding: const EdgeInsets.all(20),
-                child: _userData != null
-                    ? SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            customSizedBoxLarge(),
-                            CircleAvatar(
-                              backgroundColor: Color(0xffFAB703),
-                              radius: 70,
-                              backgroundImage: AssetImage(
-                                  _userData!['Cinsiyet'] == 'Erkek'
-                                      ? "assets/erkek1.png"
-                                      : "assets/kadın1.png"),
-                            ),
-                            customSizedBox(),
-                            itemProfile("Email", "${_userData!['email']}",
-                                CupertinoIcons.mail),
-                            customSizedBox(),
-                            itemProfile("Ad Soyad", "${_userData!['fullname']}",
-                                CupertinoIcons.person),
-                            customSizedBox(),
-                            itemProfile("Cinsiyet", "${_userData!['Cinsiyet']}",
-                                CupertinoIcons.check_mark),
-                            customSizedBox(),
-                            itemProfile("Durum", "${_userData!['Durum']}",
-                                CupertinoIcons.person_2),
-                            customSizedBox(),
-                            if (_userData!['Durum'] == 'Kurumsal' ||
-                                _userData!['Durum'] == 'Bireysel') ...[
-                              Ilan("İlan", "İlan Paylaşımı",
-                                  CupertinoIcons.plus_circle, IlanSayafsinaGit)
-                            ],
-                            customSizedBox(),
-                            itemCikis(
-                                "Çıkış",
-                                "Oturumu Kapat",
-                                Icons.exit_to_app_outlined,
-                                signOutAndNavigateToLogin)
-                          ],
-                        ),
-                      )
-                    : Center(child: CircularProgressIndicator()))));
+      viewModelBuilder: () => ProfilViewModel(),
+      onViewModelReady: (viewModel) => viewModel.init(),
+      builder: (context, viewModel, child) => Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(20),
+          child: _userData != null
+              ? SingleChildScrollView(
+            child: Column(
+              children: [
+                customSizedBoxLarge(),
+                CircleAvatar(
+                  backgroundColor: Color(0xffFAB703),
+                  radius: 70,
+                  backgroundImage: AssetImage(
+                    _userData!['Cinsiyet'] == 'Erkek'
+                        ? "assets/erkek1.png"
+                        : "assets/kadın1.png",
+                  ),
+                ),
+                customSizedBox(),
+                if (_userData!['Durum'] == 'Kurumsal' ||
+                    _userData!['Durum'] == 'Bireysel') ...[
+                  Ilan(
+                    "İlan",
+                    "İlan Paylaşımı",
+                    CupertinoIcons.plus_circle,
+                    IlanSayafsinaGit,
+                  ),
+                  customSizedBox(),
+                  isletmeDuzenlemeButton(), // Add the new button here
+                ],
+                customSizedBox(),
+                itemProfile(
+                  "Durum",
+                  "${_userData!['Durum']}",
+                  CupertinoIcons.person_2,
+                ),
+                customSizedBox(),
+                itemProfile(
+                  "Email",
+                  "${_userData!['email']}",
+                  CupertinoIcons.mail,
+                ),
+                customSizedBox(),
+                itemProfile(
+                  "Ad Soyad",
+                  "${_userData!['fullname']}",
+                  CupertinoIcons.person,
+                ),
+                customSizedBox(),
+                itemProfile(
+                  "Cinsiyet",
+                  "${_userData!['Cinsiyet']}",
+                  CupertinoIcons.check_mark,
+                ),
+                customSizedBox(),
+                itemCikis(
+                  "Çıkış",
+                  "Oturumu Kapat",
+                  Icons.exit_to_app_outlined,
+                  signOutAndNavigateToLogin,
+                ),
+                customSizedBox(),
+              ],
+            ),
+          )
+              : Center(child: CircularProgressIndicator()),
+        ),
+      ),
+    );
   }
 
   void signOutAndNavigateToLogin() async {
@@ -90,25 +116,27 @@ class _ProfilViewState extends State<ProfilView> {
     _user = _auth.currentUser;
     if (_user != null) {
       DocumentSnapshot userData =
-          await _firestore.collection('Kullanıcılar').doc(_user!.uid).get();
+      await _firestore.collection('Kullanıcılar').doc(_user!.uid).get();
       setState(() {
         _userData = userData.data() as Map<String, dynamic>?; // Dönüşüm işlemi
       });
     }
   }
 
-  itemProfile(String title, String subtitle, IconData iconData) {
+  Widget itemProfile(String title, String subtitle, IconData iconData) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-                offset: Offset(0, 5),
-                color: Color(0xff64A6FF).withOpacity(.1),
-                spreadRadius: 5,
-                blurRadius: 10)
-          ]),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(0, 5),
+            color: Color(0xff64A6FF).withOpacity(.1),
+            spreadRadius: 5,
+            blurRadius: 10,
+          ),
+        ],
+      ),
       child: ListTile(
         title: Text(title),
         subtitle: Text(subtitle),
@@ -119,8 +147,7 @@ class _ProfilViewState extends State<ProfilView> {
     );
   }
 
-  Widget itemCikis(
-      String title, String subtitle, IconData iconData, VoidCallback onTap) {
+  Widget itemCikis(String title, String subtitle, IconData iconData, VoidCallback onTap) {
     return InkWell(
       onTap: onTap,
       child: Center(
@@ -149,14 +176,14 @@ class _ProfilViewState extends State<ProfilView> {
   }
 
   Widget customSizedBox() => const SizedBox(
-        height: 20,
-      );
-  Widget customSizedBoxLarge() => const SizedBox(
-        height: 60,
-      );
+    height: 20,
+  );
 
-  Widget Ilan(
-      String title, String subtitle, IconData iconData, VoidCallback onTap) {
+  Widget customSizedBoxLarge() => const SizedBox(
+    height: 60,
+  );
+
+  Widget Ilan(String title, String subtitle, IconData iconData, VoidCallback onTap) {
     return InkWell(
       onTap: onTap,
       child: Center(
@@ -183,6 +210,42 @@ class _ProfilViewState extends State<ProfilView> {
       ),
     );
   }
+
+  Widget isletmeDuzenlemeButton() {
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => BusinessEditPage(
+              businessId: _userData?['businessId'], // Pass the business ID if available
+            ),
+          ),
+        );
+      },
+      child: Center(
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                offset: Offset(0, 5),
+                color: Color(0xff64A6FF).withOpacity(.1),
+                spreadRadius: 5,
+                blurRadius: 10,
+              ),
+            ],
+          ),
+          child: ListTile(
+            title: Center(child: Text("İşletme Düzenleme")),
+            leading: Icon(CupertinoIcons.pencil),
+            tileColor: Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+
 
   void IlanSayafsinaGit() async {
     Navigator.of(context).pushReplacement(

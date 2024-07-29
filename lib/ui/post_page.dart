@@ -31,19 +31,6 @@ class _PostPageState extends State<PostPage> {
     });
   }
 
-  Future<void> _selectDate(
-      BuildContext context, Function(DateTime) onDateSelected) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2101),
-    );
-    if (picked != null && picked != DateTime.now()) {
-      onDateSelected(picked);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,8 +69,7 @@ class _PostPageState extends State<PostPage> {
                   },
                 ),
                 IconButton(
-                  icon: Icon(Icons.notifications_active_outlined,
-                      color: Colors.black),
+                  icon: Icon(Icons.notifications_active_outlined, color: Colors.black),
                   onPressed: () {
                     // Define action when the notification icon is pressed
                   },
@@ -119,9 +105,7 @@ class _PostPageState extends State<PostPage> {
             final posts = snapshot.data!.docs.where((doc) {
               final data = doc.data() as Map<String, dynamic>;
               final yemekIcerigi = data['YemekIcerigi'] ?? '';
-              return yemekIcerigi
-                  .toLowerCase()
-                  .contains(_searchTerm.toLowerCase());
+              return yemekIcerigi.toLowerCase().contains(_searchTerm.toLowerCase());
             }).toList();
 
             return ListView.builder(
@@ -135,88 +119,147 @@ class _PostPageState extends State<PostPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => PostDetailPage(
-                            postData: data,
-                            onDateSelected: (pickedDate) {
-                              // Handle date selection in detail page
-                            }),
+                        builder: (context) => PostDetailPage(postData: data),
                       ),
                     );
                   },
-                  child: Card(
+                  child: Container(
                     margin: EdgeInsets.all(12.0),
-                    shape: RoundedRectangleBorder(
+                    padding: EdgeInsets.all(2.0), // Padding for the border
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.deepOrange, width: 3.0),
                       borderRadius: BorderRadius.circular(20.0),
                     ),
-                    elevation: 5,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        data['imageUrl'] != null
-                            ? ClipRRect(
-                                borderRadius: BorderRadius.vertical(
-                                    top: Radius.circular(20)),
-                                child: Image.network(
-                                  data['imageUrl'],
-                                  fit: BoxFit.cover,
-                                  width: double.infinity,
-                                  height: 200,
-                                ),
-                              )
-                            : Container(
-                                width: double.infinity,
-                                height: 200,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.vertical(
-                                      top: Radius.circular(20)),
-                                  color: Colors.grey[300],
-                                ),
-                                child: Icon(Icons.image,
-                                    size: 100, color: Colors.grey[600]),
-                              ),
-                        Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                data['text'] ?? 'Başlık yok',
-                                style: TextStyle(
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              SizedBox(height: 5),
-                              Divider(thickness: 2),
-                              SizedBox(height: 5),
-                              Text(
-                                'Yemek İçeriği: ${data['YemekIcerigi'] ?? 'Bilinmiyor'}',
-                                style: TextStyle(fontSize: 16.0),
-                              ),
-                              SizedBox(height: 5),
-                              Text(
-                                'Yemek Türü: ${data['YemekTuru'] ?? 'Bilinmiyor'}',
-                                style: TextStyle(fontSize: 16.0),
-                              ),
-                              SizedBox(height: 5),
-                              Text(
-                                'Teslimat: ${data['Teslimat'] ?? 'Bilinmiyor'}',
-                                style: TextStyle(fontSize: 16.0),
-                              ),
-                              SizedBox(height: 5),
-                              Text(
-                                'Açıklama: ${data['ilanAciklamasi'] ?? 'Bilinmiyor'}',
-                                style: TextStyle(fontSize: 16.0),
-                              ),
-                              SizedBox(height: 5),
-                              Text(
-                                'Kullanıcı Adı: ${data['username'] ?? 'Bilinmiyor'}',
-                                style: TextStyle(fontSize: 16.0),
-                              ),
-                            ],
+                    child: Card(
+                      margin: EdgeInsets.zero, // Remove margin from the Card
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      elevation: 5,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          data['link'] != null
+                              ? ClipRRect(
+                            borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+                            child: Image.network(
+                              data['link'],
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                              height: 200,
+                            ),
+                          )
+                              : Container(
+                            width: double.infinity,
+                            height: 200,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+                              color: Colors.grey[300],
+                            ),
+                            child: Icon(Icons.image, size: 100, color: Colors.grey[600]),
                           ),
-                        ),
-                      ],
+                          Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  data['text'] ?? 'Başlık yok',
+                                  style: TextStyle(
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(height: 2),
+                                Divider(thickness: 2),
+                                Text(
+                                  'Yemek İçeriği:',
+                                  style: TextStyle(
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  data['YemekIcerigi'] ?? 'Bilinmiyor',
+                                  style: TextStyle(fontSize: 16.0),
+                                ),
+                                SizedBox(height: 5),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Yemek Türü:',
+                                      style: TextStyle(
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.w800,
+                                        color: Colors.black54,
+                                      ),
+                                    ),
+                                    SizedBox(width: 8),
+                                    Expanded(
+                                      child: Text(
+                                        data['YemekTuru'] ?? 'Bilinmiyor',
+                                        style: TextStyle(fontSize: 16.0, color: Colors.black54),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 5),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Teslimat:',
+                                      style: TextStyle(
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.w800,
+                                          color: Colors.black54),
+                                    ),
+                                    SizedBox(width: 8),
+                                    Expanded(
+                                      child: Text(
+                                        data['Teslimat'] ?? 'Bilinmiyor',
+                                        style: TextStyle(fontSize: 16.0, color: Colors.black54),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 5),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Menü Sahibi:',
+                                      style: TextStyle(
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.w800,
+                                          color: Colors.black54),
+                                    ),
+                                    SizedBox(width: 8),
+                                    Expanded(
+                                      child: Text(
+                                        data['fullname'] ?? 'Bilinmiyor',
+                                        style: TextStyle(fontSize: 16.0, color: Colors.black54),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 10),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Fiyat: ${data['Fiyat'] ?? 'Bilinmiyor'} TL',
+                                      style: TextStyle(
+                                        fontSize: 23.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.green,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 );
@@ -229,11 +272,11 @@ class _PostPageState extends State<PostPage> {
   }
 }
 
+
 class PostDetailPage extends StatefulWidget {
   final Map<String, dynamic> postData;
-  final Function(DateTime) onDateSelected;
 
-  PostDetailPage({required this.postData, required this.onDateSelected});
+  PostDetailPage({required this.postData});
 
   @override
   _PostDetailPageState createState() => _PostDetailPageState();
@@ -243,13 +286,27 @@ class _PostDetailPageState extends State<PostDetailPage> {
   bool _isDescriptionVisible = false;
   String _selectedDate = 'Tarih Seç';
 
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2101),
+    );
+    if (picked != null && picked != DateTime.now()) {
+      setState(() {
+        _selectedDate = DateFormat('dd MM yyyy').format(picked);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
+        elevation: 0, // No shadow
         title: Text(widget.postData['text'] ?? 'Detay Sayfası'),
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.orange, // Match with Scaffold background
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -259,24 +316,23 @@ class _PostDetailPageState extends State<PostDetailPage> {
             children: [
               widget.postData['link'] != null
                   ? ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: Image.network(
-                        widget.postData['link'],
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                        height: 200,
-                      ),
-                    )
+                borderRadius: BorderRadius.circular(15),
+                child: Image.network(
+                  widget.postData['link'],
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: 200,
+                ),
+              )
                   : Container(
-                      width: double.infinity,
-                      height: 200,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Colors.grey[300],
-                      ),
-                      child:
-                          Icon(Icons.image, size: 100, color: Colors.grey[600]),
-                    ),
+                width: double.infinity,
+                height: 200,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.grey[300],
+                ),
+                child: Icon(Icons.image, size: 100, color: Colors.grey[600]),
+              ),
               SizedBox(height: 20),
               Center(
                 child: Text(
@@ -337,8 +393,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
                           children: [
                             Text(
                               'Açıklama',
-                              style: TextStyle(
-                                  fontSize: 18.0, color: Colors.orange),
+                              style: TextStyle(fontSize: 18.0, color: Colors.orange),
                             ),
                             Icon(
                               _isDescriptionVisible
@@ -383,23 +438,19 @@ class _PostDetailPageState extends State<PostDetailPage> {
                       children: [
                         ElevatedButton(
                           onPressed: () {
-                            _selectDate(context, widget.onDateSelected);
+                            _selectDate(context);
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.orange,
+                            backgroundColor: Colors.orange, // Button color
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30.0),
                             ),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 20.0, vertical: 15.0),
+                            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
                             child: Text(
                               _selectedDate,
-                              style: TextStyle(
-                                  fontSize: 18.0,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600),
+                              style: TextStyle(fontSize: 18.0, color: Colors.white, fontWeight: FontWeight.w600),
                             ),
                           ),
                         ),
@@ -409,20 +460,16 @@ class _PostDetailPageState extends State<PostDetailPage> {
                             // Implement purchase action here
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.orange,
+                            backgroundColor: Colors.orange, // Button color
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30.0),
                             ),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 30.0, vertical: 15.0),
+                            padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15.0),
                             child: Text(
                               'Teklif Et',
-                              style: TextStyle(
-                                  fontSize: 18.0,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600),
+                              style: TextStyle(fontSize: 18.0, color: Colors.white, fontWeight: FontWeight.w600),
                             ),
                           ),
                         ),
@@ -436,21 +483,5 @@ class _PostDetailPageState extends State<PostDetailPage> {
         ),
       ),
     );
-  }
-
-  Future<void> _selectDate(
-      BuildContext context, Function(DateTime) onDateSelected) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2101),
-    );
-    if (picked != null && picked != DateTime.now()) {
-      onDateSelected(picked);
-      setState(() {
-        _selectedDate = DateFormat('yyyy-MM-dd').format(picked);
-      });
-    }
   }
 }
