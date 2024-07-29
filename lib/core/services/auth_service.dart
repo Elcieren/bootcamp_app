@@ -63,28 +63,26 @@ class AuthService {
       String cinsiyet,
       String email,
       String ilanAciklamasi,
-      String YemekTuru,
-      String YemekIcerigi,
-      String Fiyat,
-      String TeslimatSekli,
-      String YemeKategori) async {
-    try {
-      await firebaseFireStore.collection('Post').add({
-        'text': text,
-        'username': fullname,
-        'cinsiyet': cinsiyet,
-        'email': email,
-        'timestamp': FieldValue.serverTimestamp(),
-        'ilanAciklamasi': ilanAciklamasi,
-        'YemekTuru': YemekTuru,
-        'YemekIcerigi': YemekIcerigi,
-        'Fiyat': Fiyat,
-        'Teslimat': TeslimatSekli,
-        "Kategori": YemeKategori,
-      });
-      print('Post başarıyla oluşturuldu.');
-    } catch (e) {
-      print('Post oluşturulurken bir hata oluştu: $e');
-    }
+      String yemekTuru,
+      String yemekIcerigi,
+      String fiyat,
+      String teslimat,
+      String yemeKategori,
+      String imageUrl // Add the imageUrl parameter here
+      ) async {
+    await FirebaseFirestore.instance.collection('Post').add({
+      'text': text,
+      'fullname': fullname,
+      'cinsiyet': cinsiyet,
+      'email': email,
+      'ilanAciklamasi': ilanAciklamasi,
+      'YemekTuru': yemekTuru,
+      'YemekIcerigi': yemekIcerigi,
+      'Fiyat': fiyat,
+      'Teslimat': teslimat,
+      'YemeKategori': yemeKategori,
+      'link': imageUrl, // Save the imageUrl field
+      'timestamp': DateTime.now(),
+    });
   }
 }

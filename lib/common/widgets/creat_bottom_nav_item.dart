@@ -13,11 +13,11 @@ class TabItemData {
   });
   static Map<TabItem, TabItemData> tabs = {
     TabItem.Plant: TabItemData(
-      title: "Ne Bu",
-      icon: Icon(Icons.help, color: Color(0xffFAB703)),
+      title: "Menuler",
+      icon: Icon(Icons.fastfood, color: Color(0xffFAB703)),
     ),
     TabItem.Help: TabItemData(
-      title: "Gönderiler",
+      title: "İşletmeler",
       icon: Icon(
         Icons.home,
         color: Color(0xffFAB703),

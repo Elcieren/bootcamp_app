@@ -1,24 +1,90 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:intl/intl.dart';
 
-class PostPage extends StatelessWidget {
+class PostPage extends StatefulWidget {
+  @override
+  _PostPageState createState() => _PostPageState();
+}
+
+class _PostPageState extends State<PostPage> {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final TextEditingController _searchController = TextEditingController();
+  String _searchTerm = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _searchController.addListener(_onSearchChanged);
+  }
+
+  @override
+  void dispose() {
+    _searchController.removeListener(_onSearchChanged);
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  void _onSearchChanged() {
+    setState(() {
+      _searchTerm = _searchController.text;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0, // No shadow
+        backgroundColor: Colors.white,
+        elevation: 2,
         automaticallyImplyLeading: false,
-        title: Text('Paylaşılan Menüler'),
-        backgroundColor: Colors.orange, // Match with Scaffold background
+        title: Row(
+          children: [
+            Expanded(
+              flex: 4,
+              child: Container(
+                height: 40,
+                child: TextField(
+                  controller: _searchController,
+                  decoration: InputDecoration(
+                    hintText: 'Catering, ev yemekleri...',
+                    prefixIcon: Icon(Icons.search, color: Colors.orange),
+                    filled: true,
+                    fillColor: Colors.grey[300],
+                    contentPadding: EdgeInsets.symmetric(vertical: 0),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide.none,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Row(
+              children: [
+                IconButton(
+                  icon: Icon(Icons.card_giftcard, color: Colors.black),
+                  onPressed: () {
+                    // Define action when the gift icon is pressed
+                  },
+                ),
+                IconButton(
+                  icon: Icon(Icons.notifications_active_outlined, color: Colors.black),
+                  onPressed: () {
+                    // Define action when the notification icon is pressed
+                  },
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [Colors.orange, Colors.white],
+            colors: [Colors.white, Colors.white],
           ),
         ),
         child: StreamBuilder<QuerySnapshot>(
@@ -33,10 +99,14 @@ class PostPage extends StatelessWidget {
             }
 
             if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-              return Center(child: Text('Veri bulunamadı'));
+              return Center(child: Text('Menü Bulunamadı'));
             }
 
-            final posts = snapshot.data!.docs;
+            final posts = snapshot.data!.docs.where((doc) {
+              final data = doc.data() as Map<String, dynamic>;
+              final yemekIcerigi = data['YemekIcerigi'] ?? '';
+              return yemekIcerigi.toLowerCase().contains(_searchTerm.toLowerCase());
+            }).toList();
 
             return ListView.builder(
               itemCount: posts.length,
@@ -53,68 +123,143 @@ class PostPage extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Card(
-                    margin: EdgeInsets.all(8.0),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
+                  child: Container(
+                    margin: EdgeInsets.all(12.0),
+                    padding: EdgeInsets.all(2.0), // Padding for the border
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black, width: 2.0),
+                      borderRadius: BorderRadius.circular(20.0),
                     ),
-                    elevation: 5,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        data['imageUrl'] != null
-                            ? ClipRRect(
-                          borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
-                          child: Image.network(
-                            data['imageUrl'],
-                            fit: BoxFit.cover,
+                    child: Card(
+                      margin: EdgeInsets.zero, // Remove margin from the Card
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15.0),
+                      ),
+                      elevation: 5,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          data['link'] != null
+                              ? ClipRRect(
+                            borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+                            child: Image.network(
+                              data['link'],
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                              height: 200,
+                            ),
+                          )
+                              : Container(
                             width: double.infinity,
                             height: 200,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
+                              color: Colors.grey[300],
+                            ),
+                            child: Icon(Icons.image, size: 100, color: Colors.grey[600]),
                           ),
-                        )
-                            : Container(
-                          width: double.infinity,
-                          height: 200,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
-                            color: Colors.grey[300],
-                          ),
-                          child: Icon(Icons.image, size: 100, color: Colors.grey[600]),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                data['text'] ?? 'Başlık yok',
-                                style: TextStyle(
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold,
+                          Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  data['text'] ?? 'Başlık yok',
+                                  style: TextStyle(
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                              ),
-                              SizedBox(height: 10),
-                              Text(
-                                'Fiyat: ${data['Fiyat'] ?? 'Bilinmiyor'} TL',
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  color: Colors.green,
+                                SizedBox(height: 2),
+                                Divider(thickness: 2),
+                                Text(
+                                  'Yemek İçeriği:',
+                                  style: TextStyle(
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                              ),
-                              SizedBox(height: 5),
-                              Text('Teslimat: ${data['Teslimat'] ?? 'Bilinmiyor'}'),
-                              SizedBox(height: 5),
-                              Text('Yemek İçeriği: ${data['YemekIcerigi'] ?? 'Bilinmiyor'}'),
-                              SizedBox(height: 5),
-                              Text('Yemek Türü: ${data['YemekTuru'] ?? 'Bilinmiyor'}'),
-                              SizedBox(height: 5),
-                              Text('Açıklama: ${data['ilanAciklamasi'] ?? 'Bilinmiyor'}'),
-                              SizedBox(height: 5),
-                              Text('Kullanıcı Adı: ${data['username'] ?? 'Bilinmiyor'}'),
-                            ],
+                                Text(
+                                  data['YemekIcerigi'] ?? 'Bilinmiyor',
+                                  style: TextStyle(fontSize: 16.0),
+                                ),
+                                SizedBox(height: 5),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Yemek Türü:',
+                                      style: TextStyle(
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.w800,
+                                        color: Colors.black54,
+                                      ),
+                                    ),
+                                    SizedBox(width: 8),
+                                    Expanded(
+                                      child: Text(
+                                        data['YemekTuru'] ?? 'Bilinmiyor',
+                                        style: TextStyle(fontSize: 16.0, color: Colors.black54),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 5),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Teslimat:',
+                                      style: TextStyle(
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.w800,
+                                          color: Colors.black54),
+                                    ),
+                                    SizedBox(width: 8),
+                                    Expanded(
+                                      child: Text(
+                                        data['Teslimat'] ?? 'Bilinmiyor',
+                                        style: TextStyle(fontSize: 16.0, color: Colors.black54),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 5),
+                                Row(
+                                  children: [
+                                    Text(
+                                      'Menü Sahibi:',
+                                      style: TextStyle(
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.w800,
+                                          color: Colors.black54),
+                                    ),
+                                    SizedBox(width: 8),
+                                    Expanded(
+                                      child: Text(
+                                        data['fullname'] ?? 'Bilinmiyor',
+                                        style: TextStyle(fontSize: 16.0, color: Colors.black54),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(height: 10),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Fiyat: ${data['Fiyat'] ?? 'Bilinmiyor'} TL',
+                                      style: TextStyle(
+                                        fontSize: 23.0,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.green,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 );
@@ -127,64 +272,214 @@ class PostPage extends StatelessWidget {
   }
 }
 
-class PostDetailPage extends StatelessWidget {
+
+class PostDetailPage extends StatefulWidget {
   final Map<String, dynamic> postData;
 
   PostDetailPage({required this.postData});
+
+  @override
+  _PostDetailPageState createState() => _PostDetailPageState();
+}
+
+class _PostDetailPageState extends State<PostDetailPage> {
+  bool _isDescriptionVisible = false;
+  String _selectedDate = 'Tarih Seç';
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2000),
+      lastDate: DateTime(2101),
+    );
+    if (picked != null && picked != DateTime.now()) {
+      setState(() {
+        _selectedDate = DateFormat('dd MM yyyy').format(picked);
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         elevation: 0, // No shadow
-        title: Text(postData['text'] ?? 'Detay Sayfası'),
+        title: Text(widget.postData['text'] ?? 'Detay Sayfası'),
         backgroundColor: Colors.orange, // Match with Scaffold background
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            postData['imageUrl'] != null
-                ? Image.network(
-              postData['imageUrl'],
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: 200,
-            )
-                : Container(
-              width: double.infinity,
-              height: 200,
-              color: Colors.grey[300],
-              child: Icon(Icons.image, size: 100, color: Colors.grey[600]),
-            ),
-            SizedBox(height: 10),
-            Text(
-              postData['text'] ?? 'Başlık yok',
-              style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              widget.postData['link'] != null
+                  ? ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Image.network(
+                  widget.postData['link'],
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: 200,
+                ),
+              )
+                  : Container(
+                width: double.infinity,
+                height: 200,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.grey[300],
+                ),
+                child: Icon(Icons.image, size: 100, color: Colors.grey[600]),
               ),
-            ),
-            SizedBox(height: 10),
-            Text(
-              'Fiyat: ${postData['Fiyat'] ?? 'Bilinmiyor'} TL',
-              style: TextStyle(
-                fontSize: 16.0,
-                color: Colors.green,
+              SizedBox(height: 20),
+              Center(
+                child: Text(
+                  widget.postData['text'] ?? 'Başlık yok',
+                  style: TextStyle(
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
-            ),
-            SizedBox(height: 5),
-            Text('Teslimat: ${postData['Teslimat'] ?? 'Bilinmiyor'}'),
-            SizedBox(height: 5),
-            Text('Yemek İçeriği: ${postData['YemekIcerigi'] ?? 'Bilinmiyor'}'),
-            SizedBox(height: 5),
-            Text('Yemek Türü: ${postData['YemekTuru'] ?? 'Bilinmiyor'}'),
-            SizedBox(height: 5),
-            Text('Açıklama: ${postData['ilanAciklamasi'] ?? 'Bilinmiyor'}'),
-            SizedBox(height: 5),
-            Text('Kullanıcı Adı: ${postData['username'] ?? 'Bilinmiyor'}'),
-          ],
+              Divider(thickness: 2),
+              SizedBox(height: 10),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey, width: 1.0),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  children: [
+                    Center(
+                      child: Text(
+                        'Yemek İçeriği:\n${widget.postData['YemekIcerigi'] ?? 'Bilinmiyor'}',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 18.0),
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Center(
+                      child: Text(
+                        'Yemek Türü: ${widget.postData['YemekTuru'] ?? 'Bilinmiyor'}',
+                        style: TextStyle(fontSize: 18.0),
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Center(
+                      child: Text(
+                        'Teslimat: ${widget.postData['Teslimat'] ?? 'Bilinmiyor'}',
+                        style: TextStyle(fontSize: 18.0),
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Center(
+                      child: Text(
+                        'Menü Sahibi: ${widget.postData['fullname'] ?? 'Bilinmiyor'}',
+                        style: TextStyle(fontSize: 18.0),
+                      ),
+                    ),
+                    Center(
+                      child: TextButton(
+                        onPressed: () {
+                          setState(() {
+                            _isDescriptionVisible = !_isDescriptionVisible;
+                          });
+                        },
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              'Açıklama',
+                              style: TextStyle(fontSize: 18.0, color: Colors.orange),
+                            ),
+                            Icon(
+                              _isDescriptionVisible
+                                  ? Icons.keyboard_arrow_up
+                                  : Icons.keyboard_arrow_down,
+                              color: Colors.orange,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Visibility(
+                      visible: _isDescriptionVisible,
+                      child: Column(
+                        children: [
+                          Text(
+                            widget.postData['ilanAciklamasi'] ?? 'Bilinmiyor',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 18.0),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 10),
+              Center(
+                child: Column(
+                  children: [
+                    Text(
+                      'Fiyat: ${widget.postData['Fiyat'] ?? 'Bilinmiyor'} TL',
+                      style: TextStyle(
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.green,
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            _selectDate(context);
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.orange, // Button color
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+                            child: Text(
+                              _selectedDate,
+                              style: TextStyle(fontSize: 18.0, color: Colors.white, fontWeight: FontWeight.w600),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 20),
+                        ElevatedButton(
+                          onPressed: () {
+                            // Implement purchase action here
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.orange, // Button color
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15.0),
+                            child: Text(
+                              'Teklif Et',
+                              style: TextStyle(fontSize: 18.0, color: Colors.white, fontWeight: FontWeight.w600),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
