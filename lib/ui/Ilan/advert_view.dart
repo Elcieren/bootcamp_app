@@ -20,6 +20,8 @@ class _AdvertViewState extends State<AdvertView> {
   late String text;
   late String ilanAciklamasi;
   late String YemekTuru;
+  late String imageUrl;
+
   List<String> YemeKategorisi = [
     'Vegan',
     'Vejeteryan',
@@ -178,6 +180,19 @@ class _AdvertViewState extends State<AdvertView> {
                                       padding: const EdgeInsets.symmetric(
                                           horizontal: 10),
                                       child: YemekIcerigiField()),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                      width: 400,
+                                      height: 70,
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                          BorderRadius.circular(20),
+                                          color: Colors.grey.withOpacity(0.2)),
+                                      padding: const EdgeInsets.symmetric(
+                                          horizontal: 10),
+                                      child: ImageUrlField()),  // Added Image URL field
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
@@ -347,6 +362,46 @@ class _AdvertViewState extends State<AdvertView> {
       decoration: customInputDecaration("Yemek İçeriği"),
     );
   }
+  TextFormField ImageUrlField() {
+    return TextFormField(
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return "Lütfen bir görsel linki ekleyiniz.";
+        }
+      },
+      onSaved: (value) {
+        imageUrl = value!;
+      },
+      style: TextStyle(color: Colors.black),
+      decoration: InputDecoration(
+        hintText: "Görsel Linki",
+        border: InputBorder.none,
+        suffixIcon: IconButton(
+          icon: Icon(Icons.help_outline),
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text("Bilgilendirme"),
+                  content: Text("Paylaşmak istediğiniz menüde gözükecek olan görsel linkini yazınız."),
+                  actions: <Widget>[
+                    TextButton(
+                      child: Text("Tamam"),
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
+                );
+              },
+            );
+          },
+        ),
+      ),
+    );
+  }
 
   TextFormField FiyatField() {
     return TextFormField(
@@ -483,19 +538,22 @@ class _AdvertViewState extends State<AdvertView> {
             YemekIcerigi,
             Fiyat,
             Teslimat!,
-            YemeKategori!);
+            YemeKategori!,
+            imageUrl // Add the imageUrl parameter here
+        );
+
         formkeyPost.currentState!.reset();
         setState(() {
           YemeKategori = null;
           Teslimat = null;
         });
+
         showCupertinoDialog(
           context: context,
           builder: (BuildContext context) {
             return CupertinoAlertDialog(
               title: Text("Bilgilendirme"),
-              content: Text(
-                  "İlanınız başarıyla iletildi. Ekibimiz tarafından incelendikten sonra paylaşılacaktır "),
+              content: Text("İlanınız başarıyla iletildi. Ekibimiz tarafından incelendikten sonra paylaşılacaktır"),
               actions: <Widget>[
                 CupertinoDialogAction(
                   child: Text("Tamam"),
