@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-
+import 'package:bootcamp_app/ui/post_page.dart';
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -476,6 +476,11 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
         imageUrl: data['link'] ?? '',
         text: data['text'] ?? '',
         price: data['Fiyat'] ?? '',
+        icerik: data['YemekIcerigi'] ?? '',
+          tur: data['YemekTuru'] ?? '',
+        teslimat: data['Teslimat']?? '',
+        sahip: data['fullname'] ?? '',
+        aciklama: data['ilanAciklamasi']?? '',
       );
     }).toList();
 
@@ -483,6 +488,27 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
       menus = fetchedMenus;
       isLoading = false;
     });
+  }
+
+  void _navigateToPostDetail(PostModel post) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => PostDetailPage(
+          postData: {
+            'email': widget.business.userEmail,
+            'link': post.imageUrl,
+            'text': post.text,
+            'Fiyat': post.price,
+            'YemekIcerigi':post.icerik,
+            'YemekTuru': post.tur,
+            'Teslimat': post.teslimat,
+            'fullname':post.sahip,
+            'ilanAciklamasi':post.aciklama,
+          },
+        ),
+      ),
+    );
   }
 
   @override
@@ -542,21 +568,24 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
                 itemCount: menus.length,
                 itemBuilder: (context, index) {
                   final menu = menus[index];
-                  return Card(
-                    margin: EdgeInsets.all(0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.network(menu.imageUrl, width: double.infinity, height: 100, fit: BoxFit.cover),
-                        Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text(menu.text, style: TextStyle(fontWeight: FontWeight.bold)),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Text(menu.price),
-                        ),
-                      ],
+                  return GestureDetector(
+                    onTap: () => _navigateToPostDetail(menu),
+                    child: Card(
+                      margin: EdgeInsets.all(0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Image.network(menu.imageUrl, width: double.infinity, height: 100, fit: BoxFit.cover),
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(menu.text, style: TextStyle(fontWeight: FontWeight.bold)),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 8.0),
+                            child: Text(menu.price),
+                          ),
+                        ],
+                      ),
                     ),
                   );
                 },
@@ -569,15 +598,26 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
   }
 }
 
+
 class PostModel {
   final String imageUrl;
   final String text;
   final String price;
+  final String icerik;
+  final String tur;
+  final String teslimat;
+  final String sahip;
+  final String aciklama;
 
   PostModel({
     required this.imageUrl,
     required this.text,
     required this.price,
+    required this.icerik,
+    required this.tur,
+    required this.teslimat,
+    required this.sahip,
+    required this.aciklama
   });
 }
 

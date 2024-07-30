@@ -8,8 +8,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:bootcamp_app/ui/BusinessEditPage.dart';
-
-
+import 'package:bootcamp_app/ui/Ilan/advert_edit.dart';
 class ProfilView extends StatefulWidget {
   const ProfilView({super.key});
 
@@ -61,6 +60,8 @@ class _ProfilViewState extends State<ProfilView> {
                     CupertinoIcons.plus_circle,
                     IlanSayafsinaGit,
                   ),
+                  customSizedBox(),
+                  IlanDuzenlemeButton(), // Add the new button here
                   customSizedBox(),
                   isletmeDuzenlemeButton(), // Add the new button here
                 ],
@@ -147,7 +148,8 @@ class _ProfilViewState extends State<ProfilView> {
     );
   }
 
-  Widget itemCikis(String title, String subtitle, IconData iconData, VoidCallback onTap) {
+  Widget itemCikis(
+      String title, String subtitle, IconData iconData, VoidCallback onTap) {
     return InkWell(
       onTap: onTap,
       child: Center(
@@ -211,6 +213,39 @@ class _ProfilViewState extends State<ProfilView> {
     );
   }
 
+  Widget IlanDuzenlemeButton() {
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => AdvertEditPage(),
+          ),
+        );
+      },
+      child: Center(
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                offset: Offset(0, 5),
+                color: Color(0xff64A6FF).withOpacity(.1),
+                spreadRadius: 5,
+                blurRadius: 10,
+              ),
+            ],
+          ),
+          child: ListTile(
+            title: Center(child: Text("İlan Düzenleme")),
+            leading: Icon(CupertinoIcons.pencil),
+            tileColor: Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget isletmeDuzenlemeButton() {
     return InkWell(
       onTap: () {
@@ -245,7 +280,6 @@ class _ProfilViewState extends State<ProfilView> {
       ),
     );
   }
-
 
   void IlanSayafsinaGit() async {
     Navigator.of(context).pushReplacement(

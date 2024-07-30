@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
-
+import 'package:bootcamp_app/ui/home_page.dart';
 class PostPage extends StatefulWidget {
   @override
   _PostPageState createState() => _PostPageState();
@@ -273,6 +273,7 @@ class _PostPageState extends State<PostPage> {
 }
 
 
+
 class PostDetailPage extends StatefulWidget {
   final Map<String, dynamic> postData;
 
@@ -285,6 +286,32 @@ class PostDetailPage extends StatefulWidget {
 class _PostDetailPageState extends State<PostDetailPage> {
   bool _isDescriptionVisible = false;
   String _selectedDate = 'Tarih Seç';
+  Map<String, dynamic>? businessData;
+  bool isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchBusinessDetails();
+  }
+
+  Future<void> fetchBusinessDetails() async {
+    final snapshot = await FirebaseFirestore.instance
+        .collection('isletmeler')
+        .where('userEmail', isEqualTo: widget.postData['email'])
+        .get();
+
+    if (snapshot.docs.isNotEmpty) {
+      setState(() {
+        businessData = snapshot.docs.first.data();
+        isLoading = false;
+      });
+    } else {
+      setState(() {
+        isLoading = false;
+      });
+    }
+  }
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -300,13 +327,30 @@ class _PostDetailPageState extends State<PostDetailPage> {
     }
   }
 
+  void _navigateToBusinessDetails() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => BusinessDetailsPage(
+          business: BusinessCardModel(
+            title: businessData?['title'] ?? '',
+            imageUrl: businessData?['imageUrl'] ?? '',
+            description: businessData?['description'] ?? '',
+            location: businessData?['location'] ?? '',
+            userEmail: businessData?['userEmail'] ?? '',
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0, // No shadow
+        elevation: 0,
         title: Text(widget.postData['text'] ?? 'Detay Sayfası'),
-        backgroundColor: Colors.orange, // Match with Scaffold background
+        backgroundColor: Colors.orange,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -441,7 +485,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
                             _selectDate(context);
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.orange, // Button color
+                            backgroundColor: Colors.orange,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30.0),
                             ),
@@ -460,7 +504,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
                             // Implement purchase action here
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.orange, // Button color
+                            backgroundColor: Colors.orange,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30.0),
                             ),
@@ -476,6 +520,64 @@ class _PostDetailPageState extends State<PostDetailPage> {
                       ],
                     ),
                   ],
+                ),
+              ),
+              SizedBox(height: 20),
+              isLoading
+                  ? Center(child: CircularProgressIndicator())
+                  : businessData == null
+                  ? Center(child: Text('İşletme Bilgisi Bulunamadı'))
+                  : GestureDetector(
+                onTap: _navigateToBusinessDetails,
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey, width: 1.0),
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.grey[100],
+                  ),
+                  padding: EdgeInsets.all(10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'İşletme Bilgileri',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      businessData!['imageUrl'] != null
+                          ? ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image.network(
+                          businessData!['imageUrl'],
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          height: 100,
+                        ),
+                      )
+                          : Container(
+                        width: double.infinity,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Colors.grey[300],
+                        ),
+                        child: Icon(Icons.image, size: 50, color: Colors.grey[600]),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'Title: ${businessData!['title'] ?? 'Bilinmiyor'}',
+                        style: TextStyle(fontSize: 18.0),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'Description: ${businessData!['aciklama'] ?? 'Bilinmiyor'}',
+                        style: TextStyle(fontSize: 18.0),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],

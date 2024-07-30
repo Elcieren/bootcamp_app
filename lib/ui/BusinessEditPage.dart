@@ -17,6 +17,7 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
   final _descriptionController = TextEditingController();
   final _locationController = TextEditingController();
   final _imageUrlController = TextEditingController();
+  final _phoneNumberController = TextEditingController(); // Added controller
 
   bool _isLoading = false;
   List<Map<String, dynamic>> _businesses = [];
@@ -26,6 +27,8 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
     super.initState();
     if (widget.businessId != null) {
       _fetchBusinessData(widget.businessId!);
+    } else {
+      _fetchUserBusiness();
     }
     _fetchUserBusinesses();
   }
@@ -44,6 +47,39 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
         _descriptionController.text = data['aciklama'] ?? '';
         _locationController.text = data['location'] ?? '';
         _imageUrlController.text = data['imageUrl'] ?? '';
+        _phoneNumberController.text = data['phoneNumber'] ?? ''; // Fetch phone number
+      }
+    } catch (e) {
+      // Handle errors if needed
+    } finally {
+      setState(() {
+        _isLoading = false;
+      });
+    }
+  }
+
+  Future<void> _fetchUserBusiness() async {
+    setState(() {
+      _isLoading = true;
+    });
+
+    try {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        final snapshot = await FirebaseFirestore.instance
+            .collection('isletmeler')
+            .where('userEmail', isEqualTo: user.email)
+            .limit(1)
+            .get();
+
+        if (snapshot.docs.isNotEmpty) {
+          final data = snapshot.docs.first.data();
+          _titleController.text = data['title'] ?? '';
+          _descriptionController.text = data['aciklama'] ?? '';
+          _locationController.text = data['location'] ?? '';
+          _imageUrlController.text = data['imageUrl'] ?? '';
+          _phoneNumberController.text = data['phoneNumber'] ?? '';
+        }
       }
     } catch (e) {
       // Handle errors if needed
@@ -93,6 +129,7 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
             'aciklama': _descriptionController.text,
             'location': _locationController.text,
             'imageUrl': _imageUrlController.text,
+            'phoneNumber': _phoneNumberController.text, // Save phone number
             'etiket': 'genel',
             'userEmail': user.email,
           };
@@ -133,100 +170,111 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
         padding: const EdgeInsets.all(16.0),
         child: _isLoading
             ? Center(child: CircularProgressIndicator())
-            : Column(
-          children: [
-            Form(
-              key: _formKey,
-              child: Column(
-                children: [
-                  // Image URL input field
-                  TextFormField(
-                    controller: _imageUrlController,
-                    decoration: InputDecoration(
+            : SingleChildScrollView(
+          child: Column(
+            children: [
+              Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    // Image URL input field
+                    customTextFormField(
+                      controller: _imageUrlController,
                       labelText: 'İşletme Logosu (URL)',
                     ),
-                    validator: (value) => value?.isEmpty ?? true ? 'İşletme logosu URL girin' : null,
-                  ),
-                  SizedBox(height: 20),
-                  // Display image preview if URL is provided
-                  if (_imageUrlController.text.isNotEmpty)
-                    Image.network(
-                      _imageUrlController.text,
-                      height: 200,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
+                    customTextFormField(
+                      controller: _titleController,
+                      labelText: 'İşletme Adı',
                     ),
-                  TextFormField(
-                    controller: _titleController,
-                    decoration: InputDecoration(labelText: 'İşletme Adı'),
-                    validator: (value) => value?.isEmpty ?? true ? 'İşletme adı girin' : null,
-                  ),
-                  TextFormField(
-                    controller: _descriptionController,
-                    decoration: InputDecoration(labelText: 'İşletme Açıklaması'),
-                    validator: (value) => value?.isEmpty ?? true ? 'İşletme açıklaması girin' : null,
-                  ),
-                  TextFormField(
-                    controller: _locationController,
-                    decoration: InputDecoration(labelText: 'İşletme Şehri'),
-                    validator: (value) => value?.isEmpty ?? true ? 'İşletme şehri girin' : null,
-                  ),
-                  SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: _saveBusinessData,
-                    child: Text(widget.businessId == null ? 'Kaydet' : 'Güncelle'),
-                  ),
-                ],
+                    customTextFormField(
+                      controller: _descriptionController,
+                      labelText: 'İşletme Açıklaması',
+                    ),
+                    customTextFormField(
+                      controller: _locationController,
+                      labelText: 'İşletme Şehri',
+                    ),
+                    customTextFormField(
+                      controller: _phoneNumberController,
+                      labelText: 'Telefon Numarası',
+                    ),
+                    SizedBox(height: 5),
+                    ElevatedButton(
+                      onPressed: _saveBusinessData,
+                      child: Text(widget.businessId == null ? 'Kaydet' : 'Güncelle'),
+                    ),
+                    Divider(thickness: 2,),
+                  ],
+                ),
               ),
-            ),
-            SizedBox(height: 20),
-            Text(
-              'Profil Önizlemesi',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: _businesses.length,
-                itemBuilder: (context, index) {
-                  final business = _businesses[index];
-                  return Card(
-                    margin: EdgeInsets.symmetric(vertical: 8.0),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          if (business['imageUrl'] != null)
-                            Image.network(
-                              business['imageUrl']!,
-                              height: 150,
-                              width: double.infinity,
-                              fit: BoxFit.cover,
-                            ),
-                          SizedBox(height: 10),
-                          Text(
-                            business['title'] ?? 'No Title',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(height: 5),
-                          Text(
-                            business['aciklama'] ?? 'No Description',
-                            style: TextStyle(fontSize: 16),
-                          ),
-                          SizedBox(height: 5),
-                          Text(
-                            business['location'] ?? 'No Location',
-                            style: TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
-                          ),
-                        ],
+              SizedBox(height: 5),
+              Text(
+                'Profil Önizlemesi',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              if (_businesses.isNotEmpty)
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      if (_businesses[0]['imageUrl'] != null)
+                        Image.network(
+                          _businesses[0]['imageUrl']!,
+                          height: 150,
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
+                      SizedBox(height: 10),
+                      Text(
+                        _businesses[0]['title'] ?? 'No Title',
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                       ),
-                    ),
-                  );
-                },
-              ),
-            ),
-          ],
+                      SizedBox(height: 5),
+                      Text(
+                        _businesses[0]['aciklama'] ?? 'No Description',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        _businesses[0]['location'] ?? 'No Location',
+                        style: TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        _businesses[0]['phoneNumber'] ?? 'No Phone Number', // Display phone number
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ],
+                  ),
+                ),
+            ],
+          ),
         ),
+      ),
+    );
+  }
+
+  // Custom TextFormField widget to match the design
+  Widget customTextFormField({required TextEditingController controller, required String labelText}) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 16.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Colors.grey.withOpacity(0.2),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: TextFormField(
+        controller: controller,
+        decoration: InputDecoration(
+          labelText: labelText,
+          border: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          errorBorder: InputBorder.none,
+          disabledBorder: InputBorder.none,
+        ),
+        validator: (value) => value?.isEmpty ?? true ? '$labelText girin' : null,
       ),
     );
   }

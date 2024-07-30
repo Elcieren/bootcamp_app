@@ -587,58 +587,6 @@ class _AdvertViewState extends State<AdvertView> {
     }
   }
 
-  /* void Post() async {
-    if (formkeyPost.currentState!.validate()) {
-      formkeyPost.currentState!.save();
-      await authService.createPost(
-        text,
-        _userData!['fullname'],
-        _userData!['Cinsiyet'],
-        _userData!['email'],
-        ilanAciklamasi,
-        YemekTuru,
-        YemekIcerigi,
-        Fiyat,
-        Teslimat!,
-      );
-      formkeyPost.currentState!.reset();
-      showCupertinoDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return CupertinoAlertDialog(
-            title: Text("Bilgilendirme"),
-            content: Text("Gönderin başarıyla paylaşıldı"),
-            actions: <Widget>[
-              CupertinoDialogAction(
-                child: Text("Tamam"),
-                onPressed: () {
-                  Navigator.of(context).pop(); // Dialog kutusunu kapatır
-                },
-              ),
-            ],
-          );
-        },
-      );
-    } else {
-      showCupertinoDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return CupertinoAlertDialog(
-            title: Text("Hata"),
-            content: Text("Üzgünüz Bir hata ile karşılaştık"),
-            actions: <Widget>[
-              CupertinoDialogAction(
-                child: Text("Tamam"),
-                onPressed: () {
-                  Navigator.of(context).pop(); // Dialog kutusunu kapatır
-                },
-              ),
-            ],
-          );
-        },
-      );
-    }
-  } */
 
   Future<void> _getUserData() async {
     _user = _auth.currentUser;
