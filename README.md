@@ -455,5 +455,10 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
   - [x] `get_it`
   - [x] `carousel_slider`
   - [x] `flutter_credit_card`
+  - [x] `google_generative_ai:`
+  - [x] `intl`
+
+
+  
      
   
