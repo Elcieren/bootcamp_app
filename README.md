@@ -1,5 +1,10 @@
 <td><img src="https://github.com/user-attachments/assets/48592e4b-10c2-4899-83a5-8bcf3a0a6e88" /></td>
 
+<<<<<<< HEAD
+=======
+<td><img src="https://github.com/user-attachments/assets/48592e4b-10c2-4899-83a5-8bcf3a0a6e88" /></td>
+
+>>>>>>> 1e9cc3fdc5abb338e50874aa0745c920a55dac51
 ###
 <table>
   <tr>
@@ -450,6 +455,7 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
 
 
 
+<<<<<<< HEAD
 # *Kullanılan Teknolojiler*
 *(Kullanılan teknolojiler her sprintte eklenmiştir)*
 - [x] firebase_core
@@ -462,3 +468,6 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
 - [x] flutter_credit_card
 - [x] google_generative_ai:
 - [x] intl
+=======
+
+>>>>>>> 1e9cc3fdc5abb338e50874aa0745c920a55dac51
