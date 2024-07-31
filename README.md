@@ -298,6 +298,7 @@ Satın alma özelliğinin eklenmesine, gerekli sözleşme ve belgelerin eklenmes
 </details> 
 </details>
 
+<details>
 <summary><h1>Sprint 3</h1></summary>
 
 <details>
@@ -438,6 +439,7 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
 <summary><h2>Sprint Retrospective</h2></summary>
 İşletme tasarım sayfasının yapılmasına, menü list eklenmesine, menü sayfa tasarımının yapılmasına ve menülerin sepete eklenme fonksiyonunun oluşturulmasına karar verildi.
 </details> 
+</details>
 
 
 
