@@ -216,7 +216,7 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
 </details> 
 
 
-
+##
 
 </details>
 
@@ -301,6 +301,8 @@ Daily Scrum örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
 Satın alma özelliğinin eklenmesine, gerekli sözleşme ve belgelerin eklenmesine karar verildi.
 </details> 
 </details>
+
+##
 
 <details>
 <summary><h1>Sprint 3</h1></summary>
