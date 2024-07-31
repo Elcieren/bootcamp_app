@@ -444,7 +444,7 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
 
 
 
-</details>
+
 # **Kullanılan Teknolojiler**
   **`(Kullanılan teknolojiler her sprintte eklenmiştir)`**
   - [x] `firebase_core`
