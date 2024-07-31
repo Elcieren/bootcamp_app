@@ -1,7 +1,9 @@
+import 'package:bootcamp_app/ui/card/card_view.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
 import 'package:bootcamp_app/ui/home_page.dart';
+
 class PostPage extends StatefulWidget {
   @override
   _PostPageState createState() => _PostPageState();
@@ -69,7 +71,8 @@ class _PostPageState extends State<PostPage> {
                   },
                 ),
                 IconButton(
-                  icon: Icon(Icons.notifications_active_outlined, color: Colors.black),
+                  icon: Icon(Icons.notifications_active_outlined,
+                      color: Colors.black),
                   onPressed: () {
                     // Define action when the notification icon is pressed
                   },
@@ -105,7 +108,9 @@ class _PostPageState extends State<PostPage> {
             final posts = snapshot.data!.docs.where((doc) {
               final data = doc.data() as Map<String, dynamic>;
               final yemekIcerigi = data['YemekIcerigi'] ?? '';
-              return yemekIcerigi.toLowerCase().contains(_searchTerm.toLowerCase());
+              return yemekIcerigi
+                  .toLowerCase()
+                  .contains(_searchTerm.toLowerCase());
             }).toList();
 
             return ListView.builder(
@@ -141,23 +146,26 @@ class _PostPageState extends State<PostPage> {
                         children: [
                           data['link'] != null
                               ? ClipRRect(
-                            borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
-                            child: Image.network(
-                              data['link'],
-                              fit: BoxFit.cover,
-                              width: double.infinity,
-                              height: 200,
-                            ),
-                          )
+                                  borderRadius: BorderRadius.vertical(
+                                      top: Radius.circular(15)),
+                                  child: Image.network(
+                                    data['link'],
+                                    fit: BoxFit.cover,
+                                    width: double.infinity,
+                                    height: 200,
+                                  ),
+                                )
                               : Container(
-                            width: double.infinity,
-                            height: 200,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.vertical(top: Radius.circular(15)),
-                              color: Colors.grey[300],
-                            ),
-                            child: Icon(Icons.image, size: 100, color: Colors.grey[600]),
-                          ),
+                                  width: double.infinity,
+                                  height: 200,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.vertical(
+                                        top: Radius.circular(15)),
+                                    color: Colors.grey[300],
+                                  ),
+                                  child: Icon(Icons.image,
+                                      size: 100, color: Colors.grey[600]),
+                                ),
                           Padding(
                             padding: const EdgeInsets.all(16.0),
                             child: Column(
@@ -198,7 +206,9 @@ class _PostPageState extends State<PostPage> {
                                     Expanded(
                                       child: Text(
                                         data['YemekTuru'] ?? 'Bilinmiyor',
-                                        style: TextStyle(fontSize: 16.0, color: Colors.black54),
+                                        style: TextStyle(
+                                            fontSize: 16.0,
+                                            color: Colors.black54),
                                       ),
                                     ),
                                   ],
@@ -217,7 +227,9 @@ class _PostPageState extends State<PostPage> {
                                     Expanded(
                                       child: Text(
                                         data['Teslimat'] ?? 'Bilinmiyor',
-                                        style: TextStyle(fontSize: 16.0, color: Colors.black54),
+                                        style: TextStyle(
+                                            fontSize: 16.0,
+                                            color: Colors.black54),
                                       ),
                                     ),
                                   ],
@@ -236,7 +248,9 @@ class _PostPageState extends State<PostPage> {
                                     Expanded(
                                       child: Text(
                                         data['fullname'] ?? 'Bilinmiyor',
-                                        style: TextStyle(fontSize: 16.0, color: Colors.black54),
+                                        style: TextStyle(
+                                            fontSize: 16.0,
+                                            color: Colors.black54),
                                       ),
                                     ),
                                   ],
@@ -271,8 +285,6 @@ class _PostPageState extends State<PostPage> {
     );
   }
 }
-
-
 
 class PostDetailPage extends StatefulWidget {
   final Map<String, dynamic> postData;
@@ -360,23 +372,24 @@ class _PostDetailPageState extends State<PostDetailPage> {
             children: [
               widget.postData['link'] != null
                   ? ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: Image.network(
-                  widget.postData['link'],
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                  height: 200,
-                ),
-              )
+                      borderRadius: BorderRadius.circular(15),
+                      child: Image.network(
+                        widget.postData['link'],
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                        height: 200,
+                      ),
+                    )
                   : Container(
-                width: double.infinity,
-                height: 200,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: Colors.grey[300],
-                ),
-                child: Icon(Icons.image, size: 100, color: Colors.grey[600]),
-              ),
+                      width: double.infinity,
+                      height: 200,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        color: Colors.grey[300],
+                      ),
+                      child:
+                          Icon(Icons.image, size: 100, color: Colors.grey[600]),
+                    ),
               SizedBox(height: 20),
               Center(
                 child: Text(
@@ -437,7 +450,8 @@ class _PostDetailPageState extends State<PostDetailPage> {
                           children: [
                             Text(
                               'Açıklama',
-                              style: TextStyle(fontSize: 18.0, color: Colors.orange),
+                              style: TextStyle(
+                                  fontSize: 18.0, color: Colors.orange),
                             ),
                             Icon(
                               _isDescriptionVisible
@@ -491,17 +505,24 @@ class _PostDetailPageState extends State<PostDetailPage> {
                             ),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 20.0, vertical: 15.0),
                             child: Text(
                               _selectedDate,
-                              style: TextStyle(fontSize: 18.0, color: Colors.white, fontWeight: FontWeight.w600),
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600),
                             ),
                           ),
                         ),
                         SizedBox(width: 20),
                         ElevatedButton(
                           onPressed: () {
-                            // Implement purchase action here
+                            Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(
+                                  builder: (context) => CardView()),
+                            );
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.orange,
@@ -510,10 +531,14 @@ class _PostDetailPageState extends State<PostDetailPage> {
                             ),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15.0),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 30.0, vertical: 15.0),
                             child: Text(
                               'Teklif Et',
-                              style: TextStyle(fontSize: 18.0, color: Colors.white, fontWeight: FontWeight.w600),
+                              style: TextStyle(
+                                  fontSize: 18.0,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600),
                             ),
                           ),
                         ),
@@ -526,60 +551,63 @@ class _PostDetailPageState extends State<PostDetailPage> {
               isLoading
                   ? Center(child: CircularProgressIndicator())
                   : businessData == null
-                  ? Center(child: Text('İşletme Bilgisi Bulunamadı'))
-                  : GestureDetector(
-                onTap: _navigateToBusinessDetails,
-                child: Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey, width: 1.0),
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.grey[100],
-                  ),
-                  padding: EdgeInsets.all(10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'İşletme Bilgileri',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
+                      ? Center(child: Text('İşletme Bilgisi Bulunamadı'))
+                      : GestureDetector(
+                          onTap: _navigateToBusinessDetails,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              border:
+                                  Border.all(color: Colors.grey, width: 1.0),
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.grey[100],
+                            ),
+                            padding: EdgeInsets.all(10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'İşletme Bilgileri',
+                                  style: TextStyle(
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                SizedBox(height: 10),
+                                businessData!['imageUrl'] != null
+                                    ? ClipRRect(
+                                        borderRadius: BorderRadius.circular(15),
+                                        child: Image.network(
+                                          businessData!['imageUrl'],
+                                          fit: BoxFit.cover,
+                                          width: double.infinity,
+                                          height: 100,
+                                        ),
+                                      )
+                                    : Container(
+                                        width: double.infinity,
+                                        height: 100,
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                          color: Colors.grey[300],
+                                        ),
+                                        child: Icon(Icons.image,
+                                            size: 50, color: Colors.grey[600]),
+                                      ),
+                                SizedBox(height: 10),
+                                Text(
+                                  'Title: ${businessData!['title'] ?? 'Bilinmiyor'}',
+                                  style: TextStyle(fontSize: 18.0),
+                                ),
+                                SizedBox(height: 10),
+                                Text(
+                                  'Description: ${businessData!['aciklama'] ?? 'Bilinmiyor'}',
+                                  style: TextStyle(fontSize: 18.0),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 10),
-                      businessData!['imageUrl'] != null
-                          ? ClipRRect(
-                        borderRadius: BorderRadius.circular(15),
-                        child: Image.network(
-                          businessData!['imageUrl'],
-                          fit: BoxFit.cover,
-                          width: double.infinity,
-                          height: 100,
-                        ),
-                      )
-                          : Container(
-                        width: double.infinity,
-                        height: 100,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: Colors.grey[300],
-                        ),
-                        child: Icon(Icons.image, size: 50, color: Colors.grey[600]),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        'Title: ${businessData!['title'] ?? 'Bilinmiyor'}',
-                        style: TextStyle(fontSize: 18.0),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        'Description: ${businessData!['aciklama'] ?? 'Bilinmiyor'}',
-                        style: TextStyle(fontSize: 18.0),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
             ],
           ),
         ),

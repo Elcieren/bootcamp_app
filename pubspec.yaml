@@ -26,6 +26,8 @@ dependencies:
   firebase_auth: ^4.17.9
   cloud_firestore: ^4.15.9
   carousel_slider: ^4.2.1
+  flutter_credit_card: ^3.0.1
+
 
   #Yapay_Zeka
   google_generative_ai:
