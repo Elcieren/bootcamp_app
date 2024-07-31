@@ -445,7 +445,6 @@ class GeneralBusinessCard extends StatelessWidget {
     );
   }
 }
-
 class BusinessDetailsPage extends StatefulWidget {
   final BusinessCardModel business;
 
@@ -477,10 +476,10 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
         text: data['text'] ?? '',
         price: data['Fiyat'] ?? '',
         icerik: data['YemekIcerigi'] ?? '',
-          tur: data['YemekTuru'] ?? '',
-        teslimat: data['Teslimat']?? '',
+        tur: data['YemekTuru'] ?? '',
+        teslimat: data['Teslimat'] ?? '',
         sahip: data['fullname'] ?? '',
-        aciklama: data['ilanAciklamasi']?? '',
+        aciklama: data['ilanAciklamasi'] ?? '',
       );
     }).toList();
 
@@ -500,11 +499,11 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
             'link': post.imageUrl,
             'text': post.text,
             'Fiyat': post.price,
-            'YemekIcerigi':post.icerik,
+            'YemekIcerigi': post.icerik,
             'YemekTuru': post.tur,
             'Teslimat': post.teslimat,
-            'fullname':post.sahip,
-            'ilanAciklamasi':post.aciklama,
+            'fullname': post.sahip,
+            'ilanAciklamasi': post.aciklama,
           },
         ),
       ),
@@ -515,42 +514,46 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.orange,
         title: Text(widget.business.title),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.network(
-                widget.business.imageUrl,
-                width: MediaQuery.of(context).size.width / 2, // Reduce size to half
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 10),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.network(
+                    widget.business.imageUrl,
+                    width: double.infinity,
+                    height: 200,
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
               SizedBox(height: 10),
               Text(
                 widget.business.title,
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold, color: Colors.orange),
               ),
               SizedBox(height: 10),
               Text(
                 widget.business.description,
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(fontSize: 18, color: Colors.black87),
               ),
               SizedBox(height: 10),
               Text(
-                'Location: ${widget.business.location}',
-                style: TextStyle(fontSize: 16),
+                'Konum: ${widget.business.location}',
+                style: TextStyle(fontSize: 16, color: Colors.black54),
               ),
               SizedBox(height: 10),
               Text(
-                'Email: ${widget.business.userEmail}',
-                style: TextStyle(fontSize: 16),
-              ),
-              SizedBox(height: 20),
-              Text(
-                'Shared Menus',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                'Paylaşılan Menüler',
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.orange),
               ),
               SizedBox(height: 10),
               isLoading
@@ -563,7 +566,8 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
+                  mainAxisSpacing: 15,
+                  childAspectRatio: 0.8, // Adjust the aspect ratio to make the cards larger
                 ),
                 itemCount: menus.length,
                 itemBuilder: (context, index) {
@@ -572,19 +576,50 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
                     onTap: () => _navigateToPostDetail(menu),
                     child: Card(
                       margin: EdgeInsets.all(0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Image.network(menu.imageUrl, width: double.infinity, height: 100, fit: BoxFit.cover),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(menu.text, style: TextStyle(fontWeight: FontWeight.bold)),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 8.0),
-                            child: Text(menu.price),
-                          ),
-                        ],
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      elevation: 5,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.deepOrange, width: 2), // Orange border around the card
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
+                              child: Image.network(
+                                menu.imageUrl,
+                                width: double.infinity,
+                                height: 150, // Increased height for images
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Center(
+                                    child: Text(
+                                      menu.text,
+                                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                                    ),
+                                  ),
+                                  SizedBox(height: 4),
+                                  Center(
+                                    child: Text(
+                                      menu.price + '₺',
+                                      style: TextStyle(color: Colors.deepOrange, fontSize: 18, fontWeight: FontWeight.w600), // Increased font size for price
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   );
@@ -597,7 +632,6 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
     );
   }
 }
-
 
 class PostModel {
   final String imageUrl;
@@ -617,7 +651,6 @@ class PostModel {
     required this.tur,
     required this.teslimat,
     required this.sahip,
-    required this.aciklama
+    required this.aciklama,
   });
 }
-
