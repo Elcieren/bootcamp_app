@@ -216,9 +216,9 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
 </details> 
 
 
-##
-
 </details>
+
+##
 
 <details>
 <summary><h1>Sprint 2</h1></summary>
