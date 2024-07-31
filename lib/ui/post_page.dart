@@ -347,9 +347,10 @@ class _PostDetailPageState extends State<PostDetailPage> {
           business: BusinessCardModel(
             title: businessData?['title'] ?? '',
             imageUrl: businessData?['imageUrl'] ?? '',
-            description: businessData?['description'] ?? '',
+            description: businessData?['aciklama'] ?? '',
             location: businessData?['location'] ?? '',
             userEmail: businessData?['userEmail'] ?? '',
+
           ),
         ),
       ),
@@ -372,24 +373,23 @@ class _PostDetailPageState extends State<PostDetailPage> {
             children: [
               widget.postData['link'] != null
                   ? ClipRRect(
-                      borderRadius: BorderRadius.circular(15),
-                      child: Image.network(
-                        widget.postData['link'],
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                        height: 200,
-                      ),
-                    )
+                borderRadius: BorderRadius.circular(15),
+                child: Image.network(
+                  widget.postData['link'],
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: 200,
+                ),
+              )
                   : Container(
-                      width: double.infinity,
-                      height: 200,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Colors.grey[300],
-                      ),
-                      child:
-                          Icon(Icons.image, size: 100, color: Colors.grey[600]),
-                    ),
+                width: double.infinity,
+                height: 200,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  color: Colors.grey[300],
+                ),
+                child: Icon(Icons.image, size: 100, color: Colors.grey[600]),
+              ),
               SizedBox(height: 20),
               Center(
                 child: Text(
@@ -521,7 +521,16 @@ class _PostDetailPageState extends State<PostDetailPage> {
                           onPressed: () {
                             Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
-                                  builder: (context) => CardView()),
+                                builder: (context) => CardView(
+                                  deliveryType: widget.postData['Teslimat'] ?? "Kendi Teslim Alacak",
+                                  address: businessData?['address'] ?? "Adres Bilgisi Yok",
+                                  price: widget.postData['Fiyat'] ?? "Fiyat Bilgisi Yok",
+                                  name: widget.postData['text'] ?? "İsim Bilgisi yok",
+                                  imageLink: widget.postData['link'] ?? "https://example.com/default.jpg",
+                                  isletmename: businessData?['userEmail'] ?? "bilgi yok",
+
+                                ),
+                              ),
                             );
                           },
                           style: ElevatedButton.styleFrom(
@@ -531,14 +540,14 @@ class _PostDetailPageState extends State<PostDetailPage> {
                             ),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 30.0, vertical: 15.0),
+                            padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15.0),
                             child: Text(
                               'Teklif Et',
                               style: TextStyle(
-                                  fontSize: 18.0,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600),
+                                fontSize: 18.0,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ),
                         ),
@@ -551,63 +560,61 @@ class _PostDetailPageState extends State<PostDetailPage> {
               isLoading
                   ? Center(child: CircularProgressIndicator())
                   : businessData == null
-                      ? Center(child: Text('İşletme Bilgisi Bulunamadı'))
-                      : GestureDetector(
-                          onTap: _navigateToBusinessDetails,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              border:
-                                  Border.all(color: Colors.grey, width: 1.0),
-                              borderRadius: BorderRadius.circular(10),
-                              color: Colors.grey[100],
-                            ),
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'İşletme Bilgileri',
-                                  style: TextStyle(
-                                    fontSize: 20.0,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                SizedBox(height: 10),
-                                businessData!['imageUrl'] != null
-                                    ? ClipRRect(
-                                        borderRadius: BorderRadius.circular(15),
-                                        child: Image.network(
-                                          businessData!['imageUrl'],
-                                          fit: BoxFit.cover,
-                                          width: double.infinity,
-                                          height: 100,
-                                        ),
-                                      )
-                                    : Container(
-                                        width: double.infinity,
-                                        height: 100,
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(15),
-                                          color: Colors.grey[300],
-                                        ),
-                                        child: Icon(Icons.image,
-                                            size: 50, color: Colors.grey[600]),
-                                      ),
-                                SizedBox(height: 10),
-                                Text(
-                                  'Title: ${businessData!['title'] ?? 'Bilinmiyor'}',
-                                  style: TextStyle(fontSize: 18.0),
-                                ),
-                                SizedBox(height: 10),
-                                Text(
-                                  'Description: ${businessData!['aciklama'] ?? 'Bilinmiyor'}',
-                                  style: TextStyle(fontSize: 18.0),
-                                ),
-                              ],
-                            ),
-                          ),
+                  ? Center(child: Text('İşletme Bilgisi Bulunamadı'))
+                  : GestureDetector(
+                onTap: _navigateToBusinessDetails,
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey, width: 1.0),
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.grey[100],
+                  ),
+                  padding: EdgeInsets.all(10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'İşletme Bilgileri',
+                        style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
                         ),
+                      ),
+                      SizedBox(height: 10),
+                      businessData!['imageUrl'] != null
+                          ? ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image.network(
+                          businessData!['imageUrl'],
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          height: 100,
+                        ),
+                      )
+                          : Container(
+                        width: double.infinity,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Colors.grey[300],
+                        ),
+                        child: Icon(Icons.image,
+                            size: 50, color: Colors.grey[600]),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'Title: ${businessData!['title'] ?? 'Bilinmiyor'}',
+                        style: TextStyle(fontSize: 18.0),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        'Description: ${businessData!['aciklama'] ?? 'Bilinmiyor'}',
+                        style: TextStyle(fontSize: 18.0),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),

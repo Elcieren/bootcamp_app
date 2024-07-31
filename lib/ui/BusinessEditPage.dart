@@ -17,10 +17,12 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
   final _descriptionController = TextEditingController();
   final _locationController = TextEditingController();
   final _imageUrlController = TextEditingController();
-  final _phoneNumberController = TextEditingController(); // Added controller
+  final _phoneNumberController = TextEditingController();
+  final _addressController = TextEditingController(); // Added controller
 
   bool _isLoading = false;
   List<Map<String, dynamic>> _businesses = [];
+  String? _selectedEtiket; // Variable to store selected label
 
   @override
   void initState() {
@@ -47,7 +49,9 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
         _descriptionController.text = data['aciklama'] ?? '';
         _locationController.text = data['location'] ?? '';
         _imageUrlController.text = data['imageUrl'] ?? '';
-        _phoneNumberController.text = data['phoneNumber'] ?? ''; // Fetch phone number
+        _phoneNumberController.text = data['phoneNumber'] ?? '';
+        _addressController.text = data['address'] ?? ''; // Fetch address
+        _selectedEtiket = data['etiket'] ?? 'genel'; // Fetch selected label
       }
     } catch (e) {
       // Handle errors if needed
@@ -79,6 +83,8 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
           _locationController.text = data['location'] ?? '';
           _imageUrlController.text = data['imageUrl'] ?? '';
           _phoneNumberController.text = data['phoneNumber'] ?? '';
+          _addressController.text = data['address'] ?? ''; // Fetch address
+          _selectedEtiket = data['etiket'] ?? 'genel'; // Fetch selected label
         }
       }
     } catch (e) {
@@ -129,8 +135,9 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
             'aciklama': _descriptionController.text,
             'location': _locationController.text,
             'imageUrl': _imageUrlController.text,
-            'phoneNumber': _phoneNumberController.text, // Save phone number
-            'etiket': 'genel',
+            'phoneNumber': _phoneNumberController.text,
+            'address': _addressController.text, // Save address
+            'etiket': _selectedEtiket ?? 'genel', // Save selected label
             'userEmail': user.email,
           };
 
@@ -198,6 +205,16 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
                       controller: _phoneNumberController,
                       labelText: 'Telefon Numarası',
                     ),
+                    customTextFormField(
+                      controller: _addressController,
+                      labelText: 'Adres', // Address input field
+                    ),
+                    // Read-only TextFormField for displaying "etiket"
+                    customTextFormField(
+                      controller: TextEditingController(text: _selectedEtiket),
+                      labelText: 'Etiket',
+                      readOnly: true,
+                    ),
                     SizedBox(height: 5),
                     ElevatedButton(
                       onPressed: _saveBusinessData,
@@ -242,7 +259,17 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
                       ),
                       SizedBox(height: 5),
                       Text(
-                        _businesses[0]['phoneNumber'] ?? 'No Phone Number', // Display phone number
+                        _businesses[0]['phoneNumber'] ?? 'No Phone Number',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        _businesses[0]['address'] ?? 'No Address', // Display address
+                        style: TextStyle(fontSize: 16),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        _businesses[0]['etiket'] ?? 'No Etiket', // Display label
                         style: TextStyle(fontSize: 16),
                       ),
                     ],
@@ -256,7 +283,7 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
   }
 
   // Custom TextFormField widget to match the design
-  Widget customTextFormField({required TextEditingController controller, required String labelText}) {
+  Widget customTextFormField({required TextEditingController controller, required String labelText, bool readOnly = false}) {
     return Container(
       margin: EdgeInsets.only(bottom: 16.0),
       decoration: BoxDecoration(
@@ -274,6 +301,7 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
           errorBorder: InputBorder.none,
           disabledBorder: InputBorder.none,
         ),
+        readOnly: readOnly,
         validator: (value) => value?.isEmpty ?? true ? '$labelText girin' : null,
       ),
     );
