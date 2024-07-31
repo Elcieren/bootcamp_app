@@ -516,7 +516,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
                             ),
                           ),
                         ),
-                        SizedBox(width: 20),
+                        SizedBox(width: 10),
                         ElevatedButton(
                           onPressed: () {
                             Navigator.of(context).pushReplacement(
