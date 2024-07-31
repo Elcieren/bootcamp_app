@@ -1,5 +1,5 @@
 
-<td><img src="https://github.com/user-attachments/assets/8ee67bad-afbb-4e74-9b68-dda4f80937bb" /></td>
+<td><img src="https://github.com/user-attachments/assets/48592e4b-10c2-4899-83a5-8bcf3a0a6e88" /></td>
 
 ###
 <table>
@@ -100,6 +100,9 @@ Denetimli Yemek Fotoğrafı: Satışı yapılacak olan ürün fotoğrafı admine
 <summary><h2>Hedef Kitle</h2></summary>
 Satış yapmak isteyen Catering firmaları ve ekonomiye katkı sağlamak isteyen ev hanımları satıcı kitlemizi oluşturmaktadır. Yemek yapmakla uğraşmak istemeyen, vakti olmayan bireysel kullanıcılar ve çalışanlarına yemek hizmeti veren şirketler müşteri kitlemizi oluşturmaktadır.
 </details>
+
+<td><img src="https://github.com/user-attachments/assets/a43340f3-1ac9-42e1-87a2-6f2bca071c7c" /></td>
+
 
 <details>
 <summary><h1>Sprint 1</h1></summary>
