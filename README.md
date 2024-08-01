@@ -333,7 +333,7 @@ Daily Scrum örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
       <td style="width: 5%;"><img src="https://github.com/user-attachments/assets/dadef65a-5c1d-4604-aa5f-47a0bcc04d5e" style="width: 50%; height: auto;"></td>
     </tr>
     <tr>
-      <td style="width: 5%;"><img src="hhttps://github.com/user-attachments/assets/02120110-3ad9-4352-a04b-f214a9f12381" style="width: 50%; height: auto;"></td>
+      <td style="width: 5%;"><img src="https://github.com/user-attachments/assets/ab9949f4-45b9-44c8-badc-63d3a0f87b3c" style="width: 50%; height: auto;"></td>
     </tr>
 </table>
 </details> 
