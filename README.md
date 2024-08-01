@@ -367,32 +367,17 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
       <td style="width: 5%;"><img src="https://github.com/user-attachments/assets/5c3332cd-fe31-4cd5-bd94-b7f74aa02637" style="width: 50%; height: auto;"></td>
     </tr>
     <tr>
-      <td colspan="4" style="text-align: center;"><h2>Açılış Ekranı</h2></td>
+      <td colspan="4" style="text-align: center;"><h2>İşletme Düzenelme Sayfası</h2></td>
     </tr>
     <tr>
-      <td style="width: 5%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/4f00bf15-ff5e-48e6-8cd4-73ad19af6507" style="width: 50%; height: auto;"></td>
+      <td style="width: 5%;"><img src="https://github.com/user-attachments/assets/73b8f2af-7ba9-4f0f-9a9d-25347866c50d" style="width: 50%; height: auto;"></td>
     </tr>
     <tr>
-      <td colspan="4" style="text-align: center;"><h2>Kayıt Sayfası </h2></td>
+      <td colspan="4" style="text-align: center;"><h2>İlan Düzenelme Sayfası</h2></td>
     </tr>
     <tr>
-      <td style="width: 5%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/8098f578-3c32-441c-8cb7-a9f0f1b2bebb" style="width: 50%; height: auto;"></td>
-      <td style="width: 5%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/10c8c772-692c-43f0-8144-d333e7976aa0" style="width: 50%; height: auto;"></td>
-    </tr>
-    <tr>
-      <td colspan="4" style="text-align: center;"><h2>Şifre Sıfırlama Sayfası </h2></td>
-    </tr>
-    <tr>
-      <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/5d57afea-405c-4064-8ea1-88aac6c98423" style="width: 50%; height: auto;"></td>
-    </tr>
-    <tr>
-      <td colspan="4" style="text-align: center;"><h2>Kayıt Sayfası </h2></td>
-    </tr>
-    <tr>
-      <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/e5afa391-4f12-4809-9192-8cfaa7e12442" style="width: 50%; height: auto;"></td>
-      <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/add300fd-f771-4ebb-890c-1f1079454649" style="width: 50%; height: auto;"></td>
-      <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/4cd0c1cc-c396-48d7-99ce-ab346b2df0a2" style="width: 50%; height: auto;"></td>
-    </tr>
+      <td style="width: 5%;"><img src="https://github.com/user-attachments/assets/45964404-d11d-450e-a7cb-407dfa7c225f" style="width: 50%; height: auto;"></td>
+      <td style="width: 5%;"><img src="https://github.com/user-attachments/assets/33217c90-cd83-4b84-bfc0-664417967c1a" style="width: 50%; height: auto;"></td>
     <tr>
       <td colspan="4" style="text-align: center;"><h2>İlan Paylaşım Sayfası </h2></td>
     </tr>
