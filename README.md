@@ -350,6 +350,20 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
 <details>
     <summary><h3>Sprint 3 - App Screenshots</h3></summary>
   <table style="width: 100%;">
+  <tr>
+      <td colspan="4" style="text-align: center;"><h2>Menülerin Gösterildiği Sayfa </h2></td>
+    </tr>
+    <tr>
+      <td style="width: 25%;"><img src="https://github.com/user-attachments/assets/89cacbaa-0cd1-4e1a-9c88-03510e70ba4f" style="width: 50%; height: auto;"></td>
+      <td style="width: 25%;"><img src="https://github.com/user-attachments/assets/6ea74007-3490-415f-bbd7-e1508b99399d" style="width: 50%; height: auto;"></td>
+      <td style="width: 25%;"><img src="https://github.com/user-attachments/assets/38a737dd-58ac-4de4-bfbe-50e495d8d178" style="width: 50%; height: auto;"></td>
+    </tr>
+    <tr>
+      <td colspan="4" style="text-align: center;"><h2>Menülerin İçerikleri Sayfa </h2></td>
+    </tr>
+    <tr>
+      <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/303fbad6-7064-4863-8dd5-8ae2874e0c2b" style="width: 50%; height: auto;"></td>
+    </tr>
     <tr>
       <td colspan="4" style="text-align: center;"><h2>Açılış Ekranı</h2></td>
     </tr>
@@ -399,18 +413,6 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
     </tr>
     <tr>
       <td colspan="4" style="text-align: center;"><h2>Ana Sayfa </h2></td>
-    </tr>
-    <tr>
-      <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/303fbad6-7064-4863-8dd5-8ae2874e0c2b" style="width: 50%; height: auto;"></td>
-    </tr>
-    <tr>
-      <td colspan="4" style="text-align: center;"><h2>Menülerin Gösterildiği Sayfa </h2></td>
-    </tr>
-    <tr>
-      <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/303fbad6-7064-4863-8dd5-8ae2874e0c2b" style="width: 50%; height: auto;"></td>
-    </tr>
-    <tr>
-      <td colspan="4" style="text-align: center;"><h2>Menülerin İçerikleri Sayfa </h2></td>
     </tr>
     <tr>
       <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/303fbad6-7064-4863-8dd5-8ae2874e0c2b" style="width: 50%; height: auto;"></td>
