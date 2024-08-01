@@ -351,12 +351,20 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
     <summary><h3>Sprint 3 - App Screenshots</h3></summary>
   <table style="width: 100%;">
   <tr>
-      <td colspan="4" style="text-align: center;"><h2>Menülerin Gösterildiği Sayfa </h2></td>
+      <td colspan="4" style="text-align: center;"><h2>Menülerin Gösterildiği Sayfa ve içerikleri</h2></td>
     </tr>
     <tr>
       <td style="width: 25%;"><img src="https://github.com/user-attachments/assets/89cacbaa-0cd1-4e1a-9c88-03510e70ba4f" style="width: 50%; height: auto;"></td>
       <td style="width: 25%;"><img src="https://github.com/user-attachments/assets/6ea74007-3490-415f-bbd7-e1508b99399d" style="width: 50%; height: auto;"></td>
       <td style="width: 25%;"><img src="https://github.com/user-attachments/assets/38a737dd-58ac-4de4-bfbe-50e495d8d178" style="width: 50%; height: auto;"></td>
+    </tr>
+    <tr>
+      <td colspan="4" style="text-align: center;"><h2>İşletmelerin Gösterildiği Sayfa ve içerikleri</h2></td>
+    </tr>
+    <tr>
+      <td style="width: 5%;"><img src="https://github.com/user-attachments/assets/d68dd768-9103-47b6-9445-98bcef555b32" style="width: 50%; height: auto;"></td>
+      <td style="width: 5%;"><img src="https://github.com/user-attachments/assets/189c0d08-fd40-47cd-b276-55ce4083122b" style="width: 50%; height: auto;"></td>
+      <td style="width: 5%;"><img src="https://github.com/user-attachments/assets/5c3332cd-fe31-4cd5-bd94-b7f74aa02637" style="width: 50%; height: auto;"></td>
     </tr>
     <tr>
       <td colspan="4" style="text-align: center;"><h2>Açılış Ekranı</h2></td>
