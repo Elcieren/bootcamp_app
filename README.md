@@ -420,20 +420,12 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
     </tr>
     <tr>
         <td style="width: 25%;"><img src="https://github.com/user-attachments/assets/42cd01b9-c3db-4059-bd8a-fa44bc678ea2" style="width: 50%; height: auto;"></td>
-    </tr>
-    <tr>
         <td style="width: 25%;"><img src="https://github.com/user-attachments/assets/8abab1a1-1fd2-43dc-b583-c9413adb6d0b" style="width: 50%; height: auto;"></td>
-    </tr>
-    <tr>
         <td style="width: 25%;"><img src="https://github.com/user-attachments/assets/ce592abe-d296-4956-ae2f-918109a83dc6" style="width: 50%; height: auto;"></td>
     </tr>
     <tr>
         <td style="width: 25%;"><img src="https://github.com/user-attachments/assets/752c7648-5fcc-405f-b1e0-6589736d033b" style="width: 50%; height: auto;"></td>
-    </tr>
-    <tr>
         <td style="width: 25%;"><img src="https://github.com/user-attachments/assets/a0000c88-72d1-4863-ab6b-e9c23550713e" style="width: 50%; height: auto;"></td>
-    </tr>
-    <tr>
         <td style="width: 25%;"><img src="https://github.com/user-attachments/assets/3f83774b-2186-4e9d-bcd8-3782d2b7d3ae" style="width: 50%; height: auto;"></td>
     </tr>
     <tr>
