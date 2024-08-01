@@ -18,7 +18,7 @@ class YemekApp extends StatelessWidget {
               navigatorKey: StackedService.navigatorKey,
               onGenerateRoute: StackedRouter().onGenerateRoute,
               navigatorObservers: [StackedService.routeObserver],
-              title: "Yemek Burada?",
+              title: "SOFRA",
               debugShowCheckedModeBanner: false,
             ));
   }
