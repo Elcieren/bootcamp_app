@@ -419,13 +419,28 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
       <td colspan="4" style="text-align: center;"><h2>Ödeme Sayfası</h2></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/303fbad6-7064-4863-8dd5-8ae2874e0c2b" style="width: 50%; height: auto;"></td>
+      <td style="width: 25%;"><img src="https://github.com/user-attachments/assets/42cd01b9-c3db-4059-bd8a-fa44bc678ea2" style="width: 50%; height: auto;"></td>
+    </tr>
+    <tr>
+      <td style="width: 25%;"><img src="https://github.com/user-attachments/assets/8abab1a1-1fd2-43dc-b583-c9413adb6d0b" style="width: 50%; height: auto;"></td>
+    </tr>
+    <tr>
+      <td style="width: 25%;"><img src="https://github.com/user-attachments/assets/ce592abe-d296-4956-ae2f-918109a83dc6" style="width: 50%; height: auto;"></td>
+    </tr>
+    <tr>
+      <td style="width: 25%;"><img src="https://github.com/user-attachments/assets/752c7648-5fcc-405f-b1e0-6589736d033b" style="width: 50%; height: auto;"></td>
+    </tr>
+    <tr>
+      <td style="width: 25%;"><img src="https://github.com/user-attachments/assets/a0000c88-72d1-4863-ab6b-e9c23550713e" style="width: 50%; height: auto;"></td>
+    </tr>
+    <tr>
+      <td style="width: 25%;"><img src="https://github.com/user-attachments/assets/3f83774b-2186-4e9d-bcd8-3782d2b7d3ae" style="width: 50%; height: auto;"></td>
     </tr>
     <tr>
       <td colspan="4" style="text-align: center;"><h2>Yapay Zeka Destek Sayfası</h2></td>
     </tr>
     <tr>
-      <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/303fbad6-7064-4863-8dd5-8ae2874e0c2b" style="width: 50%; height: auto;"></td>
+      <td style="width: 25%;"><img src="https://github.com/user-attachments/assets/3bbb9852-4eb2-4d08-ad78-efd648c93ea2" style="width: 50%; height: auto;"></td>
     </tr>
   </table>
   </details>   
