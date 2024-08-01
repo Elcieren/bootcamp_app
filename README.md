@@ -1,6 +1,10 @@
-
 <td><img src="https://github.com/user-attachments/assets/48592e4b-10c2-4899-83a5-8bcf3a0a6e88" /></td>
 
+<<<<<<< HEAD
+=======
+<td><img src="https://github.com/user-attachments/assets/48592e4b-10c2-4899-83a5-8bcf3a0a6e88" /></td>
+
+>>>>>>> 1e9cc3fdc5abb338e50874aa0745c920a55dac51
 ###
 <table>
   <tr>
@@ -77,7 +81,7 @@ https://trello.com/b/n8p6Bpvl/bootcamp-panomuz
 ## Ürün Açıklaması
 Günümüzün yoğun temposunda, yemek planlaması ve hazırlığı bazen zorlu bir görev haline gelebiliyor. İşte tam da bu noktada, geliştirdiğimiz catering uygulaması hayatınızı kolaylaştırmak için devreye giriyor. Kurumsal ve bireysel kullanıcılar için özel olarak tasarlanmış bu uygulama hem kurumsal firmaların hem de ev hanımlarının yemek satışlarını pratik ve verimli bir şekilde gerçekleştirmelerini sağlıyor.
 
-Kurumsal firmalar yemeklerini pazarlama ve reklam konularında çok az efor sarfederek uygulamada yerini alabiliyor. Ev hanımları ise aile bütçelerine kolayca katkıda bulunmak için her gün yaptıkları yemeklerden birkaç kişilik fazla yaparak kolayca satış yapabiliyor. Kurumsal firmalar öğle yemekleri ve davetler için rahatlıkla planlama yapabiliyor. Bireysel kullanıcılar ise sağlıklı alternatiflerle yorulmadan öğünlerini yapabiliyorlar. 
+Kurumsal firmalar yemeklerini pazarlama ve reklam konularında çok az efor sarfederek uygulamada yerini alabiliyor. Ev hanımları ise aile bütçelerine kolayca katkıda bulunmak için her gün yaptıkları yemeklerden birkaç kişilik fazla yaparak kolayca satış yapabiliyor. Kurumsal firmalar öğle yemekleri ve davetler için rahatlıkla planlama yapabiliyor. Bireysel kullanıcılar ise sağlıklı alternatiflerle yorulmadan öğünlerini yapabiliyorlar.
 
 <details>
 <summary><h2>Ürün Özellikleri</h2></summary>
@@ -249,7 +253,7 @@ Daily Scrum örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
     <tr>
       <td style="width: 5%;"><img src="https://github.com/user-attachments/assets/f51cb62a-301d-42c1-ae43-1a5c63f7a3cb" style="width: 50%; height: auto;"></td>
     </tr>
-    
+
 </table>
 </details> 
 
@@ -451,20 +455,19 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
 
 
 
-# **Kullanılan Teknolojiler**
-  **`(Kullanılan teknolojiler her sprintte eklenmiştir)`**
-  - [x] `firebase_core`
-  - [x] `firebase_auth`
-  - [x] `cloud_firestore`
-  - [x] `stacked`
-  - [x] `stacked_services`
-  - [x] `get_it`
-  - [x] `carousel_slider`
-  - [x] `flutter_credit_card`
-  - [x] `google_generative_ai:`
-  - [x] `intl`
+<<<<<<< HEAD
+# *Kullanılan Teknolojiler*
+*(Kullanılan teknolojiler her sprintte eklenmiştir)*
+- [x] firebase_core
+- [x] firebase_auth
+- [x] cloud_firestore
+- [x] stacked
+- [x] stacked_services
+- [x] get_it
+- [x] carousel_slider
+- [x] flutter_credit_card
+- [x] google_generative_ai:
+- [x] intl
+=======
 
-
-  
-     
-  
+>>>>>>> 1e9cc3fdc5abb338e50874aa0745c920a55dac51

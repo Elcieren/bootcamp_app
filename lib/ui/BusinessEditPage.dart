@@ -17,10 +17,12 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
   final _descriptionController = TextEditingController();
   final _locationController = TextEditingController();
   final _imageUrlController = TextEditingController();
-  final _phoneNumberController = TextEditingController(); // Added controller
+  final _phoneNumberController = TextEditingController();
+  final _addressController = TextEditingController(); // Added controller
 
   bool _isLoading = false;
   List<Map<String, dynamic>> _businesses = [];
+  String? _selectedEtiket; // Variable to store selected label
 
   @override
   void initState() {
@@ -83,6 +85,8 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
           _locationController.text = data['location'] ?? '';
           _imageUrlController.text = data['imageUrl'] ?? '';
           _phoneNumberController.text = data['phoneNumber'] ?? '';
+          _addressController.text = data['address'] ?? ''; // Fetch address
+          _selectedEtiket = data['etiket'] ?? 'genel'; // Fetch selected label
         }
       }
     } catch (e) {
@@ -135,8 +139,9 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
             'aciklama': _descriptionController.text,
             'location': _locationController.text,
             'imageUrl': _imageUrlController.text,
-            'phoneNumber': _phoneNumberController.text, // Save phone number
-            'etiket': 'genel',
+            'phoneNumber': _phoneNumberController.text,
+            'address': _addressController.text, // Save address
+            'etiket': _selectedEtiket ?? 'genel', // Save selected label
             'userEmail': user.email,
           };
 

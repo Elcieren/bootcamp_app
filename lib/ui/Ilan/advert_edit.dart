@@ -46,31 +46,47 @@ class _AdvertEditPageState extends State<AdvertEditPage> {
         itemCount: _userPosts.length,
         itemBuilder: (context, index) {
           var post = _userPosts[index].data() as Map<String, dynamic>;
-          return ListTile(
-            title: Text(post['fullname']),
-            subtitle: Text(post['ilanAciklamasi']),
-            trailing: IconButton(
-              icon: Icon(Icons.delete),
-              onPressed: () async {
-                await _firestore
-                    .collection('Post')
-                    .doc(_userPosts[index].id)
-                    .delete();
-                setState(() {
-                  _userPosts.removeAt(index);
-                });
-              },
-            ),
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => EditPostPage(
-                    postId: _userPosts[index].id,
-                    post: post,
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Color(0xFFFFA500), // Orange color
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [
+                  BoxShadow(
+                    offset: Offset(0, 4),
+                    color: Colors.black.withOpacity(0.5),
+                    blurRadius: 4,
                   ),
+                ],
+              ),
+              child: ListTile(
+                title: Text(post['text'], style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600)),
+                subtitle: Text(post['ilanAciklamasi'], style: TextStyle(color: Colors.white)),
+                trailing: IconButton(
+                  icon: Icon(Icons.delete, color: Colors.white),
+                  onPressed: () async {
+                    await _firestore
+                        .collection('Post')
+                        .doc(_userPosts[index].id)
+                        .delete();
+                    setState(() {
+                      _userPosts.removeAt(index);
+                    });
+                  },
                 ),
-              );
-            },
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => EditPostPage(
+                        postId: _userPosts[index].id,
+                        post: post,
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
           );
         },
       )
@@ -91,52 +107,77 @@ class EditPostPage extends StatefulWidget {
 }
 
 class _EditPostPageState extends State<EditPostPage> {
-  FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  late TextEditingController _fiyatController;
-  late TextEditingController _teslimatController;
-  late TextEditingController _yemekategoriController;
-  late TextEditingController _yemeicerigiController;
-  late TextEditingController _yemekturuController;
-  late TextEditingController _textController;
-  late TextEditingController _cinsiyetController;
-  late TextEditingController _ilanaciklamasiController;
-  late TextEditingController _linkController;
+  final _formKey = GlobalKey<FormState>();
+  final _fiyatController = TextEditingController();
+  final _teslimatController = TextEditingController();
+  final _yemekKategoriController = TextEditingController();
+  final _yemekIcerigiController = TextEditingController();
+  final _yemekTuruController = TextEditingController();
+  final _textController = TextEditingController();
+  final _cinsiyetController = TextEditingController();
+  final _ilanAciklamasiController = TextEditingController();
+  final _linkController = TextEditingController();
+
+  bool _isLoading = false;
 
   @override
   void initState() {
     super.initState();
-    _fiyatController = TextEditingController(text: widget.post['Fiyat']);
-    _teslimatController = TextEditingController(text: widget.post['Teslimat']);
-    _yemekategoriController =
-        TextEditingController(text: widget.post['YemekKategori']);
-    _yemeicerigiController =
-        TextEditingController(text: widget.post['YemekIcerigi']);
-    _yemekturuController = TextEditingController(text: widget.post['YemekTuru']);
-    _textController = TextEditingController(text: widget.post['text']);
-    _cinsiyetController = TextEditingController(text: widget.post['cinsiyet']);
-    _ilanaciklamasiController =
-        TextEditingController(text: widget.post['ilanAciklamasi']);
-    _linkController = TextEditingController(text: widget.post['link']);
+    _fiyatController.text = widget.post['Fiyat'] ?? '';
+    _teslimatController.text = widget.post['Teslimat'] ?? '';
+    _yemekKategoriController.text = widget.post['YemeKategori'] ?? '';
+    _yemekIcerigiController.text = widget.post['YemekIcerigi'] ?? '';
+    _yemekTuruController.text = widget.post['YemekTuru'] ?? '';
+    _textController.text = widget.post['text'] ?? '';
+    _cinsiyetController.text = widget.post['cinsiyet'] ?? '';
+    _ilanAciklamasiController.text = widget.post['ilanAciklamasi'] ?? '';
+    _linkController.text = widget.post['link'] ?? '';
   }
 
   Future<void> _updatePost() async {
-    await _firestore.collection('Post').doc(widget.postId).update({
-      'Fiyat': _fiyatController.text,
-      'Teslimat': _teslimatController.text,
-      'YemekKategori': _yemekategoriController.text,
-      'YemekIcerigi': _yemeicerigiController.text,
-      'YemekTuru': _yemekturuController.text,
-      'text': _textController.text,
-      'cinsiyet': _cinsiyetController.text,
-      'ilanAciklamasi': _ilanaciklamasiController.text,
-      'link': _linkController.text,
-    });
-    Navigator.of(context).pop();
+    if (_formKey.currentState?.validate() ?? false) {
+      setState(() {
+        _isLoading = true;
+      });
+
+      try {
+        await FirebaseFirestore.instance.collection('Post').doc(widget.postId).update({
+          'Fiyat': _fiyatController.text,
+          'Teslimat': _teslimatController.text,
+          'YemekKategori': _yemekKategoriController.text,
+          'YemekIcerigi': _yemekIcerigiController.text,
+          'YemekTuru': _yemekTuruController.text,
+          'text': _textController.text,
+          'cinsiyet': _cinsiyetController.text,
+          'ilanAciklamasi': _ilanAciklamasiController.text,
+          'link': _linkController.text,
+        });
+        Navigator.of(context).pop();
+      } catch (e) {
+        // Handle errors if needed
+      } finally {
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
   }
 
   Future<void> _deletePost() async {
-    await _firestore.collection('Post').doc(widget.postId).delete();
-    Navigator.of(context).pop();
+    setState(() {
+      _isLoading = true;
+    });
+
+    try {
+      await FirebaseFirestore.instance.collection('Post').doc(widget.postId).delete();
+      Navigator.of(context).pop();
+    } catch (e) {
+      // Handle errors if needed
+    } finally {
+      setState(() {
+        _isLoading = false;
+      });
+    }
   }
 
   @override
@@ -157,61 +198,85 @@ class _EditPostPageState extends State<EditPostPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: ListView(
-          children: [
-            TextField(
-              controller: _fiyatController,
-              decoration: InputDecoration(labelText: 'Fiyat'),
+        child: _isLoading
+            ? Center(child: CircularProgressIndicator())
+            : SingleChildScrollView(
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                customTextFormField(
+                  controller: _fiyatController,
+                  labelText: 'Fiyat',
+                ),
+                customTextFormField(
+                  controller: _teslimatController,
+                  labelText: 'Teslimat',
+                ),
+                customTextFormField(
+                  controller: _yemekKategoriController,
+                  labelText: 'Yemek Kategori',
+                ),
+                customTextFormField(
+                  controller: _yemekIcerigiController,
+                  labelText: 'Yemek İçeriği',
+                ),
+                customTextFormField(
+                  controller: _yemekTuruController,
+                  labelText: 'Yemek Türü',
+                ),
+                customTextFormField(
+                  controller: _textController,
+                  labelText: 'Text',
+                ),
+                customTextFormField(
+                  controller: _cinsiyetController,
+                  labelText: 'Cinsiyet',
+                ),
+                customTextFormField(
+                  controller: _ilanAciklamasiController,
+                  labelText: 'İlan Açıklaması',
+                ),
+                customTextFormField(
+                  controller: _linkController,
+                  labelText: 'Link',
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: _updatePost,
+                  child: Text('Kaydet'),
+                ),
+                SizedBox(height: 20),
+                Divider(thickness: 2),
+              ],
             ),
-            TextField(
-              controller: _teslimatController,
-              decoration: InputDecoration(labelText: 'Teslimat'),
-            ),
-            TextField(
-              controller: _yemekategoriController,
-              decoration: InputDecoration(labelText: 'Yemek Kategori'),
-            ),
-            TextField(
-              controller: _yemeicerigiController,
-              decoration: InputDecoration(labelText: 'Yemek İçeriği'),
-            ),
-            TextField(
-              controller: _yemekturuController,
-              decoration: InputDecoration(labelText: 'Yemek Türü'),
-            ),
-            TextField(
-              controller: _textController,
-              decoration: InputDecoration(labelText: 'Text'),
-            ),
-            TextField(
-              controller: _cinsiyetController,
-              decoration: InputDecoration(labelText: 'Cinsiyet'),
-            ),
-            TextField(
-              controller: _ilanaciklamasiController,
-              decoration: InputDecoration(labelText: 'İlan Açıklaması'),
-            ),
-            TextField(
-              controller: _linkController,
-              decoration: InputDecoration(labelText: 'Link'),
-            ),
-          ],
+          ),
         ),
       ),
     );
   }
 
-  @override
-  void dispose() {
-    _fiyatController.dispose();
-    _teslimatController.dispose();
-    _yemekategoriController.dispose();
-    _yemeicerigiController.dispose();
-    _yemekturuController.dispose();
-    _textController.dispose();
-    _cinsiyetController.dispose();
-    _ilanaciklamasiController.dispose();
-    _linkController.dispose();
-    super.dispose();
+  Widget customTextFormField({required TextEditingController controller, required String labelText, bool readOnly = false}) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 16.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: Colors.grey.withOpacity(0.2),
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: TextFormField(
+        controller: controller,
+        decoration: InputDecoration(
+          labelText: labelText,
+          border: InputBorder.none,
+          focusedBorder: InputBorder.none,
+          enabledBorder: InputBorder.none,
+          errorBorder: InputBorder.none,
+          disabledBorder: InputBorder.none,
+        ),
+        readOnly: readOnly,
+        validator: (value) => value?.isEmpty ?? true ? '$labelText girin' : null,
+      ),
+    );
   }
 }

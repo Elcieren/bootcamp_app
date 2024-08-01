@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:bootcamp_app/ui/BusinessEditPage.dart';
 import 'package:bootcamp_app/ui/Ilan/advert_edit.dart';
+import 'package:intl/intl.dart';
+
 class ProfilView extends StatefulWidget {
   const ProfilView({super.key});
 
@@ -22,6 +24,7 @@ class _ProfilViewState extends State<ProfilView> {
   final authService = AuthService();
   User? _user;
   Map<String, dynamic>? _userData;
+  final TextEditingController _addressController = TextEditingController();
 
   @override
   void initState() {
@@ -61,10 +64,55 @@ class _ProfilViewState extends State<ProfilView> {
                     IlanSayafsinaGit,
                   ),
                   customSizedBox(),
-                  IlanDuzenlemeButton(), // Add the new button here
+                  IlanDuzenlemeButton(),
                   customSizedBox(),
-                  isletmeDuzenlemeButton(), // Add the new button here
+                  isletmeDuzenlemeButton(),
                 ],
+                if (_userData!['Durum'] == 'Müşteri') ...[
+                  customSizedBox(),
+                  Container(
+                    padding: const EdgeInsets.all(16.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          offset: Offset(0, 5),
+                          color: Color(0xff64A6FF).withOpacity(.1),
+                          spreadRadius: 5,
+                          blurRadius: 10,
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Adres',
+                          style: TextStyle(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(height: 10),
+                        TextField(
+                          controller: _addressController,
+                          decoration: InputDecoration(
+                            hintText: 'Adresinizi girin',
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        ElevatedButton(
+                          onPressed: _updateAddress,
+                          child: Text('Adres Güncelle'),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+                customSizedBox(),
+                siparislerimButton(),
                 customSizedBox(),
                 itemProfile(
                   "Durum",
@@ -97,6 +145,7 @@ class _ProfilViewState extends State<ProfilView> {
                   signOutAndNavigateToLogin,
                 ),
                 customSizedBox(),
+
               ],
             ),
           )
@@ -119,8 +168,22 @@ class _ProfilViewState extends State<ProfilView> {
       DocumentSnapshot userData =
       await _firestore.collection('Kullanıcılar').doc(_user!.uid).get();
       setState(() {
-        _userData = userData.data() as Map<String, dynamic>?; // Dönüşüm işlemi
+        _userData = userData.data() as Map<String, dynamic>?;
+        if (_userData != null && _userData!['Durum'] == 'Müşteri') {
+          _addressController.text = _userData!['address'] ?? '';
+        }
       });
+    }
+  }
+
+  void _updateAddress() async {
+    if (_user != null) {
+      await _firestore.collection('Kullanıcılar').doc(_user!.uid).update({
+        'address': _addressController.text,
+      });
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Adres güncellendi')),
+      );
     }
   }
 
@@ -148,8 +211,8 @@ class _ProfilViewState extends State<ProfilView> {
     );
   }
 
-  Widget itemCikis(
-      String title, String subtitle, IconData iconData, VoidCallback onTap) {
+  Widget itemCikis(String title, String subtitle, IconData iconData,
+      VoidCallback onTap) {
     return InkWell(
       onTap: onTap,
       child: Center(
@@ -185,7 +248,8 @@ class _ProfilViewState extends State<ProfilView> {
     height: 60,
   );
 
-  Widget Ilan(String title, String subtitle, IconData iconData, VoidCallback onTap) {
+  Widget Ilan(String title, String subtitle, IconData iconData,
+      VoidCallback onTap) {
     return InkWell(
       onTap: onTap,
       child: Center(
@@ -252,7 +316,7 @@ class _ProfilViewState extends State<ProfilView> {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) => BusinessEditPage(
-              businessId: _userData?['businessId'], // Pass the business ID if available
+              businessId: _userData?['businessId'],
             ),
           ),
         );
@@ -281,9 +345,139 @@ class _ProfilViewState extends State<ProfilView> {
     );
   }
 
-  void IlanSayafsinaGit() async {
-    Navigator.of(context).pushReplacement(
+  void IlanSayafsinaGit() {
+    Navigator.of(context).push(
       MaterialPageRoute(builder: (context) => AdvertView()),
+    );
+  }
+
+  Widget siparislerimButton() {
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => OrdersPage(userStatus: _userData!['Durum']),
+          ),
+        );
+      },
+      child: Center(
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [
+              BoxShadow(
+                offset: Offset(0, 5),
+                color: Color(0xff64A6FF).withOpacity(.1),
+                spreadRadius: 5,
+                blurRadius: 10,
+              ),
+            ],
+          ),
+          child: ListTile(
+            title: Center(child: Text("Siparişlerim")),
+            leading: Icon(CupertinoIcons.cart),
+            tileColor: Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class OrdersPage extends StatelessWidget {
+  final String userStatus;
+
+  const OrdersPage({Key? key, required this.userStatus}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+    final User? _user = FirebaseAuth.instance.currentUser;
+    final String? userEmail = _user?.email;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Siparişlerim'),
+      ),
+      body: StreamBuilder<QuerySnapshot>(
+        stream: _firestore
+            .collection('orders')
+            .where(
+          userStatus == 'Müşteri' ? 'userId' : 'isletmemail',
+          isEqualTo: userStatus == 'Müşteri' ? userEmail : userEmail, // Adjusted for email if needed
+        )
+            .snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return Center(child: CircularProgressIndicator());
+          }
+
+          var orders = snapshot.data?.docs ?? [];
+
+          if (orders.isEmpty) {
+            return Center(child: Text('Henüz siparişiniz yok.'));
+          }
+
+          return ListView.builder(
+            itemCount: orders.length,
+            itemBuilder: (context, index) {
+              var orderData = orders[index].data() as Map<String, dynamic>;
+
+              // Check and format the date and time
+              String formattedDate = 'Bilinmiyor';
+              String formattedTime = 'Bilinmiyor';
+
+              if (orderData['deliveryDate'] != null && orderData['deliveryDate'] is Timestamp) {
+                DateTime date = (orderData['deliveryDate'] as Timestamp).toDate();
+                formattedDate = DateFormat('dd/MM/yyyy').format(date);
+              }
+
+
+              return Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xFFFFA500), // Orange color
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(0, 4),
+                        color: Colors.black.withOpacity(0.5),
+                        blurRadius: 1,
+                      ),
+                    ],
+                  ),
+                  child: ExpansionTile(
+                    title: Text(
+                      'Ürün: ${orderData['urun']}',
+                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
+                    ),
+                    subtitle: Text(
+                      'Toplam: ${orderData['totalAmount']} ₺',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    children: [
+                      ListTile(
+                        title: Text('Günlük Adet: ${orderData['adet']}', style: TextStyle(color: Colors.white)),
+                      ),
+                      ListTile(
+                        title: Text('Adres: ${orderData['adres']}', style: TextStyle(color: Colors.white)),
+                      ),
+                      ListTile(
+                        title: Text('Tarihine kadar: $formattedDate', style: TextStyle(color: Colors.white)),
+                      ),
+                      ListTile(
+                        title: Text('Saat: ${orderData['deliveryTime']}', style: TextStyle(color: Colors.white)),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }

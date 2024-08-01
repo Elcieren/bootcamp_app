@@ -527,11 +527,12 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.orange,
         title: Text(widget.business.title),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -543,27 +544,28 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
               SizedBox(height: 10),
               Text(
                 widget.business.title,
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 26,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.orange),
               ),
               SizedBox(height: 10),
               Text(
                 widget.business.description,
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(fontSize: 18, color: Colors.black87),
               ),
               SizedBox(height: 10),
               Text(
-                'Location: ${widget.business.location}',
-                style: TextStyle(fontSize: 16),
+                'Konum: ${widget.business.location}',
+                style: TextStyle(fontSize: 16, color: Colors.black54),
               ),
               SizedBox(height: 10),
               Text(
-                'Email: ${widget.business.userEmail}',
-                style: TextStyle(fontSize: 16),
-              ),
-              SizedBox(height: 20),
-              Text(
-                'Shared Menus',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                'Paylaşılan Menüler',
+                style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.orange),
               ),
               SizedBox(height: 10),
               isLoading
