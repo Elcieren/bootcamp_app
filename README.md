@@ -342,7 +342,7 @@ Daily Scrum örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
   <summary><h3>Sprint Board Güncelleme Ekran Görüntüleri</h3></summary>
    <table style="width: 100%;">
     <tr>
-      <td style="width: 5%;"><img src="https://github.com/user-attachments/assets/4476626b-984e-431b-a532-eb40e0ff8af1" style="width: 50%; height: auto;"></td>
+      <td style="width: 5%;"><img src="https://github.com/user-attachments/assets/910ae90c-d03b-4cbe-bad3-2e54649ecde9" style="width: 50%; height: auto;"></td>
     </tr>
    </table>
  </details> 
@@ -421,7 +421,11 @@ Daily Scrum örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
 
 <details>
 <summary><h2>Sprint Retrospective</h2></summary>
-Prototip olarak temelde yapmak istenilen her şey yapıldı .Yapay zeka özgünlük seviyesi arttırıldı  Iyzico ödeme sistemi zamansal sıkıntılardan ötürü yapılamadı.İle
+Prototip olarak temelde yapmak istenilen her şey yapıldı ancak iyzico ödeme sistemi, kullanıcının siparişini kupona dönüştürüp sonradan kullanma özelliği, kullanıcıya özel öneri bildirimleri, işletme reklam bildirimleri zamansal sıkıntılardan ötürü yapılamadı.
+</details> 
+<details>
+<summary><h2>Not</h2></summary>
+Uygulamanın aynı amaca hizmet eden diğer uygulamalara göre farkları: Kişisel kullanıcıya göre menü tavsiye eden yapay zeka destekli olması, firebase analiz kullanarak kullanıcıların yoğun talepleri değerlendiriyor olması ve daha fazla ürün paylaşımı yapıyor olmasıdır.
 </details> 
 </details>
 
