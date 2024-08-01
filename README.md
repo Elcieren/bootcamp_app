@@ -308,7 +308,7 @@ Satın alma özelliğinin eklenmesine, gerekli sözleşme ve belgelerin eklenmes
 
 <details>
 <summary><h2>Sprint Notları</h2></summary>
-Ekip tanışmış ve uyumlu bir şekilde çalışmaya başlamıştır. Yapılan ilk toplantıda uygulamaya karar verilmiş ve sprint boyunca geliştirilmiştir. Kullanıcı hikayeleri oluşturulmuş, senaryo ve kullanıcılara göre sayfa tasarımları yapılmıştır. Firebase bağlanmış ve kullanıcı işlemleri hazır hale getirilmiştir.
+Alınan kararlar doğrultusunda işletmeler ve menüler üzerine odaklanarak önemli değişiklikler yapıldı. Satın alma işlemleri ve sipariş gün sınırı özellikleri ile kullanıcı deneyimini iyileştirirken, iptal edilen siparişlerin kupona dönüştürülmesi özelliği eklendi. Veri listeleme ve teklif butonu eklenerek ürün ve hizmetlerin yönetimi kolaylaştırıldı. İlan silme özelliği ile kullanıcılar istenmeyen ilanları kaldırabilir hale geldi. Çeşitli tasarımsal yenilikler ile uygulamanın görsel estetiği güçlendirildi. Appbar arama butonunun aktifleştirilmesi ile içeriklere hızlı erişim sağlanırken, işletme düzenleme butonunun aktifleştirilmesi ile işletme sahiplerine bilgilerini düzenleme imkanı verildi. Son durumda kullanıcı deneyimini daha da iyileştirerek, beklentilerini karşılayan bir platform yapılmış oldu
 </details> 
 
 
@@ -319,21 +319,21 @@ Ekip tanışmış ve uyumlu bir şekilde çalışmaya başlamıştır. Yapılan 
 
 <details>
 <summary><h2>Puan tamamlama mantığı</h2></summary>
-Toplamda proje boyunca tamamlanması gereken 360 puanlık backlog bulunmaktadır. 3 sprint'e bölündüğünde ilk sprint'in 120 puan olmasına karar verildi
+Uygulamanın paylaşım için hazır hale geldiği ve düşünülen tüm sprintlerdeki gereklilikler yerine getirildiği için 120 puanın tamamlandığı bir sprintti
 </details> 
 
 <details>
 <summary><h2>Daily Scrum</h2></summary>
-Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır. 
+Daily Scrum örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır. 
 <table style="width: 100%;">
 <tr>
       <td colspan="4" style="text-align: center;"><h2>Ekran Görüntüleri</h2></td>
     </tr>
     <tr>
-      <td style="width: 5%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/7e346a81-5ab7-40db-b3f1-58e41b7198db" style="width: 50%; height: auto;"></td>
+      <td style="width: 5%;"><img src="https://github.com/user-attachments/assets/dadef65a-5c1d-4604-aa5f-47a0bcc04d5e" style="width: 50%; height: auto;"></td>
     </tr>
     <tr>
-      <td style="width: 5%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/732f1bd4-be05-40bd-9757-3beb30d4c166" style="width: 50%; height: auto;"></td>
+      <td style="width: 5%;"><img src="hhttps://github.com/user-attachments/assets/02120110-3ad9-4352-a04b-f214a9f12381" style="width: 50%; height: auto;"></td>
     </tr>
 </table>
 </details> 
@@ -342,7 +342,7 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
   <summary><h3>Sprint Board Güncelleme Ekran Görüntüleri</h3></summary>
    <table style="width: 100%;">
     <tr>
-      <td style="width: 5%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/84d5bef3-4d72-499c-8f6d-1141901f230c" style="width: 50%; height: auto;"></td>
+      <td style="width: 5%;"><img src="https://github.com/user-attachments/assets/4476626b-984e-431b-a532-eb40e0ff8af1" style="width: 50%; height: auto;"></td>
     </tr>
    </table>
  </details> 
@@ -410,16 +410,18 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
 <details>
 <summary><h2>Sprint Review</h2></summary>
 <ul>
-  <li>Açılış, profil ve işlem sayfalarını oluşturduk</li>
-  <li>State management ile uygulama yönetimi yaptık.</li>
-  <li>Firebase Authentication, Cloud Firestore bağladık.</li>
-  <li>Arayüz tasarımları geliştirilmiş ve uyguladık.</li>
+  <li>Satın alma işlemleri, sipariş gün sınırı özelliği, iptal edilen siparişlerin kupona dönüştürülmesi işlemleri yapıldı.</li>
+  <li>Veri listeleme ve teklif butonu eklendi</li>
+  <li>ilan silme özelliği eklendi.</li>
+  <li>Menüye görsel ekleme ve çeşitli tasarımsal yenilikler yapıldı.</li>
+  <li>Appbar arama butonu aktifleştirildi.</li>
+  <li>Marketing çalışmaları yapıldı, uygulama mail ve instagram hesabı açıldı.</li>
 </ul>
 </details>
 
 <details>
 <summary><h2>Sprint Retrospective</h2></summary>
-İşletme tasarım sayfasının yapılmasına, menü list eklenmesine, menü sayfa tasarımının yapılmasına ve menülerin sepete eklenme fonksiyonunun oluşturulmasına karar verildi.
+Prototip olarak temelde yapmak istenilen her şey yapıldı .Yapay zeka özgünlük seviyesi arttırıldı  Iyzico ödeme sistemi zamansal sıkıntılardan ötürü yapılamadı.İle
 </details> 
 </details>
 
