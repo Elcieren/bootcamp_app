@@ -10,16 +10,14 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage>
-    with SingleTickerProviderStateMixin {
+class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
   int _current = 0;
   late AnimationController _controller;
   late Animation<Color?> _colorAnimation;
 
-  List<String> imageUrls = [];
-  List<BusinessCardModel> businesses = [];
-  List<BusinessCardModel> generalBusinesses = [];
-  bool isLoading = true;
+  late Future<List<String>> _imageUrlsFuture;
+  late Future<List<BusinessCardModel>> _businessesFuture;
+  late Future<List<BusinessCardModel>> _generalBusinessesFuture;
 
   @override
   void initState() {
@@ -34,9 +32,9 @@ class _HomePageState extends State<HomePage>
       end: Colors.transparent,
     ).animate(_controller);
 
-    fetchSliderImages();
-    fetchBusinesses();
-    fetchGeneralBusinesses(); // Fetch general businesses
+    _imageUrlsFuture = fetchSliderImages();
+    _businessesFuture = fetchBusinesses();
+    _generalBusinessesFuture = fetchGeneralBusinesses();
   }
 
   @override
@@ -45,25 +43,20 @@ class _HomePageState extends State<HomePage>
     super.dispose();
   }
 
-  Future<void> fetchSliderImages() async {
-    final snapshot =
-        await FirebaseFirestore.instance.collection('slider').get();
-    final fetchedImageUrls = snapshot.docs.map((doc) {
+  Future<List<String>> fetchSliderImages() async {
+    final snapshot = await FirebaseFirestore.instance.collection('slider').get();
+    return snapshot.docs.map((doc) {
       final data = doc.data() as Map<String, dynamic>;
       return data['link'] as String;
     }).toList();
-
-    setState(() {
-      imageUrls = fetchedImageUrls;
-    });
   }
 
-  Future<void> fetchBusinesses() async {
+  Future<List<BusinessCardModel>> fetchBusinesses() async {
     final snapshot = await FirebaseFirestore.instance
         .collection('isletmeler')
         .where('etiket', isEqualTo: 'ozel')
         .get();
-    final fetchedBusinesses = snapshot.docs.map((doc) {
+    return snapshot.docs.map((doc) {
       final data = doc.data();
       return BusinessCardModel(
         imageUrl: data['imageUrl'] ?? '',
@@ -73,19 +66,14 @@ class _HomePageState extends State<HomePage>
         userEmail: data['userEmail'] ?? '',
       );
     }).toList();
-
-    setState(() {
-      businesses = fetchedBusinesses;
-      isLoading = false;
-    });
   }
 
-  Future<void> fetchGeneralBusinesses() async {
+  Future<List<BusinessCardModel>> fetchGeneralBusinesses() async {
     final snapshot = await FirebaseFirestore.instance
         .collection('isletmeler')
         .where('etiket', isEqualTo: 'genel')
         .get();
-    final fetchedGeneralBusinesses = snapshot.docs.map((doc) {
+    return snapshot.docs.map((doc) {
       final data = doc.data();
       return BusinessCardModel(
         imageUrl: data['imageUrl'] ?? '',
@@ -95,11 +83,6 @@ class _HomePageState extends State<HomePage>
         userEmail: data['userEmail'] ?? '',
       );
     }).toList();
-
-    setState(() {
-      generalBusinesses = fetchedGeneralBusinesses;
-      isLoading = false;
-    });
   }
 
   @override
@@ -153,54 +136,69 @@ class _HomePageState extends State<HomePage>
       body: ListView(
         padding: EdgeInsets.all(10),
         children: [
-          Stack(
-            alignment: Alignment.bottomRight,
-            children: [
-              CarouselSlider.builder(
-                itemCount: imageUrls.length,
-                options: CarouselOptions(
-                  height: 180,
-                  enableInfiniteScroll: true,
-                  autoPlay: true,
-                  autoPlayInterval: Duration(seconds: 3),
-                  autoPlayAnimationDuration: Duration(milliseconds: 800),
-                  autoPlayCurve: Curves.fastOutSlowIn,
-                  enlargeCenterPage: true,
-                  viewportFraction: 1,
-                  onPageChanged: (index, reason) {
-                    setState(() {
-                      _current = index;
-                    });
-                  },
-                ),
-                itemBuilder: (context, index, realIndex) {
-                  return Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
+          FutureBuilder<List<String>>(
+            future: _imageUrlsFuture,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(child: CircularProgressIndicator());
+              } else if (snapshot.hasError) {
+                return Center(child: Text('Error: ${snapshot.error}'));
+              } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                return Center(child: Text('No images found'));
+              }
+
+              final imageUrls = snapshot.data!;
+
+              return Stack(
+                alignment: Alignment.bottomRight,
+                children: [
+                  CarouselSlider.builder(
+                    itemCount: imageUrls.length,
+                    options: CarouselOptions(
+                      height: 180,
+                      enableInfiniteScroll: true,
+                      autoPlay: true,
+                      autoPlayInterval: Duration(seconds: 3),
+                      autoPlayAnimationDuration: Duration(milliseconds: 800),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      enlargeCenterPage: true,
+                      viewportFraction: 1,
+                      onPageChanged: (index, reason) {
+                        setState(() {
+                          _current = index;
+                        });
+                      },
                     ),
-                    child: Image.network(
-                      imageUrls[index],
-                      fit: BoxFit.cover,
+                    itemBuilder: (context, index, realIndex) {
+                      return Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Image.network(
+                          imageUrls[index],
+                          fit: BoxFit.cover,
+                        ),
+                      );
+                    },
+                  ),
+                  Positioned(
+                    right: 8,
+                    bottom: 8,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                      decoration: BoxDecoration(
+                        color: Colors.black54,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Text(
+                        '${_current + 1}/${imageUrls.length}',
+                        style: TextStyle(fontSize: 12, color: Colors.white),
+                      ),
                     ),
-                  );
-                },
-              ),
-              Positioned(
-                right: 8,
-                bottom: 8,
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                  decoration: BoxDecoration(
-                    color: Colors.black54,
-                    borderRadius: BorderRadius.circular(10),
                   ),
-                  child: Text(
-                    '${_current + 1}/${imageUrls.length}',
-                    style: TextStyle(fontSize: 12, color: Colors.white),
-                  ),
-                ),
-              ),
-            ],
+                ],
+              );
+            },
           ),
           SizedBox(height: 15),
           Text(
@@ -212,25 +210,36 @@ class _HomePageState extends State<HomePage>
             ),
           ),
           SizedBox(height: 10),
-          isLoading
-              ? Center(child: CircularProgressIndicator())
-              : businesses.isEmpty
-                  ? Center(child: Text('Veri bulunamadı'))
-                  : Column(
-                      children: businesses.map((business) {
-                        return Padding(
-                          padding: EdgeInsets.only(bottom: 10),
-                          child: BusinessCard(
-                            imageUrl: business.imageUrl,
-                            title: business.title,
-                            description: business.description,
-                            location: business.location,
-                            userEmail: business.userEmail, // Add this line
-                            borderColorAnimation: _colorAnimation,
-                          ),
-                        );
-                      }).toList(),
+          FutureBuilder<List<BusinessCardModel>>(
+            future: _businessesFuture,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(child: CircularProgressIndicator());
+              } else if (snapshot.hasError) {
+                return Center(child: Text('Error: ${snapshot.error}'));
+              } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                return Center(child: Text('Veri bulunamadı'));
+              }
+
+              final businesses = snapshot.data!;
+
+              return Column(
+                children: businesses.map((business) {
+                  return Padding(
+                    padding: EdgeInsets.only(bottom: 10),
+                    child: BusinessCard(
+                      imageUrl: business.imageUrl,
+                      title: business.title,
+                      description: business.description,
+                      location: business.location,
+                      userEmail: business.userEmail,
+                      borderColorAnimation: _colorAnimation,
                     ),
+                  );
+                }).toList(),
+              );
+            },
+          ),
           SizedBox(height: 10),
           Text(
             'Genel İşletmeler',
@@ -241,27 +250,38 @@ class _HomePageState extends State<HomePage>
             ),
           ),
           SizedBox(height: 10),
-          isLoading
-              ? Center(child: CircularProgressIndicator())
-              : generalBusinesses.isEmpty
-                  ? Center(child: Text('Veri bulunamadı'))
-                  : GridView.builder(
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      itemCount: generalBusinesses.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 10,
-                        childAspectRatio: 1,
-                      ),
-                      itemBuilder: (context, index) {
-                        final business = generalBusinesses[index];
-                        return GeneralBusinessCard(
-                          business: business,
-                        );
-                      },
-                    ),
+          FutureBuilder<List<BusinessCardModel>>(
+            future: _generalBusinessesFuture,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(child: CircularProgressIndicator());
+              } else if (snapshot.hasError) {
+                return Center(child: Text('Error: ${snapshot.error}'));
+              } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+                return Center(child: Text('Veri bulunamadı'));
+              }
+
+              final generalBusinesses = snapshot.data!;
+
+              return GridView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: generalBusinesses.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  childAspectRatio: 1,
+                ),
+                itemBuilder: (context, index) {
+                  final business = generalBusinesses[index];
+                  return GeneralBusinessCard(
+                    business: business,
+                  );
+                },
+              );
+            },
+          ),
         ],
       ),
     );
@@ -538,8 +558,7 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
             children: [
               Image.network(
                 widget.business.imageUrl,
-                width: MediaQuery.of(context).size.width /
-                    2, // Reduce size to half
+                width: MediaQuery.of(context).size.width / 2, // Reduce size to half
               ),
               SizedBox(height: 10),
               Text(
@@ -556,7 +575,7 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
               ),
               SizedBox(height: 10),
               Text(
-                'Konum: ${widget.business.location}',
+                'Adres: ${widget.business.location}',
                 style: TextStyle(fontSize: 16, color: Colors.black54),
               ),
               SizedBox(height: 10),
@@ -571,47 +590,69 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
               isLoading
                   ? Center(child: CircularProgressIndicator())
                   : menus.isEmpty
-                      ? Center(child: Text('No menus found'))
-                      : GridView.builder(
-                          shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
-                            crossAxisSpacing: 10,
-                            mainAxisSpacing: 10,
+                  ? Center(child: Text('No menus found'))
+                  : GridView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                gridDelegate:
+                SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                ),
+                itemCount: menus.length,
+                itemBuilder: (context, index) {
+                  final menu = menus[index];
+                  return GestureDetector(
+                    onTap: () => _navigateToPostDetail(menu),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.orange, width: 2),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(20),
+                            ),
+                            child: Image.network(
+                              menu.imageUrl,
+                              width: double.infinity,
+                              height: 100,
+                              fit: BoxFit.cover,
+                            ),
                           ),
-                          itemCount: menus.length,
-                          itemBuilder: (context, index) {
-                            final menu = menus[index];
-                            return GestureDetector(
-                              onTap: () => _navigateToPostDetail(menu),
-                              child: Card(
-                                margin: EdgeInsets.all(0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Image.network(menu.imageUrl,
-                                        width: double.infinity,
-                                        height: 100,
-                                        fit: BoxFit.cover),
-                                    Padding(
-                                      padding: EdgeInsets.all(8.0),
-                                      child: Text(menu.text,
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold)),
-                                    ),
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(horizontal: 8.0),
-                                      child: Text(menu.price),
-                                    ),
-                                  ],
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              menu.text,
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w800,
+                                  fontSize: 16,
+                                  ),
+                            ),
+                          ),
+                          Center(
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Text(
+                                menu.price + '₺',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.deepOrange,
+                                    fontSize: 16,
                                 ),
                               ),
-                            );
-                          },
-                        ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
             ],
           ),
         ),
@@ -619,6 +660,7 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
     );
   }
 }
+
 
 class PostModel {
   final String imageUrl;

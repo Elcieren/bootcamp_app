@@ -209,7 +209,7 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
                           ),
                           customTextFormField(
                             controller: _locationController,
-                            labelText: 'İşletme Şehri',
+                            labelText: 'İşletme Adresi',
                           ),
                           customTextFormField(
                             controller: _phoneNumberController,

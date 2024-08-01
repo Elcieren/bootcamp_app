@@ -494,28 +494,6 @@ class _PostDetailPageState extends State<PostDetailPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            _selectDate(context);
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.orange,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30.0),
-                            ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 20.0, vertical: 15.0),
-                            child: Text(
-                              _selectedDate,
-                              style: TextStyle(
-                                  fontSize: 18.0,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                          ),
-                        ),
                         SizedBox(width: 10),
                         ElevatedButton(
                           onPressed: () {
@@ -523,7 +501,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
                               MaterialPageRoute(
                                 builder: (context) => CardView(
                                   deliveryType: widget.postData['Teslimat'] ?? "Kendi Teslim Alacak",
-                                  address: businessData?['address'] ?? "Adres Bilgisi Yok",
+                                  address: businessData?['location'] ?? "Adres Bilgisi Yok",
                                   price: widget.postData['Fiyat'] ?? "Fiyat Bilgisi Yok",
                                   name: widget.postData['text'] ?? "İsim Bilgisi yok",
                                   imageLink: widget.postData['link'] ?? "https://example.com/default.jpg",
@@ -542,7 +520,7 @@ class _PostDetailPageState extends State<PostDetailPage> {
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 15.0),
                             child: Text(
-                              'Teklif Et',
+                              'Satın Al',
                               style: TextStyle(
                                 fontSize: 18.0,
                                 color: Colors.white,
