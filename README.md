@@ -386,19 +386,6 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
       <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/88970748-84dd-43f6-a6f0-3845748ab804" style="width: 50%; height: auto;"></td>
     </tr>
     <tr>
-      <td colspan="4" style="text-align: center;"><h2>İşletme Paylaşım Sayfası </h2></td>
-    </tr>
-    <tr>
-      <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/3c279b60-b871-4886-a2ea-93999c18cd39" style="width: 50%; height: auto;"></td>
-      <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/88970748-84dd-43f6-a6f0-3845748ab804" style="width: 50%; height: auto;"></td>
-    </tr>
-    <tr>
-      <td colspan="4" style="text-align: center;"><h2>Profil Sayfası</h2></td>
-    </tr>
-    <tr>
-      <td style="width: 25%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/7e99f467-ba13-4919-8f72-7a9578631489" style="width: 50%; height: auto;"></td>
-    </tr>
-    <tr>
       <td colspan="4" style="text-align: center;"><h2>Ana Sayfa </h2></td>
     </tr>
     <tr>
