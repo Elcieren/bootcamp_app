@@ -581,12 +581,12 @@ class _PostDetailPageState extends State<PostDetailPage> {
                       ),
                       SizedBox(height: 10),
                       Text(
-                        'Title: ${businessData!['title'] ?? 'Bilinmiyor'}',
-                        style: TextStyle(fontSize: 18.0),
+                        '${businessData!['title'] ?? 'Bilinmiyor'}',
+                        style: TextStyle(fontSize: 18.0,fontWeight: FontWeight.w700),
                       ),
                       SizedBox(height: 10),
                       Text(
-                        'Description: ${businessData!['aciklama'] ?? 'Bilinmiyor'}',
+                        '${businessData!['aciklama'] ?? 'Bilinmiyor'}',
                         style: TextStyle(fontSize: 18.0),
                       ),
                     ],
