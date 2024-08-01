@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:bootcamp_app/ui/post_page.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -9,7 +10,8 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
   int _current = 0;
   late AnimationController _controller;
   late Animation<Color?> _colorAnimation;
@@ -44,7 +46,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   }
 
   Future<void> fetchSliderImages() async {
-    final snapshot = await FirebaseFirestore.instance.collection('slider').get();
+    final snapshot =
+        await FirebaseFirestore.instance.collection('slider').get();
     final fetchedImageUrls = snapshot.docs.map((doc) {
       final data = doc.data() as Map<String, dynamic>;
       return data['link'] as String;
@@ -56,7 +59,10 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   }
 
   Future<void> fetchBusinesses() async {
-    final snapshot = await FirebaseFirestore.instance.collection('isletmeler').where('etiket', isEqualTo: 'ozel').get();
+    final snapshot = await FirebaseFirestore.instance
+        .collection('isletmeler')
+        .where('etiket', isEqualTo: 'ozel')
+        .get();
     final fetchedBusinesses = snapshot.docs.map((doc) {
       final data = doc.data();
       return BusinessCardModel(
@@ -75,7 +81,10 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   }
 
   Future<void> fetchGeneralBusinesses() async {
-    final snapshot = await FirebaseFirestore.instance.collection('isletmeler').where('etiket', isEqualTo: 'genel').get();
+    final snapshot = await FirebaseFirestore.instance
+        .collection('isletmeler')
+        .where('etiket', isEqualTo: 'genel')
+        .get();
     final fetchedGeneralBusinesses = snapshot.docs.map((doc) {
       final data = doc.data();
       return BusinessCardModel(
@@ -130,7 +139,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
                   },
                 ),
                 IconButton(
-                  icon: Icon(Icons.notifications_active_outlined, color: Colors.black),
+                  icon: Icon(Icons.notifications_active_outlined,
+                      color: Colors.black),
                   onPressed: () {
                     // Define action when the notification icon is pressed
                   },
@@ -205,22 +215,22 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           isLoading
               ? Center(child: CircularProgressIndicator())
               : businesses.isEmpty
-              ? Center(child: Text('Veri bulunamadı'))
-              : Column(
-            children: businesses.map((business) {
-              return Padding(
-                padding: EdgeInsets.only(bottom: 10),
-                child: BusinessCard(
-                  imageUrl: business.imageUrl,
-                  title: business.title,
-                  description: business.description,
-                  location: business.location,
-                  userEmail: business.userEmail, // Add this line
-                  borderColorAnimation: _colorAnimation,
-                ),
-              );
-            }).toList(),
-          ),
+                  ? Center(child: Text('Veri bulunamadı'))
+                  : Column(
+                      children: businesses.map((business) {
+                        return Padding(
+                          padding: EdgeInsets.only(bottom: 10),
+                          child: BusinessCard(
+                            imageUrl: business.imageUrl,
+                            title: business.title,
+                            description: business.description,
+                            location: business.location,
+                            userEmail: business.userEmail, // Add this line
+                            borderColorAnimation: _colorAnimation,
+                          ),
+                        );
+                      }).toList(),
+                    ),
           SizedBox(height: 10),
           Text(
             'Genel İşletmeler',
@@ -234,24 +244,24 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
           isLoading
               ? Center(child: CircularProgressIndicator())
               : generalBusinesses.isEmpty
-              ? Center(child: Text('Veri bulunamadı'))
-              : GridView.builder(
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            itemCount: generalBusinesses.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              childAspectRatio: 1,
-            ),
-            itemBuilder: (context, index) {
-              final business = generalBusinesses[index];
-              return GeneralBusinessCard(
-                business: business,
-              );
-            },
-          ),
+                  ? Center(child: Text('Veri bulunamadı'))
+                  : GridView.builder(
+                      shrinkWrap: true,
+                      physics: NeverScrollableScrollPhysics(),
+                      itemCount: generalBusinesses.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 10,
+                        mainAxisSpacing: 10,
+                        childAspectRatio: 1,
+                      ),
+                      itemBuilder: (context, index) {
+                        final business = generalBusinesses[index];
+                        return GeneralBusinessCard(
+                          business: business,
+                        );
+                      },
+                    ),
         ],
       ),
     );
@@ -321,7 +331,8 @@ class BusinessCard extends StatelessWidget {
               fixedSize: Size(220, 180),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(25),
-                side: BorderSide(color: borderColorAnimation.value ?? Colors.red, width: 3),
+                side: BorderSide(
+                    color: borderColorAnimation.value ?? Colors.red, width: 3),
               ),
               backgroundColor: Colors.white,
               elevation: 5,
@@ -449,7 +460,8 @@ class GeneralBusinessCard extends StatelessWidget {
 class BusinessDetailsPage extends StatefulWidget {
   final BusinessCardModel business;
 
-  const BusinessDetailsPage({Key? key, required this.business}) : super(key: key);
+  const BusinessDetailsPage({Key? key, required this.business})
+      : super(key: key);
 
   @override
   _BusinessDetailsPageState createState() => _BusinessDetailsPageState();
@@ -477,10 +489,10 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
         text: data['text'] ?? '',
         price: data['Fiyat'] ?? '',
         icerik: data['YemekIcerigi'] ?? '',
-          tur: data['YemekTuru'] ?? '',
-        teslimat: data['Teslimat']?? '',
+        tur: data['YemekTuru'] ?? '',
+        teslimat: data['Teslimat'] ?? '',
         sahip: data['fullname'] ?? '',
-        aciklama: data['ilanAciklamasi']?? '',
+        aciklama: data['ilanAciklamasi'] ?? '',
       );
     }).toList();
 
@@ -500,11 +512,11 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
             'link': post.imageUrl,
             'text': post.text,
             'Fiyat': post.price,
-            'YemekIcerigi':post.icerik,
+            'YemekIcerigi': post.icerik,
             'YemekTuru': post.tur,
             'Teslimat': post.teslimat,
-            'fullname':post.sahip,
-            'ilanAciklamasi':post.aciklama,
+            'fullname': post.sahip,
+            'ilanAciklamasi': post.aciklama,
           },
         ),
       ),
@@ -525,7 +537,8 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
             children: [
               Image.network(
                 widget.business.imageUrl,
-                width: MediaQuery.of(context).size.width / 2, // Reduce size to half
+                width: MediaQuery.of(context).size.width /
+                    2, // Reduce size to half
               ),
               SizedBox(height: 10),
               Text(
@@ -556,40 +569,47 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
               isLoading
                   ? Center(child: CircularProgressIndicator())
                   : menus.isEmpty
-                  ? Center(child: Text('No menus found'))
-                  : GridView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                ),
-                itemCount: menus.length,
-                itemBuilder: (context, index) {
-                  final menu = menus[index];
-                  return GestureDetector(
-                    onTap: () => _navigateToPostDetail(menu),
-                    child: Card(
-                      margin: EdgeInsets.all(0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Image.network(menu.imageUrl, width: double.infinity, height: 100, fit: BoxFit.cover),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(menu.text, style: TextStyle(fontWeight: FontWeight.bold)),
+                      ? Center(child: Text('No menus found'))
+                      : GridView.builder(
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 10,
+                            mainAxisSpacing: 10,
                           ),
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 8.0),
-                            child: Text(menu.price),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              ),
+                          itemCount: menus.length,
+                          itemBuilder: (context, index) {
+                            final menu = menus[index];
+                            return GestureDetector(
+                              onTap: () => _navigateToPostDetail(menu),
+                              child: Card(
+                                margin: EdgeInsets.all(0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Image.network(menu.imageUrl,
+                                        width: double.infinity,
+                                        height: 100,
+                                        fit: BoxFit.cover),
+                                    Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text(menu.text,
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold)),
+                                    ),
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 8.0),
+                                      child: Text(menu.price),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                        ),
             ],
           ),
         ),
@@ -597,7 +617,6 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
     );
   }
 }
-
 
 class PostModel {
   final String imageUrl;
@@ -609,15 +628,13 @@ class PostModel {
   final String sahip;
   final String aciklama;
 
-  PostModel({
-    required this.imageUrl,
-    required this.text,
-    required this.price,
-    required this.icerik,
-    required this.tur,
-    required this.teslimat,
-    required this.sahip,
-    required this.aciklama
-  });
+  PostModel(
+      {required this.imageUrl,
+      required this.text,
+      required this.price,
+      required this.icerik,
+      required this.tur,
+      required this.teslimat,
+      required this.sahip,
+      required this.aciklama});
 }
-

@@ -39,7 +39,10 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
     });
 
     try {
-      final snapshot = await FirebaseFirestore.instance.collection('isletmeler').doc(businessId).get();
+      final snapshot = await FirebaseFirestore.instance
+          .collection('isletmeler')
+          .doc(businessId)
+          .get();
       final data = snapshot.data();
 
       if (data != null) {
@@ -47,7 +50,8 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
         _descriptionController.text = data['aciklama'] ?? '';
         _locationController.text = data['location'] ?? '';
         _imageUrlController.text = data['imageUrl'] ?? '';
-        _phoneNumberController.text = data['phoneNumber'] ?? ''; // Fetch phone number
+        _phoneNumberController.text =
+            data['phoneNumber'] ?? ''; // Fetch phone number
       }
     } catch (e) {
       // Handle errors if needed
@@ -103,7 +107,9 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
             .where('userEmail', isEqualTo: user.email)
             .get();
         setState(() {
-          _businesses = snapshot.docs.map((doc) => doc.data() as Map<String, dynamic>).toList();
+          _businesses = snapshot.docs
+              .map((doc) => doc.data() as Map<String, dynamic>)
+              .toList();
         });
       }
     } catch (e) {
@@ -142,10 +148,15 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
 
           if (snapshot.docs.isNotEmpty) {
             // Update existing record
-            await FirebaseFirestore.instance.collection('isletmeler').doc(snapshot.docs.first.id).update(businessData);
+            await FirebaseFirestore.instance
+                .collection('isletmeler')
+                .doc(snapshot.docs.first.id)
+                .update(businessData);
           } else {
             // Add new record
-            await FirebaseFirestore.instance.collection('isletmeler').add(businessData);
+            await FirebaseFirestore.instance
+                .collection('isletmeler')
+                .add(businessData);
           }
 
           Navigator.pop(context);
@@ -164,99 +175,109 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.businessId == null ? 'Yeni İşletme' : 'İşletme Düzenleme'),
+        title: Text(
+            widget.businessId == null ? 'Yeni İşletme' : 'İşletme Düzenleme'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: _isLoading
             ? Center(child: CircularProgressIndicator())
             : SingleChildScrollView(
-          child: Column(
-            children: [
-              Form(
-                key: _formKey,
                 child: Column(
                   children: [
-                    // Image URL input field
-                    customTextFormField(
-                      controller: _imageUrlController,
-                      labelText: 'İşletme Logosu (URL)',
-                    ),
-                    customTextFormField(
-                      controller: _titleController,
-                      labelText: 'İşletme Adı',
-                    ),
-                    customTextFormField(
-                      controller: _descriptionController,
-                      labelText: 'İşletme Açıklaması',
-                    ),
-                    customTextFormField(
-                      controller: _locationController,
-                      labelText: 'İşletme Şehri',
-                    ),
-                    customTextFormField(
-                      controller: _phoneNumberController,
-                      labelText: 'Telefon Numarası',
+                    Form(
+                      key: _formKey,
+                      child: Column(
+                        children: [
+                          // Image URL input field
+                          customTextFormField(
+                            controller: _imageUrlController,
+                            labelText: 'İşletme Logosu (URL)',
+                          ),
+                          customTextFormField(
+                            controller: _titleController,
+                            labelText: 'İşletme Adı',
+                          ),
+                          customTextFormField(
+                            controller: _descriptionController,
+                            labelText: 'İşletme Açıklaması',
+                          ),
+                          customTextFormField(
+                            controller: _locationController,
+                            labelText: 'İşletme Şehri',
+                          ),
+                          customTextFormField(
+                            controller: _phoneNumberController,
+                            labelText: 'Telefon Numarası',
+                          ),
+                          SizedBox(height: 5),
+                          ElevatedButton(
+                            onPressed: _saveBusinessData,
+                            child: Text(widget.businessId == null
+                                ? 'Kaydet'
+                                : 'Güncelle'),
+                          ),
+                          Divider(
+                            thickness: 2,
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(height: 5),
-                    ElevatedButton(
-                      onPressed: _saveBusinessData,
-                      child: Text(widget.businessId == null ? 'Kaydet' : 'Güncelle'),
+                    Text(
+                      'Profil Önizlemesi',
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                     ),
-                    Divider(thickness: 2,),
+                    if (_businesses.isNotEmpty)
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 16.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            if (_businesses[0]['imageUrl'] != null)
+                              Image.network(
+                                _businesses[0]['imageUrl']!,
+                                height: 150,
+                                width: double.infinity,
+                                fit: BoxFit.cover,
+                              ),
+                            SizedBox(height: 10),
+                            Text(
+                              _businesses[0]['title'] ?? 'No Title',
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              _businesses[0]['aciklama'] ?? 'No Description',
+                              style: TextStyle(fontSize: 16),
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              _businesses[0]['location'] ?? 'No Location',
+                              style: TextStyle(
+                                  fontSize: 16, fontStyle: FontStyle.italic),
+                            ),
+                            SizedBox(height: 5),
+                            Text(
+                              _businesses[0]['phoneNumber'] ??
+                                  'No Phone Number', // Display phone number
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ],
+                        ),
+                      ),
                   ],
                 ),
               ),
-              SizedBox(height: 5),
-              Text(
-                'Profil Önizlemesi',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
-              if (_businesses.isNotEmpty)
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      if (_businesses[0]['imageUrl'] != null)
-                        Image.network(
-                          _businesses[0]['imageUrl']!,
-                          height: 150,
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                        ),
-                      SizedBox(height: 10),
-                      Text(
-                        _businesses[0]['title'] ?? 'No Title',
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(height: 5),
-                      Text(
-                        _businesses[0]['aciklama'] ?? 'No Description',
-                        style: TextStyle(fontSize: 16),
-                      ),
-                      SizedBox(height: 5),
-                      Text(
-                        _businesses[0]['location'] ?? 'No Location',
-                        style: TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
-                      ),
-                      SizedBox(height: 5),
-                      Text(
-                        _businesses[0]['phoneNumber'] ?? 'No Phone Number', // Display phone number
-                        style: TextStyle(fontSize: 16),
-                      ),
-                    ],
-                  ),
-                ),
-            ],
-          ),
-        ),
       ),
     );
   }
 
   // Custom TextFormField widget to match the design
-  Widget customTextFormField({required TextEditingController controller, required String labelText}) {
+  Widget customTextFormField(
+      {required TextEditingController controller, required String labelText}) {
     return Container(
       margin: EdgeInsets.only(bottom: 16.0),
       decoration: BoxDecoration(
@@ -274,7 +295,8 @@ class _BusinessEditPageState extends State<BusinessEditPage> {
           errorBorder: InputBorder.none,
           disabledBorder: InputBorder.none,
         ),
-        validator: (value) => value?.isEmpty ?? true ? '$labelText girin' : null,
+        validator: (value) =>
+            value?.isEmpty ?? true ? '$labelText girin' : null,
       ),
     );
   }
