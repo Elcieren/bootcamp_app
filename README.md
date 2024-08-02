@@ -44,7 +44,7 @@
     <td>Developer</td>
     <td>
       <a href="https://github.com/leykohos" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/214dfe07-3f0e-402f-8606-88f6619808d1" width="20" height="20"/></a>
-      <a href="https://www.linkedin.com/in/fatihbahcivan/" target="_blank"><img src=https://github.com/Elcieren/bootcamp_app/assets/117864036/25d29010-121f-483d-aadc-4d99884d3105" width="20" height="20" /></a>
+      <a href="https://www.linkedin.com/in/fatihbahcivan/" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/25d29010-121f-483d-aadc-4d99884d3105" width="20" height="20" /></a>
       <a href="https://www.instagram.com/fatihbahc/" target="_blank"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/43438476-b2d5-4fa1-86b5-3977d7da082c" width="20" height="20" /></a>
     </td>
   </tr>
