@@ -436,8 +436,8 @@ Uygulamada yapay zekanın ön plana çıktığı yerler: Uygulamada Gemini API d
   [![App Teaser](https://github.com/user-attachments/assets/f4b8eb61-09d8-4d6b-b4d1-a6b63da7ef62)](https://www.youtube.com/watch?v=C0vC_zvMIu0)
 
 
-  ## Color Reference
-**(Color palette changed at second sprint)**
+  ## Renk Referansı
+**(Tasarım her sprintte düzenlenip güncellenmiştir)**
 
 | Color          | Hex                                                                 |
 | -------------- | ------------------------------------------------------------------- |
