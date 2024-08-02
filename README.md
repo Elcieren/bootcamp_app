@@ -68,7 +68,7 @@
 </table>
 
 ## Ürün İsmi
-Sofra
+### **`SOFRA`**
 
 ## Trello Panomuz
 https://trello.com/b/n8p6Bpvl/bootcamp-panomuz
