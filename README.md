@@ -107,7 +107,7 @@ Satış yapmak isteyen Catering firmaları ve ekonomiye katkı sağlamak isteyen
 <summary><h1>Sprint 1</h1></summary>
 
 <details>
-<summary><h2>Sprint Notları</h2></summary>
+<summary><h2>Sprint notları</h2></summary>
 Ekip tanışmış ve uyumlu bir şekilde çalışmaya başlamıştır. Yapılan ilk toplantıda uygulamaya karar verilmiş ve sprint boyunca geliştirilmiştir. Kullanıcı hikayeleri oluşturulmuş, senaryo ve kullanıcılara göre sayfa tasarımları yapılmıştır. Firebase bağlanmış ve kullanıcı işlemleri hazır hale getirilmiştir.
 </details> 
 
@@ -123,7 +123,7 @@ Toplamda proje boyunca tamamlanması gereken 360 puanlık backlog bulunmaktadır
 </details> 
 
 <details>
-<summary><h2>Daily Scrum</h2></summary>
+<summary><h2>Daily scrum</h2></summary>
 Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord üzerinden yapılmasına karar verilmiştir. Daily Scrum toplantısı örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır. 
 <table style="width: 100%;">
 <tr>
@@ -139,7 +139,7 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
 </details> 
 
 <details>
-  <summary><h3>Sprint Board Güncelleme Ekran Görüntüleri</h3></summary>
+  <summary><h3>Sprint board güncelleme ekran görüntüleri</h3></summary>
    <table style="width: 100%;">
     <tr>
       <td style="width: 5%;"><img src="https://github.com/Elcieren/bootcamp_app/assets/117864036/84d5bef3-4d72-499c-8f6d-1141901f230c" style="width: 50%; height: auto;"></td>
@@ -148,7 +148,7 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
  </details> 
 
 <details>
-    <summary><h3>Sprint 1 - App Screenshots</h3></summary>
+    <summary><h3>Sprint 1 - App screenshots</h3></summary>
   <table style="width: 100%;">
     <tr>
       <td colspan="4" style="text-align: center;"><h2>Açılış Ekranı</h2></td>
@@ -200,7 +200,7 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
   </details>   
 
 <details>
-<summary><h2>Sprint Review</h2></summary>
+<summary><h2>Sprint review</h2></summary>
 <ul>
   <li>Açılış, profil ve işlem sayfalarını oluşturduk</li>
   <li>State management ile uygulama yönetimi yaptık.</li>
@@ -210,7 +210,7 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
 </details>
 
 <details>
-<summary><h2>Sprint Retrospective</h2></summary>
+<summary><h2>Sprint retrospective</h2></summary>
 İşletme tasarım sayfasının yapılmasına, menü list eklenmesine, menü sayfa tasarımının yapılmasına ve menülerin sepete eklenme fonksiyonunun oluşturulmasına karar verildi.
 </details> 
 
@@ -222,7 +222,7 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
 <details>
 <summary><h1>Sprint 2</h1></summary>
 <details>
-<summary><h2>Sprint Notları</h2></summary>
+<summary><h2>Sprint notları</h2></summary>
 Yapılan toplantılar sonucunda, işletmeler ve menüler üzerine yoğun bir şekilde odaklanılmıştır. Markalaşma yolunda attığımız adımlarla uygulamamız için özgün ve etkileyici bir logo tasarlanmıştır. Günümüzün vazgeçilmezi ve popüler trendi yapay zeka teknolojisini uygulamamızda entegre ederek, kullanıcılar yapay zeka desteği ile kendilerine en uygun menüleri seçebilir, menü içeriklerini kolayca düzenleyebilir ve ekonomik analizler yaparak en uygun maliyetli seçenekleri oluşturabilirler.
 
 </details> 
@@ -239,7 +239,7 @@ Yapılan toplantılar sonucunda, işletmeler ve menüler üzerine yoğun bir şe
 </details> 
 
 <details>
-<summary><h2>Daily Scrum</h2></summary>
+<summary><h2>Daily scrum</h2></summary>
 Daily Scrum örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır. 
 <table style="width: 100%;">
 <tr>
@@ -253,7 +253,7 @@ Daily Scrum örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
 </details> 
 
 <details>
-  <summary><h3>Sprint Board Güncelleme Ekran Görüntüleri</h3></summary>
+  <summary><h3>Sprint board güncelleme ekran görüntüleri</h3></summary>
    <table style="width: 100%;">
     <tr>
       <td style="width: 5%;"><img src="https://github.com/user-attachments/assets/dbe57c7c-4dbe-4f0b-b524-5c501e393c60" style="width: 50%; height: auto;"></td>
@@ -262,7 +262,7 @@ Daily Scrum örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
  </details> 
 
 <details>
-    <summary><h3>Sprint 2 - App Screenshots</h3></summary>
+    <summary><h3>Sprint 2 - App screenshots</h3></summary>
   <table style="width: 100%;">
     <tr>
       <td colspan="4" style="text-align: center;"><h2> Menülerin Listelendiği Sayfa </h2></td>
@@ -286,7 +286,7 @@ Daily Scrum örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
   </details>   
 
 <details>
-<summary><h2>Sprint Review</h2></summary>
+<summary><h2>Sprint review</h2></summary>
 <ul>
   <li>Gemini app ile kullanıcılara yapay zeka desteği sağlandı.</li>
   <li>İşletme tasarım sayfasının yapıldı.</li>
@@ -296,7 +296,7 @@ Daily Scrum örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
 </details>
 
 <details>
-<summary><h2>Sprint Retrospective</h2></summary>
+<summary><h2>Sprint retrospective</h2></summary>
 Satın alma özelliğinin eklenmesine, gerekli sözleşme ve belgelerin eklenmesine karar verildi.
 </details> 
 </details>
@@ -307,7 +307,7 @@ Satın alma özelliğinin eklenmesine, gerekli sözleşme ve belgelerin eklenmes
 <summary><h1>Sprint 3</h1></summary>
 
 <details>
-<summary><h2>Sprint Notları</h2></summary>
+<summary><h2>Sprint notları</h2></summary>
 Alınan kararlar doğrultusunda işletmeler ve menüler üzerine odaklanarak önemli değişiklikler yapıldı. Satın alma işlemleri ve sipariş gün sınırı özellikleri ile kullanıcı deneyimini iyileştirirken, iptal edilen siparişlerin kupona dönüştürülmesi özelliği eklendi. Veri listeleme ve teklif butonu eklenerek ürün ve hizmetlerin yönetimi kolaylaştırıldı. İlan silme özelliği ile kullanıcılar istenmeyen ilanları kaldırabilir hale geldi. Çeşitli tasarımsal yenilikler ile uygulamanın görsel estetiği güçlendirildi. Appbar arama butonunun aktifleştirilmesi ile içeriklere hızlı erişim sağlanırken, işletme düzenleme butonunun aktifleştirilmesi ile işletme sahiplerine bilgilerini düzenleme imkanı verildi. Son durumda kullanıcı deneyimini daha da iyileştirerek, beklentilerini karşılayan bir platform yapılmış oldu
 </details> 
 
@@ -323,7 +323,7 @@ Uygulamanın paylaşım için hazır hale geldiği ve düşünülen tüm sprintl
 </details> 
 
 <details>
-<summary><h2>Daily Scrum</h2></summary>
+<summary><h2>Daily scrum</h2></summary>
 Daily Scrum örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır. 
 <table style="width: 100%;">
 <tr>
@@ -339,7 +339,7 @@ Daily Scrum örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
 </details> 
 
 <details>
-  <summary><h3>Sprint Board Güncelleme Ekran Görüntüleri</h3></summary>
+  <summary><h3>Sprint board güncelleme Ekran Görüntüleri</h3></summary>
    <table style="width: 100%;">
     <tr>
       <td style="width: 5%;"><img src="https://github.com/user-attachments/assets/910ae90c-d03b-4cbe-bad3-2e54649ecde9" style="width: 50%; height: auto;"></td>
@@ -348,7 +348,7 @@ Daily Scrum örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
  </details> 
 
 <details>
-    <summary><h3>Sprint 3 - App Screenshots</h3></summary>
+    <summary><h3>Sprint 3 - App screenshots</h3></summary>
   <table style="width: 100%;">
   <tr>
       <td colspan="4" style="text-align: center;"><h2>Menülerin Gösterildiği Sayfa ve içerikleri</h2></td>
@@ -408,7 +408,7 @@ Daily Scrum örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
   </details>   
 
 <details>
-<summary><h2>Sprint Review</h2></summary>
+<summary><h2>Sprint review</h2></summary>
 <ul>
   <li>Satın alma işlemleri, sipariş gün sınırı özelliği, iptal edilen siparişlerin kupona dönüştürülmesi işlemleri yapıldı.</li>
   <li>Veri listeleme ve teklif butonu eklendi</li>
@@ -420,12 +420,14 @@ Daily Scrum örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır.
 </details>
 
 <details>
-<summary><h2>Sprint Retrospective</h2></summary>
+<summary><h2>Sprint retrospective</h2></summary>
 Prototip olarak temelde yapmak istenilen her şey yapıldı ancak iyzico ödeme sistemi, kullanıcının siparişini kupona dönüştürüp sonradan kullanma özelliği, kullanıcıya özel öneri bildirimleri, işletme reklam bildirimleri zamansal sıkıntılardan ötürü yapılamadı.
 </details> 
 <details>
 <summary><h2>Not</h2></summary>
 Uygulamanın aynı amaca hizmet eden diğer uygulamalara göre farkları: Kişisel kullanıcıya göre menü tavsiye eden yapay zeka destekli olması, firebase analiz kullanarak kullanıcıların yoğun talepleri değerlendiriyor olması ve daha fazla ürün paylaşımı yapıyor olmasıdır.
+
+Uygulamada yapay zekanın ön plana çıktığı yerler: Uygulamada Gemini API destekli yapay zeka botu, hem kullanıcılar hem de işletmeler için hizmet sunmaktadır. Menüdeki kar marjı, günlük ciro gibi sayısal verileri analiz ederek yardımcı olur ve bu veriler doğrultusunda rehberlik sağlar. Bu yenilikçi çözüm, kullanıcıların ihtiyaçlarını karşılamak için sofistike bir şekilde tasarlanmıştır.
 </details> 
 </details>
 
