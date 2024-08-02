@@ -219,7 +219,87 @@ Daily Scrum toplantılarının konumsal sebeplerden ötürü Whatsapp ve Discord
 
 ##
 
+<details>
+<summary><h1>Sprint 2</h1></summary>
+<details>
+<summary><h2>Sprint notları</h2></summary>
+Yapılan toplantılar sonucunda, işletmeler ve menüler üzerine yoğun bir şekilde odaklanılmıştır. Markalaşma yolunda attığımız adımlarla uygulamamız için özgün ve etkileyici bir logo tasarlanmıştır. Günümüzün vazgeçilmezi ve popüler trendi yapay zeka teknolojisini uygulamamızda entegre ederek, kullanıcılar yapay zeka desteği ile kendilerine en uygun menüleri seçebilir, menü içeriklerini kolayca düzenleyebilir ve ekonomik analizler yaparak en uygun maliyetli seçenekleri oluşturabilirler.
 
+</details> 
+
+
+<details>
+<summary><h2>Sprint içinde tamamlanması tahmin edilen puan</h2></summary>
+120 puan
+</details> 
+
+<details>
+<summary><h2>Puan tamamlama mantığı</h2></summary>
+İlk sprintimizde belirlediğimiz her sprintte 120 puan, toplamda 360 puanlık bir sistem ile ilerledik. Bu sprintte gerçekleştirdiğimiz işlemlerin kapsamı genişlediği için daha yüksek puanlar verdik. Uygulamamız için kritik öneme sahip olan yapay zeka entegrasyonuna 30 puan verdik.
+</details> 
+
+<details>
+<summary><h2>Daily scrum</h2></summary>
+Daily Scrum örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır. 
+<table style="width: 100%;">
+<tr>
+      <td colspan="4" style="text-align: center;"><h2>Ekran Görüntüleri</h2></td>
+    </tr>
+    <tr>
+      <td style="width: 5%;"><img src="https://github.com/user-attachments/assets/f51cb62a-301d-42c1-ae43-1a5c63f7a3cb" style="width: 50%; height: auto;"></td>
+    </tr>
+    
+</table>
+</details> 
+
+<details>
+  <summary><h3>Sprint board güncelleme ekran görüntüleri</h3></summary>
+   <table style="width: 100%;">
+    <tr>
+      <td style="width: 5%;"><img src="https://github.com/user-attachments/assets/dbe57c7c-4dbe-4f0b-b524-5c501e393c60" style="width: 50%; height: auto;"></td>
+    </tr>
+   </table>
+ </details> 
+
+<details>
+    <summary><h3>Sprint 2 - App screenshots</h3></summary>
+  <table style="width: 100%;">
+    <tr>
+      <td colspan="4" style="text-align: center;"><h2> Menülerin Listelendiği Sayfa </h2></td>
+    </tr>
+    <tr>
+      <td style="width: 5%;"><img src="https://github.com/user-attachments/assets/a1bd56a8-59e9-4315-9bd2-bdd3982efd1d" style="width: 50%; height: auto;"></td>
+    </tr>
+    <tr>
+      <td colspan="4" style="text-align: center;"><h2>Meni içeriklerinin Gösterildiği Sayfa  </h2></td>
+    </tr>
+    <tr>
+      <td style="width: 25%;"><img src="https://github.com/user-attachments/assets/33dbaa20-e0d2-4d43-9924-f23f1d30c57d" style="width: 50%; height: auto;"></td>
+    </tr>
+    <tr>
+      <td colspan="4" style="text-align: center;"><h2>Yapay Zeka Destek Sayfası  </h2></td>
+    </tr>
+    <tr>
+      <td style="width: 25%;"><img src="https://github.com/user-attachments/assets/3812089b-e80e-43f3-9dea-ab203bb2da5a" style="width: 50%; height: auto;"></td>
+    </tr>
+  </table>
+  </details>   
+
+<details>
+<summary><h2>Sprint review</h2></summary>
+<ul>
+  <li>Gemini app ile kullanıcılara yapay zeka desteği sağlandı.</li>
+  <li>İşletme tasarım sayfasının yapıldı.</li>
+  <li>Menü sayfa tasarımı yapıldı ve menüler eklendi.</li>
+  <li>Menülerin sepete eklenme fonksiyonu oluşturuldu</li>
+</ul>
+</details>
+
+<details>
+<summary><h2>Sprint retrospective</h2></summary>
+Satın alma özelliğinin eklenmesine, gerekli sözleşme ve belgelerin eklenmesine karar verildi.
+</details> 
+</details>
 
 ##
 
