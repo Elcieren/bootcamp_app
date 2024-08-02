@@ -467,4 +467,11 @@ Uygulamada yapay zekanın ön plana çıktığı yerler: Uygulamada Gemini API d
   - [x] `carousel_slider`
   - [x] `flutter_credit_card`
   - [x] `google_generative_ai:`
-  - [x] `intl`
+  - [x] `flutter_lints`
+  - [x] `build_runner`
+  - [x] `stacked_generator`
+  - [x] `flutter_launcher_icons`
+  - [x] `cupertino_icons`
+
+
+  
