@@ -430,7 +430,8 @@ Uygulamanın aynı amaca hizmet eden diğer uygulamalara göre farkları: Kişis
 </details>
 
 
-
+## App Teaser
+  [![App Teaser](https://github.com/user-attachments/assets/f4b8eb61-09d8-4d6b-b4d1-a6b63da7ef62)](https://www.youtube.com/watch?v=C0vC_zvMIu0)
 
 
 # **Kullanılan Teknolojiler**
