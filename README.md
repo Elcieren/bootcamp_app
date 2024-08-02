@@ -436,7 +436,7 @@ Uygulamada yapay zekanın ön plana çıktığı yerler: Uygulamada Gemini API d
   [![App Teaser](https://github.com/user-attachments/assets/f4b8eb61-09d8-4d6b-b4d1-a6b63da7ef62)](https://www.youtube.com/watch?v=C0vC_zvMIu0)
 
 
-  # Color Reference
+  ## Color Reference
 **(Color palette changed at second sprint)**
 
 | Color          | Hex                                                                 |
@@ -446,10 +446,13 @@ Uygulamada yapay zekanın ön plana çıktığı yerler: Uygulamada Gemini API d
 | Lightest Color | ![#FCD86A](https://via.placeholder.com/10/FCD86A?text=+) `#FCD86A`  |
 | Dark Color     | ![#E2A002](https://via.placeholder.com/10/E2A002?text=+) `#E2A002`  |
 | Darkest Color  | ![#C78902](https://via.placeholder.com/10/C78902?text=+) `#C78902`  |
+| Orange Light   | ![#FFA500](https://via.placeholder.com/10/FFA500?text=+) `#FFA500`  |
+| Orange Dark    | ![#FF8C00](https://via.placeholder.com/10/FF8C00?text=+) `#FF8C00`  |
 | Black          | ![#000000](https://via.placeholder.com/10/000000?text=+) `#000000`  |
 | White          | ![#FFFFFF](https://via.placeholder.com/10/FFFFFF?text=+) `#FFFFFF`  |
 | Light Gray     | ![#D3D3D3](https://via.placeholder.com/10/D3D3D3?text=+) `#D3D3D3`  |
 | Dark Gray      | ![#A9A9A9](https://via.placeholder.com/10/A9A9A9?text=+) `#A9A9A9`  |
+
 
 
 
