@@ -427,6 +427,7 @@ Prototip olarak temelde yapmak istenilen her şey yapıldı ancak iyzico ödeme 
 <summary><h2>Not</h2></summary>
 Uygulamanın aynı amaca hizmet eden diğer uygulamalara göre farkları: Kişisel kullanıcıya göre menü tavsiye eden yapay zeka destekli olması, firebase analiz kullanarak kullanıcıların yoğun talepleri değerlendiriyor olması ve daha fazla ürün paylaşımı yapıyor olmasıdır.
 
+
 Yapay zekanın kullanıldığı yerler: Uygulamada Gemini API destekli yapay zeka botu, hem kullanıcılar hem de işletmeler için hizmet sunmaktadır. Menüdeki kar marjı, günlük ciro gibi sayısal verileri analiz ederek yardımcı olur ve bu veriler doğrultusunda rehberlik sağlar. Bu yenilikçi çözüm, kullanıcıların ihtiyaçlarını karşılamak için sofistike bir şekilde tasarlanmıştır.
 </details> 
 </details>
