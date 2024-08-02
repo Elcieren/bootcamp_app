@@ -239,7 +239,7 @@ Yapılan toplantılar sonucunda, işletmeler ve menüler üzerine yoğun bir şe
 </details> 
 
 <details>
-<summary><h2>Daily Scrum</h2></summary>
+<summary><h2>Daily scrum</h2></summary>
 Daily Scrum örneği jpeg olarak Readme'de tarafımızdan paylaşılmaktadır. 
 <table style="width: 100%;">
 <tr>
@@ -307,7 +307,7 @@ Satın alma özelliğinin eklenmesine, gerekli sözleşme ve belgelerin eklenmes
 <summary><h1>Sprint 3</h1></summary>
 
 <details>
-<summary><h2>Sprint Notları</h2></summary>
+<summary><h2>Sprint notları</h2></summary>
 Alınan kararlar doğrultusunda işletmeler ve menüler üzerine odaklanarak önemli değişiklikler yapıldı. Satın alma işlemleri ve sipariş gün sınırı özellikleri ile kullanıcı deneyimini iyileştirirken, iptal edilen siparişlerin kupona dönüştürülmesi özelliği eklendi. Veri listeleme ve teklif butonu eklenerek ürün ve hizmetlerin yönetimi kolaylaştırıldı. İlan silme özelliği ile kullanıcılar istenmeyen ilanları kaldırabilir hale geldi. Çeşitli tasarımsal yenilikler ile uygulamanın görsel estetiği güçlendirildi. Appbar arama butonunun aktifleştirilmesi ile içeriklere hızlı erişim sağlanırken, işletme düzenleme butonunun aktifleştirilmesi ile işletme sahiplerine bilgilerini düzenleme imkanı verildi. Son durumda kullanıcı deneyimini daha da iyileştirerek, beklentilerini karşılayan bir platform yapılmış oldu
 </details> 
 
