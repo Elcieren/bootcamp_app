@@ -436,6 +436,23 @@ Uygulamada yapay zekanın ön plana çıktığı yerler: Uygulamada Gemini API d
   [![App Teaser](https://github.com/user-attachments/assets/f4b8eb61-09d8-4d6b-b4d1-a6b63da7ef62)](https://www.youtube.com/watch?v=C0vC_zvMIu0)
 
 
+  # Color Reference
+**(Color palette changed at second sprint)**
+
+| Color          | Hex                                                                 |
+| -------------- | ------------------------------------------------------------------- |
+| Primary Color  | ![#FAB703](https://via.placeholder.com/10/FAB703?text=+) `#FAB703`  |
+| Light Color    | ![#FBC737](https://via.placeholder.com/10/FBC737?text=+) `#FBC737`  |
+| Lightest Color | ![#FCD86A](https://via.placeholder.com/10/FCD86A?text=+) `#FCD86A`  |
+| Dark Color     | ![#E2A002](https://via.placeholder.com/10/E2A002?text=+) `#E2A002`  |
+| Darkest Color  | ![#C78902](https://via.placeholder.com/10/C78902?text=+) `#C78902`  |
+| Black          | ![#000000](https://via.placeholder.com/10/000000?text=+) `#000000`  |
+| White          | ![#FFFFFF](https://via.placeholder.com/10/FFFFFF?text=+) `#FFFFFF`  |
+| Light Gray     | ![#D3D3D3](https://via.placeholder.com/10/D3D3D3?text=+) `#D3D3D3`  |
+| Dark Gray      | ![#A9A9A9](https://via.placeholder.com/10/A9A9A9?text=+) `#A9A9A9`  |
+
+
+
 # **Kullanılan Teknolojiler**
   **`(Kullanılan teknolojiler her sprintte eklenmiştir)`**
   - [x] `firebase_core`
