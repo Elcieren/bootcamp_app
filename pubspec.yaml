@@ -25,7 +25,10 @@ dependencies:
   firebase_core: ^2.28.0
   firebase_auth: ^4.17.9
   cloud_firestore: ^4.15.9
-  carousel_slider: ^4.2.1
+  carousel_slider:
+    git:
+      url: https://github.com/sampaio96/flutter_carousel_slider.git
+      ref: master
   flutter_credit_card: ^3.0.1
 
 

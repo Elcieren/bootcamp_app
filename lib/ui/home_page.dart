@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/material.dart' hide CarouselController;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:bootcamp_app/ui/post_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,7 +10,8 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
   int _current = 0;
   late AnimationController _controller;
   late Animation<Color?> _colorAnimation;
@@ -44,7 +45,8 @@ class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin
   }
 
   Future<List<String>> fetchSliderImages() async {
-    final snapshot = await FirebaseFirestore.instance.collection('slider').get();
+    final snapshot =
+        await FirebaseFirestore.instance.collection('slider').get();
     return snapshot.docs.map((doc) {
       final data = doc.data() as Map<String, dynamic>;
       return data['link'] as String;
@@ -558,7 +560,8 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
             children: [
               Image.network(
                 widget.business.imageUrl,
-                width: MediaQuery.of(context).size.width / 2, // Reduce size to half
+                width: MediaQuery.of(context).size.width /
+                    2, // Reduce size to half
               ),
               SizedBox(height: 10),
               Text(
@@ -590,69 +593,71 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
               isLoading
                   ? Center(child: CircularProgressIndicator())
                   : menus.isEmpty
-                  ? Center(child: Text('No menus found'))
-                  : GridView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                gridDelegate:
-                SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                ),
-                itemCount: menus.length,
-                itemBuilder: (context, index) {
-                  final menu = menus[index];
-                  return GestureDetector(
-                    onTap: () => _navigateToPostDetail(menu),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.orange, width: 2),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.vertical(
-                              top: Radius.circular(20),
-                            ),
-                            child: Image.network(
-                              menu.imageUrl,
-                              width: double.infinity,
-                              height: 100,
-                              fit: BoxFit.cover,
-                            ),
+                      ? Center(child: Text('No menus found'))
+                      : GridView.builder(
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 10,
+                            mainAxisSpacing: 10,
                           ),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(
-                              menu.text,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w800,
-                                  fontSize: 16,
-                                  ),
-                            ),
-                          ),
-                          Center(
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 8.0),
-                              child: Text(
-                                menu.price + '₺',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.deepOrange,
-                                    fontSize: 16,
+                          itemCount: menus.length,
+                          itemBuilder: (context, index) {
+                            final menu = menus[index];
+                            return GestureDetector(
+                              onTap: () => _navigateToPostDetail(menu),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: Colors.orange, width: 2),
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.vertical(
+                                        top: Radius.circular(20),
+                                      ),
+                                      child: Image.network(
+                                        menu.imageUrl,
+                                        width: double.infinity,
+                                        height: 100,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text(
+                                        menu.text,
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w800,
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                    ),
+                                    Center(
+                                      child: Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 8.0),
+                                        child: Text(
+                                          menu.price + '₺',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.deepOrange,
+                                            fontSize: 16,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              ),
+                            );
+                          },
+                        ),
             ],
           ),
         ),
@@ -660,7 +665,6 @@ class _BusinessDetailsPageState extends State<BusinessDetailsPage> {
     );
   }
 }
-
 
 class PostModel {
   final String imageUrl;
