@@ -308,7 +308,7 @@ Satın alma özelliğinin eklenmesine, gerekli sözleşme ve belgelerin eklenmes
 
 <details>
 <summary><h2>Sprint notları</h2></summary>
-Alınan kararlar doğrultusunda işletmeler ve menüler üzerine odaklanarak önemli değişiklikler yapıldı. Satın alma işlemleri ve sipariş gün sınırı özellikleri ile kullanıcı deneyimini iyileştirirken, iptal edilen siparişlerin kupona dönüştürülmesi özelliği eklendi. Veri listeleme ve teklif butonu eklenerek ürün ve hizmetlerin yönetimi kolaylaştırıldı. İlan silme özelliği ile kullanıcılar istenmeyen ilanları kaldırabilir hale geldi. Çeşitli tasarımsal yenilikler ile uygulamanın görsel estetiği güçlendirildi. Appbar arama butonunun aktifleştirilmesi ile içeriklere hızlı erişim sağlanırken, işletme düzenleme butonunun aktifleştirilmesi ile işletme sahiplerine bilgilerini düzenleme imkanı verildi. Son durumda kullanıcı deneyimini daha da iyileştirerek, beklentilerini karşılayan bir platform yapılmış oldu
+Alınan kararlar doğrultusunda işletmeler ve menüler üzerine odaklanarak önemli değişiklikler yapılmıştır. Satın alma işlemleri ve sipariş gün sınırı özellikleri ile kullanıcı deneyimini iyileştirirken, iptal edilen siparişlerin kupona dönüştürülmesi özelliği eklendi. Veri listeleme ve teklif butonu eklenerek ürün ve hizmetlerin yönetimi kolaylaştırıldı. İlan silme özelliği ile kullanıcılar istenmeyen ilanları kaldırabilir hale geldi. Çeşitli tasarımsal yenilikler ile uygulamanın görsel estetiği güçlendirildi. Appbar arama butonunun aktifleştirilmesi ile içeriklere hızlı erişim sağlanırken, işletme düzenleme butonunun aktifleştirilmesi ile işletme sahiplerine bilgilerini düzenleme imkanı verildi. Son durumda kullanıcı deneyimini daha da iyileştirerek, beklentilerini karşılayan bir platform yapılmış oldu
 </details> 
 
 
